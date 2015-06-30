@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Name="BreakoutQLearning" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+  <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
+    <Children>
+      <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="12" Name="Node_12" yaxlib:realtype="BrainSimulator.NeuralNetwork.Group.MyNeuralNetworkGroup">
+        <L1>0</L1>
+        <L2>0</L2>
+        <Dropout>0</Dropout>
+        <Children>
+          <MyHiddenLayer LoadOnStart="False" SaveOnStop="False" Id="17" Name="Node_17" yaxlib:realtype="BrainSimulator.NeuralNetwork.Layers.MyHiddenLayer">
+            <ActivationFunction>SIGMOID</ActivationFunction>
+            <Neurons>32</Neurons>
+            <OutputColumnHint>1</OutputColumnHint>
+            <DataFolder></DataFolder>
+            <Location X="313" Y="159" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="UpdateWeights" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
+              <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyInitWeightsTask" />
+              <Task Enabled="True" PropertyName="CreateDropoutMask" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
+              <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyFCForwardTask" />
+              <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
+            </Tasks>
+          </MyHiddenLayer>
+          <MyLowHighFilter LoadOnStart="False" SaveOnStop="False" Id="20" Name="Node_20" yaxlib:realtype="BrainSimulator.Transforms.MyLowHighFilter">
+            <DataFolder></DataFolder>
+            <Location X="758" Y="151" />
+            <Tasks>
+              <Task Enabled="False" PropertyName="DoTransform" yaxlib:realtype="BrainSimulator.Transforms.MyLowHighFilter+MyLowHighFilterTask">
+                <Params Minimum="-Infinity" Maximum="Infinity" RangeRestrOperation="Standard" />
+              </Task>
+              <Task Enabled="True" PropertyName="FindMaxValue" yaxlib:realtype="BrainSimulator.Transforms.MyLowHighFilter+MyFindMaxTask" />
+              <Task Enabled="False" PropertyName="DoRound" yaxlib:realtype="BrainSimulator.Transforms.MyLowHighFilter+MyRoundTask" />
+              <Task Enabled="False" PropertyName="DoFloor" yaxlib:realtype="BrainSimulator.Transforms.MyLowHighFilter+MyFloorTask" />
+            </Tasks>
+          </MyLowHighFilter>
+          <MyQLearningLayer LoadOnStart="False" SaveOnStop="False" Id="23" Name="Node_23" yaxlib:realtype="BrainSimulator.NeuralNetwork.Layers.MyQLearningLayer">
+            <Actions>3</Actions>
+            <Neurons>3</Neurons>
+            <ActivationFunction>SIGMOID</ActivationFunction>
+            <OutputColumnHint>1</OutputColumnHint>
+            <DataFolder></DataFolder>
+            <Location X="541" Y="152" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="QLearning" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyQLearningTask">
+                <DiscountFactor>0.99</DiscountFactor>
+                <BindLower>0</BindLower>
+                <BindUpper>1</BindUpper>
+                <BindValues>True</BindValues>
+              </Task>
+              <Task Enabled="True" PropertyName="RestoreValues" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyRestoreValuesTask" />
+              <Task Enabled="True" PropertyName="SquaredLoss" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MySquaredLossTask" />
+              <Task Enabled="True" PropertyName="UpdateWeights" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
+              <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyInitWeightsTask" />
+              <Task Enabled="True" PropertyName="CreateDropoutMask" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
+              <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyFCForwardTask" />
+              <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
+            </Tasks>
+          </MyQLearningLayer>
+          <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="24" Name="Node_24" yaxlib:realtype="BrainSimulator.Testing.MyRandomNode">
+            <SingleOutput>True</SingleOutput>
+            <IO>
+              <OutputSize>3</OutputSize>
+            </IO>
+            <ColumnHint>1</ColumnHint>
+            <DataFolder></DataFolder>
+            <Location X="523" Y="478" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="BrainSimulator.Testing.MyRNGTask">
+                <Distribution>Constant</Distribution>
+                <RandomPeriod>False</RandomPeriod>
+                <Period>1</Period>
+                <RandomPeriodMin>1</RandomPeriodMin>
+                <RandomPeriodMax>10</RandomPeriodMax>
+                <MinValue>0</MinValue>
+                <MaxValue>1</MaxValue>
+                <Mean>0</Mean>
+                <StdDev>1</StdDev>
+                <Constant>1</Constant>
+                <Min>0</Min>
+                <Max>1024</Max>
+                <Unique>True</Unique>
+              </Task>
+            </Tasks>
+          </MyRandomNode>
+          <MyGateInput LoadOnStart="False" SaveOnStop="False" Id="25" Name="Node_25" yaxlib:realtype="BrainSimulator.Nodes.MyGateInput">
+            <DataFolder></DataFolder>
+            <Location X="745" Y="356" />
+            <Weight>0</Weight>
+            <Tasks>
+              <Task Enabled="True" PropertyName="GateInputs" yaxlib:realtype="BrainSimulator.Nodes.MyGateInput+MyGateTask" />
+            </Tasks>
+          </MyGateInput>
+        </Children>
+        <LayoutProperties Zoom="1">
+          <Translation X="106.5" Y="23.53906" />
+        </LayoutProperties>
+        <GroupInputNodes>
+          <MyParentInput ParentInputIndex="0" Id="13" Name="Input 1">
+            <Location X="50" Y="100" />
+          </MyParentInput>
+          <MyParentInput ParentInputIndex="1" Id="14" Name="Input 2">
+            <Location X="53" Y="297" />
+          </MyParentInput>
+        </GroupInputNodes>
+        <GroupOutputNodes>
+          <MyOutput Id="15" Name="Output 1">
+            <Location X="961" Y="110" />
+          </MyOutput>
+        </GroupOutputNodes>
+        <DataFolder></DataFolder>
+        <Location X="581" Y="131" />
+        <Tasks>
+          <Task Enabled="False" PropertyName="SGD" yaxlib:realtype="BrainSimulator.NeuralNetwork.Group.MySGDTask">
+            <TrainingRate>2.5E-05</TrainingRate>
+            <Momentum>0</Momentum>
+          </Task>
+          <Task Enabled="True" PropertyName="RMS" yaxlib:realtype="BrainSimulator.NeuralNetwork.Group.MyRMSTask">
+            <TrainingRate>1E-05</TrainingRate>
+            <Momentum>0</Momentum>
+            <SmoothingFactor>0.9</SmoothingFactor>
+          </Task>
+          <Task Enabled="True" PropertyName="InitGroup" yaxlib:realtype="BrainSimulator.NeuralNetwork.Group.MyInitNNGroupTask" />
+          <Task Enabled="False" PropertyName="GradientCheck" yaxlib:realtype="BrainSimulator.NeuralNetwork.Group.MyGradientCheckTask">
+            <RelativeStepSize>0.001</RelativeStepSize>
+            <SamplesPerTimestep>1</SamplesPerTimestep>
+            <ThresholdRelative>0.001</ThresholdRelative>
+            <ThresholdAbsolute>0.0001</ThresholdAbsolute>
+          </Task>
+        </Tasks>
+      </Group>
+      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="16" Name="Node_16" yaxlib:realtype="BrainSimulator.Nodes.MyJoin">
+        <IO>
+          <InputBranches>2</InputBranches>
+          <OutputColHint>0</OutputColHint>
+        </IO>
+        <Behavior>
+          <Operation>StackInputs</Operation>
+        </Behavior>
+        <DataFolder></DataFolder>
+        <Location X="400" Y="94" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="BrainSimulator.Nodes.MyJoin+MyInitTask" />
+          <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="BrainSimulator.Nodes.MyJoin+MyStackInputsTask" />
+        </Tasks>
+      </MyJoin>
+    </Children>
+    <LayoutProperties Zoom="1">
+      <Translation X="135" Y="71.03906" />
+    </LayoutProperties>
+    <GroupInputNodes>
+      <MyParentInput ParentInputIndex="0" Id="1" Name="Visual">
+        <Location X="157" Y="32" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="1" Id="4" Name="Event">
+        <Location X="208" Y="451" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="2" Id="5" Name="BallPosX">
+        <Location X="212" Y="177" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="3" Id="7" Name="BallPosY">
+        <Location X="91" Y="182" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="4" Id="8" Name="PaddlePosX">
+        <Location X="203" Y="309" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="5" Id="9" Name="PaddlePosY">
+        <Location X="87" Y="314" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="6" Id="10" Name="BinaryEvent">
+        <Location X="76" Y="448" />
+      </MyParentInput>
+    </GroupInputNodes>
+    <GroupOutputNodes>
+      <MyOutput Id="11" Name="Controls">
+        <Location X="878" Y="71" />
+      </MyOutput>
+    </GroupOutputNodes>
+    <DataFolder></DataFolder>
+    <Connections>
+      <Connection From="12" To="11" FromIndex="0" ToIndex="0" />
+      <Connection From="16" To="12" FromIndex="0" ToIndex="0" />
+      <Connection From="4" To="12" FromIndex="0" ToIndex="1" />
+      <Connection From="20" To="15" FromIndex="0" ToIndex="0" />
+      <Connection From="13" To="17" FromIndex="0" ToIndex="0" />
+      <Connection From="25" To="20" FromIndex="0" ToIndex="0" />
+      <Connection From="17" To="23" FromIndex="0" ToIndex="0" />
+      <Connection From="14" To="23" FromIndex="0" ToIndex="1" />
+      <Connection From="20" To="23" FromIndex="0" ToIndex="2" />
+      <Connection From="23" To="25" FromIndex="0" ToIndex="0" />
+      <Connection From="24" To="25" FromIndex="0" ToIndex="1" />
+      <Connection From="5" To="16" FromIndex="0" ToIndex="0" />
+      <Connection From="8" To="16" FromIndex="0" ToIndex="1" />
+    </Connections>
+    <Tasks />
+  </Network>
+  <World LoadOnStart="False" SaveOnStop="False" Id="6" Name="World" yaxlib:realtype="BrainSimulator.GameBoy.MyCustomPongWorld">
+    <DISPLAY_WIDTH>160</DISPLAY_WIDTH>
+    <DISPLAY_HEIGHT>140</DISPLAY_HEIGHT>
+    <BricksEnabled>True</BricksEnabled>
+    <DataFolder></DataFolder>
+    <Tasks>
+      <Task Enabled="True" PropertyName="InitGameTask" yaxlib:realtype="BrainSimulator.GameBoy.MyCustomPongWorld+MyInitTask" />
+      <Task Enabled="True" PropertyName="UpdateTask" yaxlib:realtype="BrainSimulator.GameBoy.MyCustomPongWorld+MyUpdateTask">
+        <RandomBallDir>True</RandomBallDir>
+        <FreezeAfterFail>0</FreezeAfterFail>
+        <Structure>
+          <BOUNCE_BALL>1</BOUNCE_BALL>
+          <LOST_LIFE>0</LOST_LIFE>
+          <BRICK_DESTROYED>0</BRICK_DESTROYED>
+        </Structure>
+      </Task>
+      <Task Enabled="True" PropertyName="RenderGameTask" yaxlib:realtype="BrainSimulator.GameBoy.MyCustomPongWorld+MyRenderTask" />
+    </Tasks>
+  </World>
+  <Observers>
+    <MemoryBlockObserver yaxlib:realtype="BrainSimulator.Observers.MyMemoryBlockObserver">
+      <Method>RedGreenScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="272" Y="611" />
+        <Size Width="457" Height="422" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>6#Visual</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>0</m_minValue>
+      <m_maxValue>1</m_maxValue>
+    </MemoryBlockObserver>
+    <MyMatrixObserver yaxlib:realtype="BrainSimulator.Observers.MyMatrixObserver">
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1138" Y="663" />
+        <Size Width="300" Height="141" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>23#Output</TargetIdentifier>
+      <m_nbDecimals>5</m_nbDecimals>
+      <m_xStart>0</m_xStart>
+      <m_xLength>1</m_xLength>
+      <m_yStart>0</m_yStart>
+      <m_yLength>3</m_yLength>
+    </MyMatrixObserver>
+  </Observers>
+  <UsedModules>
+    <Module Name="GoodAI.BasicNodes.dll" Version="2" />
+    <Module Name="GoodAI.Platform.Core.dll" Version="8" />
+  </UsedModules>
+</Project>
