@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NetworkState ForProject="RBM_MNIST">
+  <MemoryBlocks Path="D:\KeenSWH\AI\Projects\Data\Brains\RBM\mnist.statedata" />
+  <Simulation Step="70610" />
+</NetworkState>

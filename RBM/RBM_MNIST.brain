@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Name="RBM_MNIST" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+  <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
+    <Children>
+      <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="6" Name="Node_6" yaxlib:realtype="BrainSimulator.RBM.MyRBMGroup">
+        <L1>0</L1>
+        <L2>0</L2>
+        <Dropout>0</Dropout>
+        <Children>
+          <MyRBMLayer LoadOnStart="True" SaveOnStop="False" Id="10" Name="Node_10" yaxlib:realtype="BrainSimulator.RBM.MyRBMLayer">
+            <StoreEnergy>True</StoreEnergy>
+            <ActivationFunction>NO_ACTIVATION</ActivationFunction>
+            <Neurons>100</Neurons>
+            <OutputColumnHint>1</OutputColumnHint>
+            <DataFolder>mnist.statedata\MyRBMLayer_10</DataFolder>
+            <Location X="438" Y="124" />
+            <m_dropout>0</m_dropout>
+            <Tasks>
+              <Task Enabled="True" PropertyName="RBMInitLayerTask" yaxlib:realtype="BrainSimulator.RBM.Tasks.MyRBMInitLayerTask" />
+              <Task Enabled="True" PropertyName="RBMRandomWeightsTask" yaxlib:realtype="BrainSimulator.RBM.Tasks.MyRBMRandomWeightsTask">
+                <RandomSeed>0</RandomSeed>
+                <StandardDeviation>0.01</StandardDeviation>
+              </Task>
+              <Task Enabled="False" PropertyName="UpdateWeights" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
+              <Task Enabled="False" PropertyName="InitWeights" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyInitWeightsTask" />
+              <Task Enabled="False" PropertyName="CreateDropoutMask" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
+              <Task Enabled="False" PropertyName="ForwardTask" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyFCForwardTask" />
+              <Task Enabled="False" PropertyName="DeltaBackTask" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
+            </Tasks>
+          </MyRBMLayer>
+          <MyRBMInputLayer LoadOnStart="True" SaveOnStop="False" Id="12" Name="Node_12" yaxlib:realtype="BrainSimulator.RBM.MyRBMInputLayer">
+            <ApplyBiases>False</ApplyBiases>
+            <StoreEnergy>False</StoreEnergy>
+            <ActivationFunction>NO_ACTIVATION</ActivationFunction>
+            <OutputColumnHint>1</OutputColumnHint>
+            <DataFolder>mnist.statedata\MyRBMInputLayer_11</DataFolder>
+            <Location X="235" Y="101" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="RBMInitLayerTask" yaxlib:realtype="BrainSimulator.RBM.Tasks.MyRBMInitLayerTask" />
+              <Task Enabled="False" PropertyName="ForwardTask" yaxlib:realtype="CustomModels.RBM.Tasks.MyEmptyTask" />
+              <Task Enabled="False" PropertyName="DeltaBackTask" yaxlib:realtype="CustomModels.RBM.Tasks.MyEmptyTask" />
+            </Tasks>
+          </MyRBMInputLayer>
+        </Children>
+        <LayoutProperties Zoom="1.189206">
+          <Translation X="209" Y="177" />
+        </LayoutProperties>
+        <GroupInputNodes>
+          <MyParentInput ParentInputIndex="0" Id="7" Name="Input 1">
+            <Location X="50" Y="100" />
+          </MyParentInput>
+        </GroupInputNodes>
+        <GroupOutputNodes>
+          <MyOutput Id="8" Name="Output 1">
+            <Location X="800" Y="100" />
+          </MyOutput>
+        </GroupOutputNodes>
+        <DataFolder></DataFolder>
+        <Location X="275" Y="181" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="RBMLearning" yaxlib:realtype="BrainSimulator.RBM.MyRBMLearningTask">
+            <RandomVisible>False</RandomVisible>
+            <RandomHidden>True</RandomHidden>
+            <RandomPrevious>False</RandomPrevious>
+            <m_layerIndex>0</m_layerIndex>
+            <m_cdk>1</m_cdk>
+            <m_learningRate>0.01</m_learningRate>
+            <m_momentum>0.9</m_momentum>
+            <m_weightDecay>0</m_weightDecay>
+            <m_sigmoidSteepness>0.5</m_sigmoidSteepness>
+          </Task>
+          <Task Enabled="False" PropertyName="RBMReconstruction" yaxlib:realtype="BrainSimulator.RBM.MyRBMReconstructionTask">
+            <ReconstructionSource>INPUT</ReconstructionSource>
+            <RandomVisible>False</RandomVisible>
+            <RandomHidden>True</RandomHidden>
+            <RandomPrevious>False</RandomPrevious>
+            <m_layerIndex>0</m_layerIndex>
+            <cdk>1</cdk>
+            <m_sigmoidSteepness>0.5</m_sigmoidSteepness>
+          </Task>
+          <Task Enabled="False" PropertyName="SGD" yaxlib:realtype="BrainSimulator.NeuralNetwork.Group.MySGDTask">
+            <TrainingRate>0.25</TrainingRate>
+            <Momentum>0.15</Momentum>
+          </Task>
+          <Task Enabled="True" PropertyName="InitGroup" yaxlib:realtype="BrainSimulator.NeuralNetwork.Group.MyInitNNGroupTask" />
+          <Task Enabled="False" PropertyName="GradientCheck" yaxlib:realtype="BrainSimulator.NeuralNetwork.Group.MyGradientCheckTask">
+            <RelativeStepSize>0.1</RelativeStepSize>
+            <SamplesPerTimestep>1</SamplesPerTimestep>
+            <Threshold>0.001</Threshold>
+          </Task>
+          <Task Enabled="False" PropertyName="RMS" yaxlib:realtype="BrainSimulator.NeuralNetwork.Group.MyRMSTask">
+            <TrainingRate>0.0025</TrainingRate>
+            <Momentum>0.15</Momentum>
+            <SmoothingFactor>0.9</SmoothingFactor>
+          </Task>
+        </Tasks>
+      </Group>
+    </Children>
+    <GroupInputNodes>
+      <MyParentInput ParentInputIndex="0" Id="1" Name="Bitmap">
+        <Location X="50" Y="100" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="1" Id="4" Name="Label">
+        <Location X="50" Y="250" />
+      </MyParentInput>
+    </GroupInputNodes>
+    <GroupOutputNodes />
+    <DataFolder></DataFolder>
+    <Connections>
+      <Connection From="1" To="6" FromIndex="0" ToIndex="0" />
+      <Connection From="10" To="8" FromIndex="0" ToIndex="0" />
+      <Connection From="12" To="10" FromIndex="0" ToIndex="0" />
+      <Connection From="7" To="12" FromIndex="0" ToIndex="0" />
+    </Connections>
+    <Tasks />
+  </Network>
+  <World LoadOnStart="False" SaveOnStop="False" Id="9" Name="World" yaxlib:realtype="MNIST.MyMNISTWorld">
+    <Binary>False</Binary>
+    <BinaryPixels>True</BinaryPixels>
+    <DataFolder></DataFolder>
+    <Tasks>
+      <Task Enabled="True" PropertyName="InitMNIST" yaxlib:realtype="MNIST.MyInitMNISTTask">
+        <AfterLastImage>ResetToStart</AfterLastImage>
+        <ImagesCnt>60000</ImagesCnt>
+      </Task>
+      <Task Enabled="True" PropertyName="SendMNISTData" yaxlib:realtype="MNIST.MySendMNISTTask">
+        <ExpositionTime>1</ExpositionTime>
+        <SendNumbers>All</SendNumbers>
+        <SequenceOrdered>False</SequenceOrdered>
+        <RandomEnumerate>True</RandomEnumerate>
+      </Task>
+    </Tasks>
+  </World>
+  <Observers>
+    <NodeObserver yaxlib:realtype="BrainSimulator.Observers.MyRBMFilterObserver">
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1926" Y="10" />
+        <Size Width="732" Height="781" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>True</BilinearFiltering>
+      <TargetIdentifier>10</TargetIdentifier>
+      <m_filterWidth>28</m_filterWidth>
+      <m_filterHeight>28</m_filterHeight>
+      <m_columns>10</m_columns>
+      <m_minValue>-10</m_minValue>
+      <m_maxValue>10</m_maxValue>
+    </NodeObserver>
+    <MemoryBlockObserver yaxlib:realtype="BrainSimulator.Observers.MyMemoryBlockObserver">
+      <Method>RedGreenScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1934" Y="793" />
+        <Size Width="300" Height="300" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>9#Bitmap</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>0</m_minValue>
+      <m_maxValue>1</m_maxValue>
+    </MemoryBlockObserver>
+    <MemoryBlockObserver yaxlib:realtype="BrainSimulator.Observers.MyMemoryBlockObserver">
+      <Method>RedGreenScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="2243" Y="796" />
+        <Size Width="300" Height="300" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>12#Output</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>0</m_minValue>
+      <m_maxValue>1</m_maxValue>
+    </MemoryBlockObserver>
+    <MyTimePlotObserver yaxlib:realtype="BrainSimulator.Observers.MyTimePlotObserver">
+      <ObserverWidth>500</ObserverWidth>
+      <ObserverHeight>400</ObserverHeight>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1049" Y="561" />
+        <Size Width="488" Height="272" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>10#Energy</TargetIdentifier>
+      <m_displayMethod>CYCLE</m_displayMethod>
+      <m_boundPolicy>AUTO</m_boundPolicy>
+      <m_boundMin>320.6833</m_boundMin>
+      <m_boundMax>739.8472</m_boundMax>
+      <m_manualBoundMin>241.2751</m_manualBoundMin>
+      <m_manualBoundMax>3055.437</m_manualBoundMax>
+      <m_manualBoundHaveBeenSet>False</m_manualBoundHaveBeenSet>
+      <m_period>1</m_period>
+      <m_delay>0</m_delay>
+      <m_offset>0</m_offset>
+      <m_stride>1</m_stride>
+      <m_count>1</m_count>
+      <COLOR_BACKGROUND>4294967295</COLOR_BACKGROUND>
+      <COLOR_FONT>4278190080</COLOR_FONT>
+      <COLOR_CURVE1>4294901760</COLOR_CURVE1>
+      <COLOR_CURVE2>4278190335</COLOR_CURVE2>
+      <COLOR_CURVE3>4278255360</COLOR_CURVE3>
+      <COLOR_CURVE4>4294967040</COLOR_CURVE4>
+      <COLOR_CURVE5>4294902015</COLOR_CURVE5>
+      <COLOR_CURVE6>4278255615</COLOR_CURVE6>
+      <COLOR_CURVE_EXTRA>4278190080</COLOR_CURVE_EXTRA>
+    </MyTimePlotObserver>
+    <MyMatrixObserver yaxlib:realtype="BrainSimulator.Observers.MyMatrixObserver">
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="747" Y="533" />
+        <Size Width="300" Height="300" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>10#Energy</TargetIdentifier>
+      <m_nbDecimals>2</m_nbDecimals>
+      <m_xStart>0</m_xStart>
+      <m_xLength>1</m_xLength>
+      <m_yStart>0</m_yStart>
+      <m_yLength>1</m_yLength>
+    </MyMatrixObserver>
+  </Observers>
+  <UsedModules>
+    <Module Name="CustomModels.dll" Version="2" />
+    <Module Name="BrainSimulator.dll" Version="8" />
+    <Module Name="MNIST.dll" Version="1" />
+  </UsedModules>
+</Project>
