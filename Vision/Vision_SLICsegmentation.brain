@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Name="Vision_SLICsegmentation" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+  <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
+    <Children>
+      <Resize2D LoadOnStart="False" SaveOnStop="False" Id="32" Name="Create Image Square" yaxlib:realtype="BrainSimulator.Transforms.MyResize2D">
+        <Factor>1</Factor>
+        <FactorHeight>1.145</FactorHeight>
+        <DataFolder></DataFolder>
+        <Location X="197" Y="100" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="ImageScale" yaxlib:realtype="BrainSimulator.Transforms.MyResize2D+MyImageScaleTask" />
+        </Tasks>
+      </Resize2D>
+      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="33" Name="Node_33" yaxlib:realtype="BrainSimulator.Testing.MyRandomNode">
+        <SingleOutput>False</SingleOutput>
+        <IO>
+          <OutputSize>5</OutputSize>
+        </IO>
+        <ColumnHint>1</ColumnHint>
+        <DataFolder></DataFolder>
+        <Location X="741" Y="100" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="BrainSimulator.Testing.MyRNGTask">
+            <Distribution>Uniform</Distribution>
+            <RandomPeriod>False</RandomPeriod>
+            <Period>1</Period>
+            <RandomPeriodMin>1</RandomPeriodMin>
+            <RandomPeriodMax>10</RandomPeriodMax>
+            <MinValue>0</MinValue>
+            <MaxValue>1</MaxValue>
+            <Mean>0</Mean>
+            <StdDev>1</StdDev>
+            <Constant>1</Constant>
+            <Min>0</Min>
+            <Max>1024</Max>
+            <Unique>True</Unique>
+          </Task>
+        </Tasks>
+      </MyRandomNode>
+      <MySegment LoadOnStart="False" SaveOnStop="False" Id="37" Name="Nsegmetn00" yaxlib:realtype="BrainSimulator.Vision.MySegment">
+        <nSegs>100</nSegs>
+        <DataFolder></DataFolder>
+        <Location X="445" Y="40" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="DoSLIC" yaxlib:realtype="BrainSimulator.Vision.MySegment+MySLICTask">
+            <Weight>0.5</Weight>
+            <nIters>2</nIters>
+          </Task>
+          <Task Enabled="True" PropertyName="DoCalcDesc" yaxlib:realtype="BrainSimulator.Vision.MySegment+MyCalcDescTask" />
+        </Tasks>
+      </MySegment>
+    </Children>
+    <LayoutProperties Zoom="1">
+      <Translation X="26" Y="202" />
+    </LayoutProperties>
+    <GroupInputNodes>
+      <MyParentInput ParentInputIndex="0" Id="1" Name="Visual">
+        <Location X="50" Y="100" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="1" Id="20" Name="Event">
+        <Location X="50" Y="250" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="2" Id="22" Name="BallPosX">
+        <Location X="50" Y="400" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="3" Id="23" Name="BallPosY">
+        <Location X="50" Y="550" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="4" Id="24" Name="PaddlePosX">
+        <Location X="50" Y="700" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="5" Id="25" Name="PaddlePosY">
+        <Location X="50" Y="850" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="6" Id="26" Name="BinaryEvent">
+        <Location X="50" Y="1000" />
+      </MyParentInput>
+    </GroupInputNodes>
+    <GroupOutputNodes>
+      <MyOutput Id="27" Name="Controls">
+        <Location X="922" Y="98" />
+      </MyOutput>
+    </GroupOutputNodes>
+    <DataFolder></DataFolder>
+    <Connections>
+      <Connection From="33" To="27" FromIndex="0" ToIndex="0" />
+      <Connection From="1" To="32" FromIndex="0" ToIndex="0" />
+      <Connection From="32" To="37" FromIndex="0" ToIndex="0" />
+    </Connections>
+    <Tasks />
+  </Network>
+  <World LoadOnStart="False" SaveOnStop="False" Id="21" Name="World" yaxlib:realtype="BrainSimulator.GameBoy.MyCustomPongWorld">
+    <DISPLAY_WIDTH>160</DISPLAY_WIDTH>
+    <DISPLAY_HEIGHT>140</DISPLAY_HEIGHT>
+    <BricksEnabled>False</BricksEnabled>
+    <DataFolder></DataFolder>
+    <Tasks>
+      <Task Enabled="True" PropertyName="InitGameTask" yaxlib:realtype="BrainSimulator.GameBoy.MyCustomPongWorld+MyInitTask" />
+      <Task Enabled="True" PropertyName="UpdateTask" yaxlib:realtype="BrainSimulator.GameBoy.MyCustomPongWorld+MyUpdateTask">
+        <RandomBallDir>False</RandomBallDir>
+        <FreezeAfterFail>0</FreezeAfterFail>
+        <Structure>
+          <BOUNCE_BALL>0.1</BOUNCE_BALL>
+          <LOST_LIFE>0</LOST_LIFE>
+          <BRICK_DESTROYED>0</BRICK_DESTROYED>
+        </Structure>
+      </Task>
+      <Task Enabled="True" PropertyName="RenderGameTask" yaxlib:realtype="BrainSimulator.GameBoy.MyCustomPongWorld+MyRenderTask" />
+    </Tasks>
+  </World>
+  <Observers>
+    <NodeObserver yaxlib:realtype="BrainSimulator.Observers.MySegmentObserver">
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="392" Y="104" />
+        <Size Width="324" Height="347" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>37</TargetIdentifier>
+    </NodeObserver>
+  </Observers>
+  <UsedModules>
+    <Module Name="BrainSimulator.dll" Version="8" />
+    <Module Name="CustomModels.dll" Version="2" />
+  </UsedModules>
+</Project>
