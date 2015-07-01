@@ -2,46 +2,46 @@
 <Project Name="Mnist" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
   <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
     <Children>
-      <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="7" Name="Node_7" yaxlib:realtype="BrainSimulator.NeuralNetwork.Group.MyNeuralNetworkGroup">
+      <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="7" Name="Node_7" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyNeuralNetworkGroup">
         <L1>0</L1>
         <L2>0</L2>
         <Dropout>0</Dropout>
         <Children>
-          <MyHiddenLayer LoadOnStart="False" SaveOnStop="False" Id="11" Name="Node_11" yaxlib:realtype="BrainSimulator.NeuralNetwork.Layers.MyHiddenLayer">
+          <MyHiddenLayer LoadOnStart="False" SaveOnStop="False" Id="11" Name="Node_11" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyHiddenLayer">
             <ActivationFunction>SIGMOID</ActivationFunction>
             <Neurons>128</Neurons>
             <OutputColumnHint>1</OutputColumnHint>
             <DataFolder></DataFolder>
             <Location X="313" Y="158" />
             <Tasks>
-              <Task Enabled="True" PropertyName="UpdateWeights" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
-              <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyInitWeightsTask" />
-              <Task Enabled="True" PropertyName="CreateDropoutMask" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
-              <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyFCForwardTask" />
-              <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
+              <Task Enabled="True" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
+              <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyInitWeightsTask" />
+              <Task Enabled="True" PropertyName="CreateDropoutMask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
+              <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCForwardTask" />
+              <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
             </Tasks>
           </MyHiddenLayer>
-          <MyOutputLayer LoadOnStart="False" SaveOnStop="False" Id="12" Name="Node_12" yaxlib:realtype="BrainSimulator.NeuralNetwork.Layers.MyOutputLayer">
+          <MyOutputLayer LoadOnStart="False" SaveOnStop="False" Id="12" Name="Node_12" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyOutputLayer">
             <Neurons>10</Neurons>
             <ActivationFunction>SIGMOID</ActivationFunction>
             <OutputColumnHint>10</OutputColumnHint>
             <DataFolder></DataFolder>
             <Location X="512" Y="149" />
             <Tasks>
-              <Task Enabled="True" PropertyName="SquaredLoss" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MySquaredLossTask" />
-              <Task Enabled="True" PropertyName="UpdateWeights" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
-              <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyInitWeightsTask" />
-              <Task Enabled="True" PropertyName="CreateDropoutMask" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
-              <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyFCForwardTask" />
-              <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="BrainSimulator.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
+              <Task Enabled="True" PropertyName="SquaredLoss" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MySquaredLossTask" />
+              <Task Enabled="True" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
+              <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyInitWeightsTask" />
+              <Task Enabled="True" PropertyName="CreateDropoutMask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
+              <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCForwardTask" />
+              <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
             </Tasks>
           </MyOutputLayer>
         </Children>
         <GroupInputNodes>
-          <MyParentInput ParentInputIndex="0" Id="8" Name="Input 1">
+          <MyParentInput ParentInputIndex="0" Id="8" Name="Input">
             <Location X="50" Y="100" />
           </MyParentInput>
-          <MyParentInput ParentInputIndex="1" Id="9" Name="Input 2">
+          <MyParentInput ParentInputIndex="1" Id="9" Name="Label">
             <Location X="50" Y="250" />
           </MyParentInput>
         </GroupInputNodes>
@@ -53,17 +53,17 @@
         <DataFolder></DataFolder>
         <Location X="339" Y="134" />
         <Tasks>
-          <Task Enabled="False" PropertyName="SGD" yaxlib:realtype="BrainSimulator.NeuralNetwork.Group.MySGDTask">
+          <Task Enabled="False" PropertyName="SGD" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MySGDTask">
             <TrainingRate>0.25</TrainingRate>
             <Momentum>0</Momentum>
           </Task>
-          <Task Enabled="True" PropertyName="RMS" yaxlib:realtype="BrainSimulator.NeuralNetwork.Group.MyRMSTask">
+          <Task Enabled="True" PropertyName="RMS" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyRMSTask">
             <TrainingRate>0.0025</TrainingRate>
             <Momentum>0</Momentum>
             <SmoothingFactor>0.9</SmoothingFactor>
           </Task>
-          <Task Enabled="True" PropertyName="InitGroup" yaxlib:realtype="BrainSimulator.NeuralNetwork.Group.MyInitNNGroupTask" />
-          <Task Enabled="False" PropertyName="GradientCheck" yaxlib:realtype="BrainSimulator.NeuralNetwork.Group.MyGradientCheckTask">
+          <Task Enabled="True" PropertyName="InitGroup" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyInitNNGroupTask" />
+          <Task Enabled="False" PropertyName="GradientCheck" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyGradientCheckTask">
             <RelativeStepSize>0.1</RelativeStepSize>
             <SamplesPerTimestep>1</SamplesPerTimestep>
             <ThresholdRelative>0.001</ThresholdRelative>
@@ -109,7 +109,7 @@
     </Tasks>
   </World>
   <Observers>
-    <MemoryBlockObserver yaxlib:realtype="BrainSimulator.Observers.MyMemoryBlockObserver">
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
       <Method>RedGreenScale</Method>
       <Scale>Linear</Scale>
       <Elements>2</Elements>
@@ -126,7 +126,7 @@
       <m_minValue>0</m_minValue>
       <m_maxValue>1</m_maxValue>
     </MemoryBlockObserver>
-    <MemoryBlockObserver yaxlib:realtype="BrainSimulator.Observers.MyMemoryBlockObserver">
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
       <Method>RedGreenScale</Method>
       <Scale>Linear</Scale>
       <Elements>2</Elements>
@@ -143,7 +143,7 @@
       <m_minValue>0</m_minValue>
       <m_maxValue>1</m_maxValue>
     </MemoryBlockObserver>
-    <MemoryBlockObserver yaxlib:realtype="BrainSimulator.Observers.MyMemoryBlockObserver">
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
       <Method>RedGreenScale</Method>
       <Scale>Linear</Scale>
       <Elements>2</Elements>
@@ -162,8 +162,8 @@
     </MemoryBlockObserver>
   </Observers>
   <UsedModules>
-    <Module Name="GoodAI.BasicNodes.dll" Version="2" />
-    <Module Name="GoodAI.Platform.Core.dll" Version="8" />
+    <Module Name="GoodAI.BasicNodes.dll" Version="3" />
+    <Module Name="GoodAI.Platform.Core.dll" Version="9" />
     <Module Name="GoodAI.MNIST.dll" Version="1" />
   </UsedModules>
 </Project>
