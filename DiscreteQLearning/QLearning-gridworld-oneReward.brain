@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Name="QLearning-oneReward" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+<Project Name="QLearning-gridworld-oneReward" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
   <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
     <Children>
-      <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="79" Name="Node_79" yaxlib:realtype="BrainSimulator.Nodes.MyConditionalGroup">
+      <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="79" Name="Node_79" yaxlib:realtype="GoodAI.Core.Nodes.MyConditionalGroup">
         <Signal>NewStateSignal</Signal>
         <Children>
-          <MyUserInput LoadOnStart="False" SaveOnStop="False" Id="85" Name="GlobalMotivation" yaxlib:realtype="BrainSimulator.Nodes.MyUserInput">
+          <MyUserInput LoadOnStart="False" SaveOnStop="False" Id="85" Name="GlobalMotivation" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput">
             <IO>
               <OutputSize>1</OutputSize>
             </IO>
@@ -15,12 +15,12 @@
             <UserInputStr>0</UserInputStr>
             <ConvertToBinary>False</ConvertToBinary>
             <DataFolder></DataFolder>
-            <Location X="604" Y="37" />
+            <Location X="604" Y="42" />
             <Tasks>
-              <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="BrainSimulator.Nodes.MyUserInput+MyTransferTask" />
+              <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput+MyTransferTask" />
             </Tasks>
           </MyUserInput>
-          <MyUserInput LoadOnStart="False" SaveOnStop="False" Id="87" Name="UtilityScaling" yaxlib:realtype="BrainSimulator.Nodes.MyUserInput">
+          <MyUserInput LoadOnStart="False" SaveOnStop="False" Id="87" Name="UtilityScaling" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput">
             <IO>
               <OutputSize>1</OutputSize>
             </IO>
@@ -30,21 +30,21 @@
             <UserInputStr>1</UserInputStr>
             <ConvertToBinary>False</ConvertToBinary>
             <DataFolder></DataFolder>
-            <Location X="385" Y="630" />
+            <Location X="377" Y="619" />
             <Tasks>
-              <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="BrainSimulator.Nodes.MyUserInput+MyTransferTask" />
+              <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput+MyTransferTask" />
             </Tasks>
           </MyUserInput>
-          <MyDiscreteQLearningNode LoadOnStart="False" SaveOnStop="False" Id="89" Name="ControlLights" yaxlib:realtype="BrainSimulator.Harm.MyDiscreteQLearningNode">
+          <MyDiscreteQLearningNode LoadOnStart="False" SaveOnStop="False" Id="89" Name="RL-ControlLights" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteQLearningNode">
             <SumRewards>False</SumRewards>
             <NoActions>6</NoActions>
             <RescaleVariables>9</RescaleVariables>
             <DataFolder></DataFolder>
-            <Location X="713" Y="238" />
+            <Location X="715" Y="238" />
             <Tasks>
-              <Task Enabled="True" PropertyName="StateSpaceUpdate" yaxlib:realtype="BrainSimulator.Harm.MyDiscreteQLearningNode+MyVariableUpdateTask" />
-              <Task Enabled="True" PropertyName="ReadUtils" yaxlib:realtype="BrainSimulator.Harm.MyDiscreteQLearningNode+MyReadUtilsTask" />
-              <Task Enabled="True" PropertyName="Learn" yaxlib:realtype="BrainSimulator.Harm.MyDiscreteQLearningNode+MyLearnTask">
+              <Task Enabled="True" PropertyName="StateSpaceUpdate" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteQLearningNode+MyVariableUpdateTask" />
+              <Task Enabled="True" PropertyName="ReadUtils" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteQLearningNode+MyReadUtilsTask" />
+              <Task Enabled="True" PropertyName="Learn" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteQLearningNode+MyLearnTask">
                 <Alpha>0.5</Alpha>
                 <Gamma>0.7</Gamma>
                 <RewardScale>1000</RewardScale>
@@ -52,51 +52,51 @@
                 <EligibilityTraceEnabled>True</EligibilityTraceEnabled>
                 <EligibilityTraceLen>40</EligibilityTraceLen>
               </Task>
-              <Task Enabled="True" PropertyName="Vis" yaxlib:realtype="BrainSimulator.Harm.MyDiscreteQLearningNode+MyActionUtilsVisualization" />
+              <Task Enabled="True" PropertyName="Vis" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteQLearningNode+MyActionUtilsVisualization" />
             </Tasks>
           </MyDiscreteQLearningNode>
-          <MyFork LoadOnStart="False" SaveOnStop="False" Id="90" Name="Node_90" yaxlib:realtype="BrainSimulator.Nodes.MyFork">
+          <MyFork LoadOnStart="False" SaveOnStop="False" Id="90" Name="Node_90" yaxlib:realtype="GoodAI.Core.Nodes.MyFork">
             <IO>
               <Branches>1,1,1,1,1,1</Branches>
             </IO>
             <DataFolder></DataFolder>
             <Location X="389" Y="338" />
             <Tasks>
-              <Task Enabled="True" PropertyName="DoFork" yaxlib:realtype="BrainSimulator.Nodes.MyFork+MyForkTask" />
+              <Task Enabled="True" PropertyName="DoFork" yaxlib:realtype="GoodAI.Core.Nodes.MyFork+MyForkTask" />
             </Tasks>
           </MyFork>
-          <AbsoluteValue LoadOnStart="False" SaveOnStop="False" Id="91" Name="Node_91" yaxlib:realtype="BrainSimulator.Transforms.MyAbsoluteValue">
+          <AbsoluteValue LoadOnStart="False" SaveOnStop="False" Id="91" Name="abs" yaxlib:realtype="GoodAI.Modules.Transforms.MyAbsoluteValue">
             <DataFolder></DataFolder>
             <Location X="255" Y="393" />
             <Tasks>
-              <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="BrainSimulator.Transforms.MyAbsoluteValue+MyAbsoluteValueTask">
+              <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyAbsoluteValue+MyAbsoluteValueTask">
                 <VectorNormalization>False</VectorNormalization>
                 <ScalarNormalization>False</ScalarNormalization>
               </Task>
             </Tasks>
           </AbsoluteValue>
-          <MyActionSelectionNode LoadOnStart="False" SaveOnStop="False" Id="93" Name="SelectAction" yaxlib:realtype="BrainSimulator.Harm.MyActionSelectionNode">
+          <MyActionSelectionNode LoadOnStart="False" SaveOnStop="False" Id="93" Name="SelectAction" yaxlib:realtype="GoodAI.Modules.Harm.MyActionSelectionNode">
             <DataFolder></DataFolder>
             <Location X="848" Y="-36" />
             <Tasks>
-              <Task Enabled="True" PropertyName="Sort" yaxlib:realtype="BrainSimulator.Harm.MySimpleSortTask">
+              <Task Enabled="True" PropertyName="Sort" yaxlib:realtype="GoodAI.Modules.Harm.MySimpleSortTask">
                 <MinEpsilon>0.1</MinEpsilon>
                 <ASMPeriod>1</ASMPeriod>
               </Task>
             </Tasks>
           </MyActionSelectionNode>
-          <MyDetectChangesNode LoadOnStart="False" SaveOnStop="False" Id="94" Name="DetectReward" yaxlib:realtype="BrainSimulator.Harm.MyDetectChangesNode">
+          <MyDetectChangesNode LoadOnStart="False" SaveOnStop="False" Id="94" Name="DetectReward" yaxlib:realtype="GoodAI.Modules.Harm.MyDetectChangesNode">
             <DataFolder></DataFolder>
             <Location X="69" Y="393" />
             <Tasks>
-              <Task Enabled="True" PropertyName="DetectDifferences" yaxlib:realtype="BrainSimulator.Harm.MyDetectChangesNode+MyDifferenceDetector">
+              <Task Enabled="True" PropertyName="DetectDifferences" yaxlib:realtype="GoodAI.Modules.Harm.MyDetectChangesNode+MyDifferenceDetector">
                 <RewardSize>1</RewardSize>
               </Task>
             </Tasks>
           </MyDetectChangesNode>
         </Children>
         <LayoutProperties Zoom="0.5946036">
-          <Translation X="-83" Y="112" />
+          <Translation X="41" Y="-8" />
         </LayoutProperties>
         <GroupInputNodes>
           <MyParentInput ParentInputIndex="0" Id="80" Name="Input 1">
@@ -107,7 +107,7 @@
           </MyParentInput>
         </GroupInputNodes>
         <GroupOutputNodes>
-          <MyOutput Id="81" Name="Output 1">
+          <MyOutput Id="81" Name="Action">
             <Location X="1118" Y="-39" />
           </MyOutput>
         </GroupOutputNodes>
@@ -117,7 +117,7 @@
       </Group>
     </Children>
     <LayoutProperties Zoom="0.7071068">
-      <Translation X="-78" Y="-100" />
+      <Translation X="172" Y="-246" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Visual">
@@ -139,7 +139,7 @@
         <Location X="-47" Y="819" />
       </MyParentInput>
       <MyParentInput ParentInputIndex="6" Id="96" Name="MapSize">
-        <Location X="50" Y="1000" />
+        <Location X="-18" Y="944" />
       </MyParentInput>
     </GroupInputNodes>
     <GroupOutputNodes>
@@ -165,7 +165,7 @@
     </Connections>
     <Tasks />
   </Network>
-  <World LoadOnStart="False" SaveOnStop="False" Id="15" Name="World" yaxlib:realtype="BrainSimulator.GridWorld.MyGridWorld">
+  <World LoadOnStart="False" SaveOnStop="False" Id="15" Name="World" yaxlib:realtype="GoodAI.Modules.GridWorld.MyGridWorld">
     <USED_MAP>mapC</USED_MAP>
     <TEXTURE>textureD</TEXTURE>
     <RES>16</RES>
@@ -176,8 +176,8 @@
     <WorldBoundsValue>0</WorldBoundsValue>
     <DataFolder></DataFolder>
     <Tasks>
-      <Task Enabled="True" PropertyName="InitGameTask" yaxlib:realtype="BrainSimulator.GridWorld.MyGridWorld+MyInitTask" />
-      <Task Enabled="True" PropertyName="UpdateTask" yaxlib:realtype="BrainSimulator.GridWorld.MyGridWorld+MyUpdateTask">
+      <Task Enabled="True" PropertyName="InitGameTask" yaxlib:realtype="GoodAI.Modules.GridWorld.MyGridWorld+MyInitTask" />
+      <Task Enabled="True" PropertyName="UpdateTask" yaxlib:realtype="GoodAI.Modules.GridWorld.MyGridWorld+MyUpdateTask">
         <ForceDoorSwitches>False</ForceDoorSwitches>
         <ForceDoorSwitchesState>False</ForceDoorSwitchesState>
         <ForceLightSwitches>False</ForceLightSwitches>
@@ -185,11 +185,11 @@
         <LimitFieldOfView>False</LimitFieldOfView>
         <m_contMove>False</m_contMove>
       </Task>
-      <Task Enabled="True" PropertyName="RenderGameTask" yaxlib:realtype="BrainSimulator.GridWorld.MyGridWorld+MyRenderTask" />
+      <Task Enabled="True" PropertyName="RenderGameTask" yaxlib:realtype="GoodAI.Modules.GridWorld.MyGridWorld+MyRenderTask" />
     </Tasks>
   </World>
   <Observers>
-    <MemoryBlockObserver yaxlib:realtype="BrainSimulator.Observers.MyMemoryBlockObserver">
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
       <Method>RedGreenScale</Method>
       <Scale>Linear</Scale>
       <Elements>2</Elements>
@@ -206,7 +206,7 @@
       <m_minValue>0</m_minValue>
       <m_maxValue>1</m_maxValue>
     </MemoryBlockObserver>
-    <NodeObserver yaxlib:realtype="BrainSimulator.Observers.MyQLearningObserver">
+    <NodeObserver yaxlib:realtype="GoodAI.Modules.Observers.MyQLearningObserver">
       <MaxQValue>0.03</MaxQValue>
       <ShowCurrentMotivations>False</ShowCurrentMotivations>
       <XAxisVariableIndex>0</XAxisVariableIndex>
@@ -221,7 +221,7 @@
       <BilinearFiltering>False</BilinearFiltering>
       <TargetIdentifier>89</TargetIdentifier>
     </NodeObserver>
-    <MyMatrixObserver yaxlib:realtype="BrainSimulator.Observers.MyMatrixObserver">
+    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
@@ -239,7 +239,7 @@
     </MyMatrixObserver>
   </Observers>
   <UsedModules>
-    <Module Name="GoodAI.Platform.Core.dll" Version="8" />
-    <Module Name="GoodAI.BasicNodes.dll" Version="2" />
+    <Module Name="GoodAI.Platform.Core.dll" Version="9" />
+    <Module Name="GoodAI.BasicNodes.dll" Version="4" />
   </UsedModules>
 </Project>

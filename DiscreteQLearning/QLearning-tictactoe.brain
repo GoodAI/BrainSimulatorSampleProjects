@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Name="QLearning-tictactoe" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+  <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
+    <Children>
+      <MyUserInput LoadOnStart="False" SaveOnStop="False" Id="14" Name="GlobalMotivation" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput">
+        <IO>
+          <OutputSize>1</OutputSize>
+        </IO>
+        <ColumnHint>1</ColumnHint>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <UserInputStr>0.2625211</UserInputStr>
+        <ConvertToBinary>False</ConvertToBinary>
+        <DataFolder></DataFolder>
+        <Location X="544" Y="-465" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput+MyTransferTask" />
+        </Tasks>
+      </MyUserInput>
+      <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="17" Name="RL - PlayerX" yaxlib:realtype="GoodAI.Core.Nodes.MyConditionalGroup">
+        <Signal>PlayerXSignal</Signal>
+        <Children>
+          <MyDiscreteQLearningNode LoadOnStart="False" SaveOnStop="False" Id="23" Name="RL" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteQLearningNode">
+            <SumRewards>False</SumRewards>
+            <NoActions>9</NoActions>
+            <RescaleVariables>1</RescaleVariables>
+            <DataFolder></DataFolder>
+            <Location X="322" Y="44" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="StateSpaceUpdate" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteQLearningNode+MyVariableUpdateTask" />
+              <Task Enabled="True" PropertyName="Learn" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteQLearningNode+MyLearnTask">
+                <Alpha>0.5</Alpha>
+                <Gamma>0.7</Gamma>
+                <RewardScale>100000</RewardScale>
+                <Lambda>0.6</Lambda>
+                <EligibilityTraceEnabled>True</EligibilityTraceEnabled>
+                <EligibilityTraceLen>10</EligibilityTraceLen>
+              </Task>
+              <Task Enabled="True" PropertyName="ReadUtils" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteQLearningNode+MyReadUtilsTask" />
+              <Task Enabled="True" PropertyName="Vis" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteQLearningNode+MyActionUtilsVisualization" />
+            </Tasks>
+          </MyDiscreteQLearningNode>
+          <MyActionSelectionNode LoadOnStart="False" SaveOnStop="False" Id="24" Name="ASM" yaxlib:realtype="GoodAI.Modules.Harm.MyActionSelectionNode">
+            <DataFolder></DataFolder>
+            <Location X="535" Y="295" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="Sort" yaxlib:realtype="GoodAI.Modules.Harm.MySimpleSortTask">
+                <MinEpsilon>0.1</MinEpsilon>
+                <ASMPeriod>1</ASMPeriod>
+              </Task>
+            </Tasks>
+          </MyActionSelectionNode>
+        </Children>
+        <LayoutProperties Zoom="0.7071068">
+          <Translation X="238" Y="8" />
+        </LayoutProperties>
+        <GroupInputNodes>
+          <MyParentInput ParentInputIndex="0" Id="18" Name="State">
+            <Location X="50" Y="100" />
+          </MyParentInput>
+          <MyParentInput ParentInputIndex="1" Id="27" Name="Reward">
+            <Location X="50" Y="250" />
+          </MyParentInput>
+          <MyParentInput ParentInputIndex="2" Id="28" Name="Motivation">
+            <Location X="48" Y="396" />
+          </MyParentInput>
+        </GroupInputNodes>
+        <GroupOutputNodes>
+          <MyOutput Id="19" Name="Action">
+            <Location X="804" Y="298" />
+          </MyOutput>
+        </GroupOutputNodes>
+        <DataFolder></DataFolder>
+        <Location X="776" Y="-655" />
+        <Tasks />
+      </Group>
+      <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="50" Name="PlayerO" yaxlib:realtype="GoodAI.Core.Nodes.MyConditionalGroup">
+        <Signal>PlayerOSignal</Signal>
+        <Children>
+          <MyTicTacToePlayerNode LoadOnStart="False" SaveOnStop="False" Id="59" Name="Player O" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToePlayerNode">
+            <Me>PLAYER_O</Me>
+            <DataFolder></DataFolder>
+            <Location X="350" Y="74" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="DetectDifferences" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToePlayerNode+MyPlayerTask">
+                <Difficulty>0.25</Difficulty>
+              </Task>
+            </Tasks>
+          </MyTicTacToePlayerNode>
+        </Children>
+        <LayoutProperties Zoom="1">
+          <Translation X="221" Y="-7" />
+        </LayoutProperties>
+        <GroupInputNodes>
+          <MyParentInput ParentInputIndex="0" Id="51" Name="Input 1">
+            <Location X="50" Y="100" />
+          </MyParentInput>
+          <MyParentInput ParentInputIndex="1" Id="67" Name="Input 2">
+            <Location X="50" Y="250" />
+          </MyParentInput>
+        </GroupInputNodes>
+        <GroupOutputNodes>
+          <MyOutput Id="52" Name="Output 1">
+            <Location X="800" Y="100" />
+          </MyOutput>
+        </GroupOutputNodes>
+        <DataFolder></DataFolder>
+        <Location X="775" Y="-877" />
+        <Tasks />
+      </Group>
+      <MyFork LoadOnStart="False" SaveOnStop="False" Id="76" Name="Fork signals" yaxlib:realtype="GoodAI.Core.Nodes.MyFork">
+        <IO>
+          <Branches>1,1,1</Branches>
+        </IO>
+        <DataFolder></DataFolder>
+        <Location X="61" Y="-685" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="DoFork" yaxlib:realtype="GoodAI.Core.Nodes.MyFork+MyForkTask" />
+        </Tasks>
+      </MyFork>
+      <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="77" Name="Lost" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
+        <DataFolder></DataFolder>
+        <Location X="238" Y="-582" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
+            <Params A3="0" A2="0" A1="-10" A0="0" />
+          </Task>
+        </Tasks>
+      </PolynomialFunction>
+      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="78" Name="Reward+Punishment X" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
+        <IO>
+          <InputBranches>3</InputBranches>
+          <OutputColHint>0</OutputColHint>
+        </IO>
+        <Behavior>
+          <Operation>Addition</Operation>
+        </Behavior>
+        <DataFolder></DataFolder>
+        <Location X="410" Y="-674" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
+          <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
+        </Tasks>
+      </MyJoin>
+      <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="86" Name="Incorrect Move" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
+        <DataFolder></DataFolder>
+        <Location X="240" Y="-475" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
+            <Params A3="0" A2="0" A1="-1" A0="0" />
+          </Task>
+        </Tasks>
+      </PolynomialFunction>
+      <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="90" Name="Won" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
+        <DataFolder></DataFolder>
+        <Location X="238" Y="-689" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
+            <Params A3="0" A2="0" A1="10" A0="0" />
+          </Task>
+        </Tasks>
+      </PolynomialFunction>
+    </Children>
+    <LayoutProperties Zoom="0.7071066">
+      <Translation X="3" Y="608" />
+    </LayoutProperties>
+    <GroupInputNodes>
+      <MyParentInput ParentInputIndex="0" Id="1" Name="Visual">
+        <Location X="-114" Y="-499" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="1" Id="4" Name="State">
+        <Location X="-110" Y="-894" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="2" Id="5" Name="EventO">
+        <Location X="-113" Y="-779" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="3" Id="47" Name="EventX">
+        <Location X="-109" Y="-633" />
+      </MyParentInput>
+    </GroupInputNodes>
+    <GroupOutputNodes>
+      <MyOutput Id="8" Name="PlayerXAction">
+        <Location X="1047" Y="-513" />
+      </MyOutput>
+      <MyOutput Id="49" Name="PlayerOAction">
+        <Location X="1124" Y="-759" />
+      </MyOutput>
+    </GroupOutputNodes>
+    <DataFolder></DataFolder>
+    <Connections>
+      <Connection From="17" To="8" FromIndex="0" ToIndex="0" />
+      <Connection From="50" To="49" FromIndex="0" ToIndex="0" />
+      <Connection From="4" To="17" FromIndex="0" ToIndex="0" />
+      <Connection From="78" To="17" FromIndex="0" ToIndex="1" />
+      <Connection From="14" To="17" FromIndex="0" ToIndex="2" />
+      <Connection From="24" To="19" FromIndex="0" ToIndex="0" />
+      <Connection From="18" To="23" FromIndex="0" ToIndex="0" />
+      <Connection From="24" To="23" FromIndex="0" ToIndex="1" />
+      <Connection From="27" To="23" FromIndex="0" ToIndex="2" />
+      <Connection From="28" To="23" FromIndex="0" ToIndex="3" />
+      <Connection From="23" To="24" FromIndex="0" ToIndex="0" />
+      <Connection From="28" To="24" FromIndex="0" ToIndex="1" />
+      <Connection From="4" To="50" FromIndex="0" ToIndex="0" />
+      <Connection From="5" To="50" FromIndex="0" ToIndex="1" />
+      <Connection From="59" To="52" FromIndex="0" ToIndex="0" />
+      <Connection From="51" To="59" FromIndex="0" ToIndex="0" />
+      <Connection From="47" To="76" FromIndex="0" ToIndex="0" />
+      <Connection From="76" To="77" FromIndex="1" ToIndex="0" />
+      <Connection From="90" To="78" FromIndex="0" ToIndex="0" />
+      <Connection From="77" To="78" FromIndex="0" ToIndex="1" />
+      <Connection From="86" To="78" FromIndex="0" ToIndex="2" />
+      <Connection From="76" To="86" FromIndex="2" ToIndex="0" />
+      <Connection From="76" To="90" FromIndex="0" ToIndex="0" />
+    </Connections>
+    <Tasks />
+  </Network>
+  <World LoadOnStart="False" SaveOnStop="False" Id="6" Name="World" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToeWorld">
+    <RES>16</RES>
+    <VISIBLE_HEIGHT>48</VISIBLE_HEIGHT>
+    <VISIBLE_WIDTH>48</VISIBLE_WIDTH>
+    <DataFolder></DataFolder>
+    <Tasks>
+      <Task Enabled="True" PropertyName="InitGameTask" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToeWorld+MyInitTask" />
+      <Task Enabled="True" PropertyName="RenderGameTask" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToeWorld+MyRenderTask" />
+      <Task Enabled="True" PropertyName="MultiPlayer" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToeWorld+MyMultiPlayerTask">
+        <PlayerXStarts>False</PlayerXStarts>
+        <RandomizeStartingPlayer>True</RandomizeStartingPlayer>
+      </Task>
+    </Tasks>
+  </World>
+  <Observers>
+    <MyTimePlotObserver yaxlib:realtype="GoodAI.Core.Observers.MyTimePlotObserver">
+      <ObserverWidth>500</ObserverWidth>
+      <ObserverHeight>400</ObserverHeight>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1999" Y="535" />
+        <Size Width="909" Height="508" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>78#Output</TargetIdentifier>
+      <m_displayMethod>CYCLE</m_displayMethod>
+      <m_boundPolicy>AUTO</m_boundPolicy>
+      <m_boundMin>-12.11101</m_boundMin>
+      <m_boundMax>13.22111</m_boundMax>
+      <m_manualBoundMin>-13.11111</m_manualBoundMin>
+      <m_manualBoundMax>12.10101</m_manualBoundMax>
+      <m_manualBoundHaveBeenSet>False</m_manualBoundHaveBeenSet>
+      <m_period>1</m_period>
+      <m_delay>0</m_delay>
+      <m_offset>0</m_offset>
+      <m_stride>1</m_stride>
+      <m_count>1</m_count>
+      <COLOR_BACKGROUND>4294967295</COLOR_BACKGROUND>
+      <COLOR_FONT>4278190080</COLOR_FONT>
+      <COLOR_CURVE1>4294901760</COLOR_CURVE1>
+      <COLOR_CURVE2>4278190335</COLOR_CURVE2>
+      <COLOR_CURVE3>4278255360</COLOR_CURVE3>
+      <COLOR_CURVE4>4294967040</COLOR_CURVE4>
+      <COLOR_CURVE5>4294902015</COLOR_CURVE5>
+      <COLOR_CURVE6>4278255615</COLOR_CURVE6>
+      <COLOR_CURVE_EXTRA>4278190080</COLOR_CURVE_EXTRA>
+    </MyTimePlotObserver>
+  </Observers>
+  <UsedModules>
+    <Module Name="GoodAI.Platform.Core.dll" Version="9" />
+    <Module Name="GoodAI.BasicNodes.dll" Version="4" />
+  </UsedModules>
+</Project>
