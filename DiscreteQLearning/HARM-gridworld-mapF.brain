@@ -37,10 +37,10 @@
             <ColumnHint>1</ColumnHint>
             <MinValue>0</MinValue>
             <MaxValue>1</MaxValue>
-            <UserInputStr>1</UserInputStr>
+            <UserInputStr>0</UserInputStr>
             <ConvertToBinary>False</ConvertToBinary>
             <DataFolder></DataFolder>
-            <Location X="424" Y="553" />
+            <Location X="425" Y="556" />
             <Tasks>
               <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput+MyTransferTask" />
             </Tasks>

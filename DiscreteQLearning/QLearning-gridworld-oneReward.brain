@@ -15,7 +15,7 @@
             <UserInputStr>0</UserInputStr>
             <ConvertToBinary>False</ConvertToBinary>
             <DataFolder></DataFolder>
-            <Location X="604" Y="42" />
+            <Location X="586" Y="603" />
             <Tasks>
               <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput+MyTransferTask" />
             </Tasks>
@@ -30,7 +30,7 @@
             <UserInputStr>1</UserInputStr>
             <ConvertToBinary>False</ConvertToBinary>
             <DataFolder></DataFolder>
-            <Location X="377" Y="619" />
+            <Location X="389" Y="604" />
             <Tasks>
               <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput+MyTransferTask" />
             </Tasks>
@@ -40,7 +40,7 @@
             <NoActions>6</NoActions>
             <RescaleVariables>9</RescaleVariables>
             <DataFolder></DataFolder>
-            <Location X="715" Y="238" />
+            <Location X="593" Y="291" />
             <Tasks>
               <Task Enabled="True" PropertyName="StateSpaceUpdate" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteQLearningNode+MyVariableUpdateTask" />
               <Task Enabled="True" PropertyName="ReadUtils" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteQLearningNode+MyReadUtilsTask" />
@@ -77,7 +77,7 @@
           </AbsoluteValue>
           <MyActionSelectionNode LoadOnStart="False" SaveOnStop="False" Id="93" Name="SelectAction" yaxlib:realtype="GoodAI.Modules.Harm.MyActionSelectionNode">
             <DataFolder></DataFolder>
-            <Location X="848" Y="-36" />
+            <Location X="796" Y="525" />
             <Tasks>
               <Task Enabled="True" PropertyName="Sort" yaxlib:realtype="GoodAI.Modules.Harm.MySimpleSortTask">
                 <MinEpsilon>0.1</MinEpsilon>
@@ -87,7 +87,7 @@
           </MyActionSelectionNode>
           <MyDetectChangesNode LoadOnStart="False" SaveOnStop="False" Id="94" Name="DetectReward" yaxlib:realtype="GoodAI.Modules.Harm.MyDetectChangesNode">
             <DataFolder></DataFolder>
-            <Location X="69" Y="393" />
+            <Location X="79" Y="393" />
             <Tasks>
               <Task Enabled="True" PropertyName="DetectDifferences" yaxlib:realtype="GoodAI.Modules.Harm.MyDetectChangesNode+MyDifferenceDetector">
                 <RewardSize>1</RewardSize>
@@ -95,20 +95,20 @@
             </Tasks>
           </MyDetectChangesNode>
         </Children>
-        <LayoutProperties Zoom="0.5946036">
-          <Translation X="41" Y="-8" />
+        <LayoutProperties Zoom="0.8408964">
+          <Translation X="-7" Y="-240" />
         </LayoutProperties>
         <GroupInputNodes>
-          <MyParentInput ParentInputIndex="0" Id="80" Name="Input 1">
-            <Location X="-64" Y="198" />
+          <MyParentInput ParentInputIndex="0" Id="80" Name="Global Data">
+            <Location X="-43" Y="258" />
           </MyParentInput>
-          <MyParentInput ParentInputIndex="1" Id="95" Name="Input 2">
-            <Location X="-61" Y="393" />
+          <MyParentInput ParentInputIndex="1" Id="95" Name="Variables">
+            <Location X="-40" Y="391" />
           </MyParentInput>
         </GroupInputNodes>
         <GroupOutputNodes>
           <MyOutput Id="81" Name="Action">
-            <Location X="1118" Y="-39" />
+            <Location X="1016" Y="523" />
           </MyOutput>
         </GroupOutputNodes>
         <DataFolder></DataFolder>
@@ -196,8 +196,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="60" Y="498" />
-        <Size Width="573" Height="540" />
+        <Location X="809" Y="542" />
+        <Size Width="386" Height="405" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -214,8 +214,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1211" Y="424" />
-        <Size Width="648" Height="536" />
+        <Location X="426" Y="541" />
+        <Size Width="388" Height="406" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -225,8 +225,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="73" Y="317" />
-        <Size Width="300" Height="180" />
+        <Location X="219" Y="545" />
+        <Size Width="217" Height="97" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -237,6 +237,40 @@
       <m_yStart>0</m_yStart>
       <m_yLength>2</m_yLength>
     </MyMatrixObserver>
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
+      <Method>RedGreenScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="221" Y="786" />
+        <Size Width="206" Height="162" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>89#UtilityOutput</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>0</m_minValue>
+      <m_maxValue>1</m_maxValue>
+    </MemoryBlockObserver>
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
+      <Method>RedGreenScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="223" Y="640" />
+        <Size Width="207" Height="159" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>93#Output</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>0</m_minValue>
+      <m_maxValue>1</m_maxValue>
+    </MemoryBlockObserver>
   </Observers>
   <UsedModules>
     <Module Name="GoodAI.Platform.Core.dll" Version="9" />

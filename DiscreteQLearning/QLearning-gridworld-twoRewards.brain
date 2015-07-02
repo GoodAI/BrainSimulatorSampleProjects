@@ -15,7 +15,7 @@
             <UserInputStr>0</UserInputStr>
             <ConvertToBinary>False</ConvertToBinary>
             <DataFolder></DataFolder>
-            <Location X="901" Y="493" />
+            <Location X="873" Y="471" />
             <Tasks>
               <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput+MyTransferTask" />
             </Tasks>
@@ -30,7 +30,7 @@
             <UserInputStr>1</UserInputStr>
             <ConvertToBinary>False</ConvertToBinary>
             <DataFolder></DataFolder>
-            <Location X="377" Y="101" />
+            <Location X="400" Y="111" />
             <Tasks>
               <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput+MyTransferTask" />
             </Tasks>
@@ -45,7 +45,7 @@
             <UserInputStr>1</UserInputStr>
             <ConvertToBinary>False</ConvertToBinary>
             <DataFolder></DataFolder>
-            <Location X="412" Y="703" />
+            <Location X="400" Y="607" />
             <Tasks>
               <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput+MyTransferTask" />
             </Tasks>
@@ -59,7 +59,7 @@
               <Operation>Addition</Operation>
             </Behavior>
             <DataFolder></DataFolder>
-            <Location X="891" Y="195" />
+            <Location X="893" Y="213" />
             <Tasks>
               <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
               <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
@@ -70,7 +70,7 @@
             <NoActions>6</NoActions>
             <RescaleVariables>9</RescaleVariables>
             <DataFolder></DataFolder>
-            <Location X="662" Y="438" />
+            <Location X="629" Y="372" />
             <Tasks>
               <Task Enabled="True" PropertyName="StateSpaceUpdate" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteQLearningNode+MyVariableUpdateTask" />
               <Task Enabled="True" PropertyName="ReadUtils" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteQLearningNode+MyReadUtilsTask" />
@@ -110,7 +110,7 @@
             <NoActions>6</NoActions>
             <RescaleVariables>9</RescaleVariables>
             <DataFolder></DataFolder>
-            <Location X="638" Y="-50" />
+            <Location X="626" Y="144" />
             <Tasks>
               <Task Enabled="True" PropertyName="StateSpaceUpdate" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteQLearningNode+MyVariableUpdateTask" />
               <Task Enabled="True" PropertyName="ReadUtils" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteQLearningNode+MyReadUtilsTask" />
@@ -127,7 +127,7 @@
           </MyDiscreteQLearningNode>
           <MyActionSelectionNode LoadOnStart="False" SaveOnStop="False" Id="93" Name="SelectAction" yaxlib:realtype="GoodAI.Modules.Harm.MyActionSelectionNode">
             <DataFolder></DataFolder>
-            <Location X="1075" Y="238" />
+            <Location X="1070" Y="254" />
             <Tasks>
               <Task Enabled="True" PropertyName="Sort" yaxlib:realtype="GoodAI.Modules.Harm.MySimpleSortTask">
                 <MinEpsilon>0.1</MinEpsilon>
@@ -137,7 +137,7 @@
           </MyActionSelectionNode>
           <MyDetectChangesNode LoadOnStart="False" SaveOnStop="False" Id="94" Name="DetectRewards" yaxlib:realtype="GoodAI.Modules.Harm.MyDetectChangesNode">
             <DataFolder></DataFolder>
-            <Location X="20" Y="406" />
+            <Location X="80" Y="406" />
             <Tasks>
               <Task Enabled="True" PropertyName="DetectDifferences" yaxlib:realtype="GoodAI.Modules.Harm.MyDetectChangesNode+MyDifferenceDetector">
                 <RewardSize>1</RewardSize>
@@ -145,20 +145,20 @@
             </Tasks>
           </MyDetectChangesNode>
         </Children>
-        <LayoutProperties Zoom="0.5946036">
-          <Translation X="41" Y="-210" />
+        <LayoutProperties Zoom="0.7071067">
+          <Translation X="-54" Y="-74" />
         </LayoutProperties>
         <GroupInputNodes>
           <MyParentInput ParentInputIndex="0" Id="80" Name="Input 1">
-            <Location X="-170" Y="36" />
+            <Location X="-51" Y="226" />
           </MyParentInput>
           <MyParentInput ParentInputIndex="1" Id="95" Name="Input 2">
-            <Location X="-174" Y="406" />
+            <Location X="-50" Y="406" />
           </MyParentInput>
         </GroupInputNodes>
         <GroupOutputNodes>
           <MyOutput Id="81" Name="Action">
-            <Location X="1320" Y="237" />
+            <Location X="1294" Y="250" />
           </MyOutput>
         </GroupOutputNodes>
         <DataFolder></DataFolder>
@@ -252,8 +252,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1163" Y="403" />
-        <Size Width="559" Height="571" />
+        <Location X="1102" Y="605" />
+        <Size Width="348" Height="370" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -270,8 +270,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="95" Y="399" />
-        <Size Width="513" Height="549" />
+        <Location X="395" Y="606" />
+        <Size Width="359" Height="374" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -285,8 +285,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="623" Y="412" />
-        <Size Width="529" Height="554" />
+        <Location X="755" Y="610" />
+        <Size Width="346" Height="366" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>

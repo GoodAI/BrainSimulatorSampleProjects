@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Name="TicTacToe-QLearning-multiplayer" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+<Project Name="QLearning-tictactoe-twoNodes" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
   <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
     <Children>
       <MyFork LoadOnStart="False" SaveOnStop="False" Id="13" Name="Node_13" yaxlib:realtype="GoodAI.Core.Nodes.MyFork">
@@ -7,7 +7,7 @@
           <Branches>1,1,1</Branches>
         </IO>
         <DataFolder></DataFolder>
-        <Location X="-90" Y="-205" />
+        <Location X="-70" Y="-627" />
         <Tasks>
           <Task Enabled="True" PropertyName="DoFork" yaxlib:realtype="GoodAI.Core.Nodes.MyFork+MyForkTask" />
         </Tasks>
@@ -19,17 +19,17 @@
         <ColumnHint>1</ColumnHint>
         <MinValue>0</MinValue>
         <MaxValue>1</MaxValue>
-        <UserInputStr>1</UserInputStr>
+        <UserInputStr>0.4680672</UserInputStr>
         <ConvertToBinary>False</ConvertToBinary>
         <DataFolder></DataFolder>
-        <Location X="564" Y="49" />
+        <Location X="471" Y="58" />
         <Tasks>
           <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput+MyTransferTask" />
         </Tasks>
       </MyUserInput>
       <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="15" Name="Lost" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
         <DataFolder></DataFolder>
-        <Location X="98" Y="-86" />
+        <Location X="118" Y="-508" />
         <Tasks>
           <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
             <Params A3="0" A2="0" A1="-10" A0="0" />
@@ -45,7 +45,7 @@
           <Operation>Addition</Operation>
         </Behavior>
         <DataFolder></DataFolder>
-        <Location X="274" Y="-187" />
+        <Location X="294" Y="-609" />
         <Tasks>
           <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
           <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
@@ -105,7 +105,7 @@
           </MyOutput>
         </GroupOutputNodes>
         <DataFolder></DataFolder>
-        <Location X="772" Y="-119" />
+        <Location X="696" Y="-231" />
         <Tasks />
       </Group>
       <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="35" Name="RL - PlayerO" yaxlib:realtype="GoodAI.Core.Nodes.MyConditionalGroup">
@@ -162,7 +162,7 @@
           </MyOutput>
         </GroupOutputNodes>
         <DataFolder></DataFolder>
-        <Location X="775" Y="-410" />
+        <Location X="695" Y="-452" />
         <Tasks />
       </Group>
       <MyUserInput LoadOnStart="False" SaveOnStop="False" Id="45" Name="GlobalMotivation" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput">
@@ -172,95 +172,27 @@
         <ColumnHint>1</ColumnHint>
         <MinValue>0</MinValue>
         <MaxValue>1</MaxValue>
-        <UserInputStr>0.4427774</UserInputStr>
+        <UserInputStr>0.4780262</UserInputStr>
         <ConvertToBinary>False</ConvertToBinary>
         <DataFolder></DataFolder>
-        <Location X="555" Y="-220" />
+        <Location X="470" Y="-274" />
         <Tasks>
           <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput+MyTransferTask" />
         </Tasks>
       </MyUserInput>
-      <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="50" Name="PlayerO" yaxlib:realtype="GoodAI.Core.Nodes.MyConditionalGroup">
-        <Signal>PlayerOSignal</Signal>
-        <Children>
-          <MyTicTacToePlayerNode LoadOnStart="False" SaveOnStop="False" Id="59" Name="Player O" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToePlayerNode">
-            <Me>PLAYER_O</Me>
-            <DataFolder></DataFolder>
-            <Location X="350" Y="74" />
-            <Tasks>
-              <Task Enabled="True" PropertyName="DetectDifferences" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToePlayerNode+MyPlayerTask">
-                <Difficulty>0.25</Difficulty>
-              </Task>
-            </Tasks>
-          </MyTicTacToePlayerNode>
-        </Children>
-        <LayoutProperties Zoom="1">
-          <Translation X="221" Y="-7" />
-        </LayoutProperties>
-        <GroupInputNodes>
-          <MyParentInput ParentInputIndex="0" Id="51" Name="Input 1">
-            <Location X="50" Y="100" />
-          </MyParentInput>
-          <MyParentInput ParentInputIndex="1" Id="67" Name="Input 2">
-            <Location X="50" Y="250" />
-          </MyParentInput>
-        </GroupInputNodes>
-        <GroupOutputNodes>
-          <MyOutput Id="52" Name="Output 1">
-            <Location X="800" Y="100" />
-          </MyOutput>
-        </GroupOutputNodes>
-        <DataFolder></DataFolder>
-        <Location X="775" Y="-877" />
-        <Tasks />
-      </Group>
-      <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="63" Name="PlayerX" yaxlib:realtype="GoodAI.Core.Nodes.MyConditionalGroup">
-        <Signal>PlayerXSignal</Signal>
-        <Children>
-          <MyTicTacToePlayerNode LoadOnStart="False" SaveOnStop="False" Id="66" Name="Player X" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToePlayerNode">
-            <Me>PLAYER_X</Me>
-            <DataFolder></DataFolder>
-            <Location X="333" Y="69" />
-            <Tasks>
-              <Task Enabled="True" PropertyName="DetectDifferences" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToePlayerNode+MyPlayerTask">
-                <Difficulty>0</Difficulty>
-              </Task>
-            </Tasks>
-          </MyTicTacToePlayerNode>
-        </Children>
-        <LayoutProperties Zoom="1">
-          <Translation X="282" Y="59" />
-        </LayoutProperties>
-        <GroupInputNodes>
-          <MyParentInput ParentInputIndex="0" Id="64" Name="Input 1">
-            <Location X="50" Y="100" />
-          </MyParentInput>
-          <MyParentInput ParentInputIndex="1" Id="68" Name="Input 2">
-            <Location X="50" Y="250" />
-          </MyParentInput>
-        </GroupInputNodes>
-        <GroupOutputNodes>
-          <MyOutput Id="65" Name="Output 1">
-            <Location X="800" Y="100" />
-          </MyOutput>
-        </GroupOutputNodes>
-        <DataFolder></DataFolder>
-        <Location X="774" Y="-641" />
-        <Tasks />
-      </Group>
       <MyFork LoadOnStart="False" SaveOnStop="False" Id="76" Name="Node_76" yaxlib:realtype="GoodAI.Core.Nodes.MyFork">
         <IO>
           <Branches>1,1,1</Branches>
         </IO>
         <DataFolder></DataFolder>
-        <Location X="-93" Y="207" />
+        <Location X="-87" Y="-125" />
         <Tasks>
           <Task Enabled="True" PropertyName="DoFork" yaxlib:realtype="GoodAI.Core.Nodes.MyFork+MyForkTask" />
         </Tasks>
       </MyFork>
       <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="77" Name="Lost" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
         <DataFolder></DataFolder>
-        <Location X="84" Y="310" />
+        <Location X="90" Y="-22" />
         <Tasks>
           <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
             <Params A3="0" A2="0" A1="-10" A0="0" />
@@ -276,7 +208,7 @@
           <Operation>Addition</Operation>
         </Behavior>
         <DataFolder></DataFolder>
-        <Location X="256" Y="218" />
+        <Location X="262" Y="-114" />
         <Tasks>
           <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
           <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
@@ -284,7 +216,7 @@
       </MyJoin>
       <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="82" Name="Incorrect Move" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
         <DataFolder></DataFolder>
-        <Location X="98" Y="20" />
+        <Location X="118" Y="-402" />
         <Tasks>
           <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
             <Params A3="0" A2="0" A1="-1" A0="0" />
@@ -293,7 +225,7 @@
       </PolynomialFunction>
       <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="86" Name="Incorrect Move" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
         <DataFolder></DataFolder>
-        <Location X="86" Y="417" />
+        <Location X="92" Y="85" />
         <Tasks>
           <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
             <Params A3="0" A2="0" A1="-1" A0="0" />
@@ -302,7 +234,7 @@
       </PolynomialFunction>
       <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="90" Name="Won" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
         <DataFolder></DataFolder>
-        <Location X="84" Y="203" />
+        <Location X="90" Y="-129" />
         <Tasks>
           <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
             <Params A3="0" A2="0" A1="10" A0="0" />
@@ -311,7 +243,7 @@
       </PolynomialFunction>
       <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="94" Name="Won" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
         <DataFolder></DataFolder>
-        <Location X="92" Y="-194" />
+        <Location X="112" Y="-616" />
         <Tasks>
           <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
             <Params A3="0" A2="0" A1="10" A0="0" />
@@ -319,35 +251,35 @@
         </Tasks>
       </PolynomialFunction>
     </Children>
-    <LayoutProperties Zoom="0.4999999">
-      <Translation X="149" Y="317" />
+    <LayoutProperties Zoom="0.7071066">
+      <Translation X="188" Y="367" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Visual">
-        <Location X="-368" Y="-832" />
+        <Location X="-244" Y="55" />
       </MyParentInput>
       <MyParentInput ParentInputIndex="1" Id="4" Name="State">
-        <Location X="-76" Y="-889" />
+        <Location X="-237" Y="-295" />
       </MyParentInput>
       <MyParentInput ParentInputIndex="2" Id="5" Name="EventO">
-        <Location X="-357" Y="-472" />
+        <Location X="-228" Y="-571" />
       </MyParentInput>
       <MyParentInput ParentInputIndex="3" Id="47" Name="EventX">
-        <Location X="-355" Y="-292" />
+        <Location X="-239" Y="-77" />
       </MyParentInput>
     </GroupInputNodes>
     <GroupOutputNodes>
       <MyOutput Id="8" Name="PlayerXAction">
-        <Location X="1095" Y="21" />
+        <Location X="868" Y="-94" />
       </MyOutput>
       <MyOutput Id="49" Name="PlayerOAction">
-        <Location X="1124" Y="-759" />
+        <Location X="866" Y="-313" />
       </MyOutput>
     </GroupOutputNodes>
     <DataFolder></DataFolder>
     <Connections>
       <Connection From="17" To="8" FromIndex="0" ToIndex="0" />
-      <Connection From="50" To="49" FromIndex="0" ToIndex="0" />
+      <Connection From="35" To="49" FromIndex="0" ToIndex="0" />
       <Connection From="5" To="13" FromIndex="0" ToIndex="0" />
       <Connection From="13" To="15" FromIndex="1" ToIndex="0" />
       <Connection From="94" To="16" FromIndex="0" ToIndex="0" />
@@ -364,7 +296,7 @@
       <Connection From="23" To="24" FromIndex="0" ToIndex="0" />
       <Connection From="28" To="24" FromIndex="0" ToIndex="1" />
       <Connection From="4" To="35" FromIndex="0" ToIndex="0" />
-      <Connection From="94" To="35" FromIndex="0" ToIndex="1" />
+      <Connection From="16" To="35" FromIndex="0" ToIndex="1" />
       <Connection From="45" To="35" FromIndex="0" ToIndex="2" />
       <Connection From="41" To="39" FromIndex="0" ToIndex="0" />
       <Connection From="36" To="40" FromIndex="0" ToIndex="0" />
@@ -373,14 +305,6 @@
       <Connection From="38" To="40" FromIndex="0" ToIndex="3" />
       <Connection From="40" To="41" FromIndex="0" ToIndex="0" />
       <Connection From="38" To="41" FromIndex="0" ToIndex="1" />
-      <Connection From="4" To="50" FromIndex="0" ToIndex="0" />
-      <Connection From="5" To="50" FromIndex="0" ToIndex="1" />
-      <Connection From="59" To="52" FromIndex="0" ToIndex="0" />
-      <Connection From="51" To="59" FromIndex="0" ToIndex="0" />
-      <Connection From="4" To="63" FromIndex="0" ToIndex="0" />
-      <Connection From="47" To="63" FromIndex="0" ToIndex="1" />
-      <Connection From="66" To="65" FromIndex="0" ToIndex="0" />
-      <Connection From="64" To="66" FromIndex="0" ToIndex="0" />
       <Connection From="47" To="76" FromIndex="0" ToIndex="0" />
       <Connection From="76" To="77" FromIndex="1" ToIndex="0" />
       <Connection From="90" To="78" FromIndex="0" ToIndex="0" />
@@ -400,7 +324,7 @@
     <DataFolder></DataFolder>
     <Tasks>
       <Task Enabled="True" PropertyName="InitGameTask" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToeWorld+MyInitTask" />
-      <Task Enabled="True" PropertyName="RenderGameTask" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToeWorld+MyRenderTask" />
+      <Task Enabled="False" PropertyName="RenderGameTask" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToeWorld+MyRenderTask" />
       <Task Enabled="True" PropertyName="MultiPlayer" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToeWorld+MyMultiPlayerTask">
         <PlayerXStarts>False</PlayerXStarts>
         <RandomizeStartingPlayer>True</RandomizeStartingPlayer>
@@ -422,8 +346,8 @@
       <TargetIdentifier>78#Output</TargetIdentifier>
       <m_displayMethod>CYCLE</m_displayMethod>
       <m_boundPolicy>AUTO</m_boundPolicy>
-      <m_boundMin>-13.11111</m_boundMin>
-      <m_boundMax>12.10101</m_boundMax>
+      <m_boundMin>-13.11221</m_boundMin>
+      <m_boundMax>12.10111</m_boundMax>
       <m_manualBoundMin>-12.1001</m_manualBoundMin>
       <m_manualBoundMax>13.1011</m_manualBoundMax>
       <m_manualBoundHaveBeenSet>False</m_manualBoundHaveBeenSet>
