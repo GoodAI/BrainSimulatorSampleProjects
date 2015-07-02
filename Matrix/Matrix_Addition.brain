@@ -192,7 +192,7 @@
         </Tasks>
       </MyRandomNode>
     </Children>
-    <LayoutProperties Zoom="0.5000001">
+    <LayoutProperties Zoom="0.7071069">
       <Translation X="-190" Y="53" />
     </LayoutProperties>
     <GroupInputNodes>
@@ -240,7 +240,56 @@
       </Task>
     </Tasks>
   </World>
-  <Observers />
+  <Observers>
+    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1227" Y="232" />
+        <Size Width="312" Height="92" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>14#Output</TargetIdentifier>
+      <m_nbDecimals>2</m_nbDecimals>
+      <m_xStart>0</m_xStart>
+      <m_xLength>3</m_xLength>
+      <m_yStart>0</m_yStart>
+      <m_yLength>3</m_yLength>
+    </MyMatrixObserver>
+    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1232" Y="334" />
+        <Size Width="272" Height="151" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>13#Output</TargetIdentifier>
+      <m_nbDecimals>2</m_nbDecimals>
+      <m_xStart>0</m_xStart>
+      <m_xLength>1</m_xLength>
+      <m_yStart>0</m_yStart>
+      <m_yLength>3</m_yLength>
+    </MyMatrixObserver>
+    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1218" Y="496" />
+        <Size Width="301" Height="82" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>12#Output</TargetIdentifier>
+      <m_nbDecimals>2</m_nbDecimals>
+      <m_xStart>0</m_xStart>
+      <m_xLength>3</m_xLength>
+      <m_yStart>0</m_yStart>
+      <m_yLength>3</m_yLength>
+    </MyMatrixObserver>
+  </Observers>
   <UsedModules>
     <Module Name="GoodAI.BasicNodes.dll" Version="4" />
     <Module Name="GoodAI.Platform.Core.dll" Version="9" />
