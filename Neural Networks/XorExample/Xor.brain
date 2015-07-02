@@ -2,7 +2,7 @@
 <Project Name="Xor" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
   <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
     <Children>
-      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="6" Name="Node_6" yaxlib:realtype="GoodAI.Modules.Testing.MyRandomNode">
+      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="6" Name="Node_6" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
         <SingleOutput>False</SingleOutput>
         <IO>
           <OutputSize>1</OutputSize>
@@ -11,7 +11,7 @@
         <DataFolder></DataFolder>
         <Location X="327" Y="98" />
         <Tasks>
-          <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="GoodAI.Modules.Testing.MyRNGTask">
+          <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="GoodAI.Modules.Common.MyRNGTask">
             <Distribution>Uniform</Distribution>
             <RandomPeriod>False</RandomPeriod>
             <Period>1</Period>
@@ -28,7 +28,7 @@
           </Task>
         </Tasks>
       </MyRandomNode>
-      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="10" Name="Node_10" yaxlib:realtype="GoodAI.Modules.Testing.MyRandomNode">
+      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="10" Name="Node_10" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
         <SingleOutput>False</SingleOutput>
         <IO>
           <OutputSize>1</OutputSize>
@@ -37,7 +37,7 @@
         <DataFolder></DataFolder>
         <Location X="349" Y="286" />
         <Tasks>
-          <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="GoodAI.Modules.Testing.MyRNGTask">
+          <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="GoodAI.Modules.Common.MyRNGTask">
             <Distribution>Uniform</Distribution>
             <RandomPeriod>False</RandomPeriod>
             <Period>1</Period>
@@ -78,7 +78,7 @@
           <Task Enabled="False" PropertyName="DoFloor" yaxlib:realtype="GoodAI.Modules.Transforms.MyLowHighFilter+MyFloorTask" />
         </Tasks>
       </MyLowHighFilter>
-      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="16" Name="Node_16" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
+      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="16" Name="Input" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
         <IO>
           <InputBranches>2</InputBranches>
           <OutputColHint>0</OutputColHint>
@@ -93,7 +93,7 @@
           <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
         </Tasks>
       </MyJoin>
-      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="17" Name="Node_17" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
+      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="17" Name="Target" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
         <IO>
           <InputBranches>2</InputBranches>
           <OutputColHint>0</OutputColHint>
@@ -127,7 +127,7 @@
               <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
             </Tasks>
           </MyHiddenLayer>
-          <MyOutputLayer LoadOnStart="False" SaveOnStop="False" Id="23" Name="Node_23" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyOutputLayer">
+          <MyOutputLayer LoadOnStart="False" SaveOnStop="False" Id="23" Name="Classifier" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyOutputLayer">
             <Neurons>1</Neurons>
             <ActivationFunction>SIGMOID</ActivationFunction>
             <OutputColumnHint>1</OutputColumnHint>
@@ -228,56 +228,24 @@
     </Tasks>
   </World>
   <Observers>
-    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="996" Y="399" />
-        <Size Width="300" Height="126" />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>16#Output</TargetIdentifier>
-      <m_nbDecimals>2</m_nbDecimals>
-      <m_xStart>0</m_xStart>
-      <m_xLength>1</m_xLength>
-      <m_yStart>0</m_yStart>
-      <m_yLength>2</m_yLength>
-    </MyMatrixObserver>
-    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="1313" Y="447" />
-        <Size Width="300" Height="89" />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>23#Output</TargetIdentifier>
-      <m_nbDecimals>2</m_nbDecimals>
-      <m_xStart>0</m_xStart>
-      <m_xLength>1</m_xLength>
-      <m_yStart>0</m_yStart>
-      <m_yLength>1</m_yLength>
-    </MyMatrixObserver>
     <MyTimePlotObserver yaxlib:realtype="GoodAI.Core.Observers.MyTimePlotObserver">
       <ObserverWidth>500</ObserverWidth>
       <ObserverHeight>400</ObserverHeight>
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="197" Y="543" />
-        <Size Width="800" Height="468" />
+        <Location X="178" Y="547" />
+        <Size Width="724" Height="468" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
       <TargetIdentifier>23#Cost</TargetIdentifier>
       <m_displayMethod>CYCLE</m_displayMethod>
       <m_boundPolicy>AUTO</m_boundPolicy>
-      <m_boundMin>-0.01101992</m_boundMin>
-      <m_boundMax>0.3052856</m_boundMax>
-      <m_manualBoundMin>-1</m_manualBoundMin>
-      <m_manualBoundMax>1</m_manualBoundMax>
+      <m_boundMin>-0.03118137</m_boundMin>
+      <m_boundMax>0.3578319</m_boundMax>
+      <m_manualBoundMin>-0.01101992</m_manualBoundMin>
+      <m_manualBoundMax>0.3052856</m_manualBoundMax>
       <m_manualBoundHaveBeenSet>False</m_manualBoundHaveBeenSet>
       <m_period>1</m_period>
       <m_delay>0</m_delay>
@@ -298,8 +266,24 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1314" Y="582" />
-        <Size Width="300" Height="87" />
+        <Location X="926" Y="437" />
+        <Size Width="300" Height="128" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>16#Output</TargetIdentifier>
+      <m_nbDecimals>2</m_nbDecimals>
+      <m_xStart>0</m_xStart>
+      <m_xLength>1</m_xLength>
+      <m_yStart>0</m_yStart>
+      <m_yLength>2</m_yLength>
+    </MyMatrixObserver>
+    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1250" Y="406" />
+        <Size Width="300" Height="82" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -310,9 +294,25 @@
       <m_yStart>0</m_yStart>
       <m_yLength>1</m_yLength>
     </MyMatrixObserver>
+    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1252" Y="499" />
+        <Size Width="300" Height="83" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>23#Output</TargetIdentifier>
+      <m_nbDecimals>2</m_nbDecimals>
+      <m_xStart>0</m_xStart>
+      <m_xLength>1</m_xLength>
+      <m_yStart>0</m_yStart>
+      <m_yLength>1</m_yLength>
+    </MyMatrixObserver>
   </Observers>
   <UsedModules>
-    <Module Name="GoodAI.BasicNodes.dll" Version="3" />
+    <Module Name="GoodAI.BasicNodes.dll" Version="4" />
     <Module Name="GoodAI.Platform.Core.dll" Version="9" />
   </UsedModules>
 </Project>

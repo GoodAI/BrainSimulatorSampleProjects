@@ -21,7 +21,7 @@
               <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
             </Tasks>
           </MyHiddenLayer>
-          <MyOutputLayer LoadOnStart="False" SaveOnStop="False" Id="12" Name="Node_12" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyOutputLayer">
+          <MyOutputLayer LoadOnStart="False" SaveOnStop="False" Id="12" Name="Classifier" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyOutputLayer">
             <Neurons>10</Neurons>
             <ActivationFunction>SIGMOID</ActivationFunction>
             <OutputColumnHint>10</OutputColumnHint>
@@ -36,6 +36,26 @@
               <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
             </Tasks>
           </MyOutputLayer>
+          <Accumulator LoadOnStart="False" SaveOnStop="False" Id="13" Name="Cost" yaxlib:realtype="GoodAI.Modules.Transforms.MyAccumulator">
+            <DelayMemorySize>1</DelayMemorySize>
+            <DataFolder></DataFolder>
+            <Location X="725" Y="261" />
+            <Tasks>
+              <Task Enabled="False" PropertyName="ShiftData" yaxlib:realtype="GoodAI.Modules.Transforms.MyAccumulator+MyShiftDataTask">
+                <UseFirstInput>True</UseFirstInput>
+                <InitialValue>0</InitialValue>
+              </Task>
+              <Task Enabled="True" PropertyName="ApproachValue" yaxlib:realtype="GoodAI.Modules.Transforms.MyAccumulator+MyApproachValueTask">
+                <ApproachMethod>Momentum</ApproachMethod>
+                <Factor>0.9</Factor>
+                <Delta>0.1</Delta>
+                <Target>0</Target>
+              </Task>
+              <Task Enabled="False" PropertyName="CopyInput" yaxlib:realtype="GoodAI.Modules.Transforms.MyAccumulator+MyQuantizedCopyTask">
+                <TimePeriod>10</TimePeriod>
+              </Task>
+            </Tasks>
+          </Accumulator>
         </Children>
         <GroupInputNodes>
           <MyParentInput ParentInputIndex="0" Id="8" Name="Input">
@@ -88,6 +108,7 @@
       <Connection From="8" To="11" FromIndex="0" ToIndex="0" />
       <Connection From="11" To="12" FromIndex="0" ToIndex="0" />
       <Connection From="9" To="12" FromIndex="0" ToIndex="1" />
+      <Connection From="12" To="13" FromIndex="1" ToIndex="0" />
     </Connections>
     <Tasks />
   </Network>
@@ -143,6 +164,40 @@
       <m_minValue>0</m_minValue>
       <m_maxValue>1</m_maxValue>
     </MemoryBlockObserver>
+    <MyTimePlotObserver yaxlib:realtype="GoodAI.Core.Observers.MyTimePlotObserver">
+      <ObserverWidth>500</ObserverWidth>
+      <ObserverHeight>400</ObserverHeight>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="253" Y="520" />
+        <Size Width="679" Height="369" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>13#Output</TargetIdentifier>
+      <m_displayMethod>CYCLE</m_displayMethod>
+      <m_boundPolicy>AUTO</m_boundPolicy>
+      <m_boundMin>-0.009726081</m_boundMin>
+      <m_boundMax>2.333951</m_boundMax>
+      <m_manualBoundMin>-1</m_manualBoundMin>
+      <m_manualBoundMax>1</m_manualBoundMax>
+      <m_manualBoundHaveBeenSet>False</m_manualBoundHaveBeenSet>
+      <m_period>1</m_period>
+      <m_delay>0</m_delay>
+      <m_offset>0</m_offset>
+      <m_stride>1</m_stride>
+      <m_count>1</m_count>
+      <COLOR_BACKGROUND>4294967295</COLOR_BACKGROUND>
+      <COLOR_FONT>4278190080</COLOR_FONT>
+      <COLOR_CURVE1>4294901760</COLOR_CURVE1>
+      <COLOR_CURVE2>4278190335</COLOR_CURVE2>
+      <COLOR_CURVE3>4278255360</COLOR_CURVE3>
+      <COLOR_CURVE4>4294967040</COLOR_CURVE4>
+      <COLOR_CURVE5>4294902015</COLOR_CURVE5>
+      <COLOR_CURVE6>4278255615</COLOR_CURVE6>
+      <COLOR_CURVE_EXTRA>4278190080</COLOR_CURVE_EXTRA>
+    </MyTimePlotObserver>
     <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
       <Method>RedGreenScale</Method>
       <Scale>Linear</Scale>
@@ -150,7 +205,7 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="972" Y="560" />
+        <Location X="978" Y="556" />
         <Size Width="300" Height="65" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
@@ -162,7 +217,7 @@
     </MemoryBlockObserver>
   </Observers>
   <UsedModules>
-    <Module Name="GoodAI.BasicNodes.dll" Version="3" />
+    <Module Name="GoodAI.BasicNodes.dll" Version="4" />
     <Module Name="GoodAI.Platform.Core.dll" Version="9" />
     <Module Name="GoodAI.MNIST.dll" Version="1" />
   </UsedModules>
