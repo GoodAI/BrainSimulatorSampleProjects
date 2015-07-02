@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Name="Matrix_addition" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+<Project Name="Matrix_Addition" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
   <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
     <Children>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="9" Name="Node_9" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode">
+      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="9" Name="Node_9" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
         <Behavior>
           <Operation>Addition</Operation>
         </Behavior>
         <DataFolder></DataFolder>
-        <Location X="1190" Y="459" />
+        <Location X="1154" Y="404" />
         <Tasks>
-          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode+MyExecuteTask">
+          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>10</DataInput0>
             <DataInput1>-1</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="10" Name="Node_10" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode">
+      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="10" Name="Node_10" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
         <Behavior>
           <Operation>Addition</Operation>
         </Behavior>
         <DataFolder></DataFolder>
         <Location X="1153" Y="14" />
         <Tasks>
-          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode+MyExecuteTask">
+          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>-1</DataInput0>
             <DataInput1>-1</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
-      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="11" Name="Node_11" yaxlib:realtype="BrainSimulator.Nodes.MyJoin">
+      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="11" Name="Node_11" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
         <IO>
           <InputBranches>2</InputBranches>
           <OutputColHint>0</OutputColHint>
@@ -37,26 +37,26 @@
           <Operation>DistanceSquared</Operation>
         </Behavior>
         <DataFolder></DataFolder>
-        <Location X="702" Y="374" />
+        <Location X="715" Y="72" />
         <Tasks>
-          <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="BrainSimulator.Nodes.MyJoin+MyInitTask" />
-          <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="BrainSimulator.Nodes.MyJoin+MyStackInputsTask" />
+          <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
+          <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
         </Tasks>
       </MyJoin>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="12" Name="Node_12" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode">
+      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="12" Name="Node_12" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
         <Behavior>
           <Operation>Addition</Operation>
         </Behavior>
         <DataFolder></DataFolder>
         <Location X="1156" Y="236" />
         <Tasks>
-          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode+MyExecuteTask">
+          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>-1</DataInput0>
             <DataInput1>-1</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
-      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="13" Name="Node_13" yaxlib:realtype="BrainSimulator.Common.MyGenerateInput">
+      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="13" Name="Node_13" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
         <IO>
           <OutputSize>3</OutputSize>
         </IO>
@@ -66,14 +66,14 @@
         <DataFolder></DataFolder>
         <Location X="908" Y="239" />
         <Tasks>
-          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="BrainSimulator.Common.MyGenerateInput+MyTransferTask">
+          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput+MyTransferTask">
             <MinValue>0</MinValue>
             <MaxValue>1</MaxValue>
             <ShiftSpeed>0</ShiftSpeed>
           </Task>
         </Tasks>
       </MyGenerateInput>
-      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="14" Name="Node_14" yaxlib:realtype="BrainSimulator.Common.MyGenerateInput">
+      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="14" Name="Node_14" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
         <IO>
           <OutputSize>9</OutputSize>
         </IO>
@@ -83,14 +83,14 @@
         <DataFolder></DataFolder>
         <Location X="904" Y="358" />
         <Tasks>
-          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="BrainSimulator.Common.MyGenerateInput+MyTransferTask">
+          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput+MyTransferTask">
             <MinValue>0</MinValue>
             <MaxValue>1</MaxValue>
             <ShiftSpeed>0</ShiftSpeed>
           </Task>
         </Tasks>
       </MyGenerateInput>
-      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="15" Name="Node_15" yaxlib:realtype="BrainSimulator.Common.MyGenerateInput">
+      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="15" Name="Node_15" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
         <IO>
           <OutputSize>3</OutputSize>
         </IO>
@@ -100,27 +100,27 @@
         <DataFolder></DataFolder>
         <Location X="906" Y="-121" />
         <Tasks>
-          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="BrainSimulator.Common.MyGenerateInput+MyTransferTask">
+          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput+MyTransferTask">
             <MinValue>0</MinValue>
             <MaxValue>1</MaxValue>
             <ShiftSpeed>0</ShiftSpeed>
           </Task>
         </Tasks>
       </MyGenerateInput>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="16" Name="Node_16" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode">
+      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="16" Name="Node_16" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
         <Behavior>
           <Operation>Addition</Operation>
         </Behavior>
         <DataFolder></DataFolder>
         <Location X="1156" Y="-144" />
         <Tasks>
-          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode+MyExecuteTask">
+          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>-1</DataInput0>
             <DataInput1>-1</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
-      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="17" Name="Node_17" yaxlib:realtype="BrainSimulator.Common.MyGenerateInput">
+      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="17" Name="Node_17" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
         <IO>
           <OutputSize>1</OutputSize>
         </IO>
@@ -130,27 +130,27 @@
         <DataFolder></DataFolder>
         <Location X="904" Y="34" />
         <Tasks>
-          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="BrainSimulator.Common.MyGenerateInput+MyTransferTask">
+          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput+MyTransferTask">
             <MinValue>0</MinValue>
             <MaxValue>1</MaxValue>
             <ShiftSpeed>0</ShiftSpeed>
           </Task>
         </Tasks>
       </MyGenerateInput>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="18" Name="Node_18" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode">
+      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="18" Name="Node_18" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
         <Behavior>
           <Operation>Addition</Operation>
         </Behavior>
         <DataFolder></DataFolder>
-        <Location X="453" Y="504" />
+        <Location X="466" Y="202" />
         <Tasks>
-          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode+MyExecuteTask">
+          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>-1</DataInput0>
             <DataInput1>-1</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
-      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="19" Name="Node_19" yaxlib:realtype="BrainSimulator.Nodes.MyJoin">
+      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="19" Name="Node_19" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
         <IO>
           <InputBranches>2</InputBranches>
           <OutputColHint>0</OutputColHint>
@@ -159,22 +159,22 @@
           <Operation>Addition</Operation>
         </Behavior>
         <DataFolder></DataFolder>
-        <Location X="445" Y="273" />
+        <Location X="458" Y="-29" />
         <Tasks>
-          <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="BrainSimulator.Nodes.MyJoin+MyInitTask" />
-          <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="BrainSimulator.Nodes.MyJoin+MyStackInputsTask" />
+          <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
+          <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
         </Tasks>
       </MyJoin>
-      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="20" Name="Node_20" yaxlib:realtype="BrainSimulator.Testing.MyRandomNode">
+      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="20" Name="Node_20" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
         <SingleOutput>False</SingleOutput>
         <IO>
           <OutputSize>10000</OutputSize>
         </IO>
         <ColumnHint>100</ColumnHint>
         <DataFolder></DataFolder>
-        <Location X="235" Y="164" />
+        <Location X="248" Y="-138" />
         <Tasks>
-          <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="BrainSimulator.Testing.MyRNGTask">
+          <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="GoodAI.Modules.Common.MyRNGTask">
             <Distribution>Uniform</Distribution>
             <RandomPeriod>False</RandomPeriod>
             <Period>1</Period>
@@ -192,8 +192,8 @@
         </Tasks>
       </MyRandomNode>
     </Children>
-    <LayoutProperties Zoom="0.5946036">
-      <Translation X="-249" Y="68" />
+    <LayoutProperties Zoom="0.5000001">
+      <Translation X="-190" Y="53" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Output">
@@ -225,7 +225,7 @@
     </Connections>
     <Tasks />
   </Network>
-  <World LoadOnStart="False" SaveOnStop="False" Id="7" Name="World" yaxlib:realtype="BrainSimulator.Testing.MyTestingWorld">
+  <World LoadOnStart="False" SaveOnStop="False" Id="7" Name="World" yaxlib:realtype="GoodAI.Modules.Testing.MyTestingWorld">
     <IO>
       <OutputSize>1</OutputSize>
       <ColumnHint>1</ColumnHint>
@@ -234,7 +234,7 @@
     </IO>
     <DataFolder></DataFolder>
     <Tasks>
-      <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="BrainSimulator.Testing.MyTestingWorld+MyCUDAGenerateInputTask">
+      <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Modules.Testing.MyTestingWorld+MyCUDAGenerateInputTask">
         <ExpositionTime>1</ExpositionTime>
         <RandomOrder>False</RandomOrder>
       </Task>
@@ -242,7 +242,7 @@
   </World>
   <Observers />
   <UsedModules>
-    <Module Name="GoodAI.BasicNodes.dll" Version="2" />
-    <Module Name="GoodAI.Platform.Core.dll" Version="8" />
+    <Module Name="GoodAI.BasicNodes.dll" Version="4" />
+    <Module Name="GoodAI.Platform.Core.dll" Version="9" />
   </UsedModules>
 </Project>

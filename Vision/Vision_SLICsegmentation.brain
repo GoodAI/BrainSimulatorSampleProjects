@@ -2,16 +2,16 @@
 <Project Name="Vision_SLICsegmentation" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
   <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
     <Children>
-      <Resize2D LoadOnStart="False" SaveOnStop="False" Id="32" Name="Create Image Square" yaxlib:realtype="BrainSimulator.Transforms.MyResize2D">
+      <Resize2D LoadOnStart="False" SaveOnStop="False" Id="32" Name="Create Image Square" yaxlib:realtype="GoodAI.Modules.Transforms.MyResize2D">
         <Factor>1</Factor>
         <FactorHeight>1.145</FactorHeight>
         <DataFolder></DataFolder>
         <Location X="197" Y="100" />
         <Tasks>
-          <Task Enabled="True" PropertyName="ImageScale" yaxlib:realtype="BrainSimulator.Transforms.MyResize2D+MyImageScaleTask" />
+          <Task Enabled="True" PropertyName="ImageScale" yaxlib:realtype="GoodAI.Modules.Transforms.MyResize2D+MyImageScaleTask" />
         </Tasks>
       </Resize2D>
-      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="33" Name="Node_33" yaxlib:realtype="BrainSimulator.Testing.MyRandomNode">
+      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="33" Name="Node_33" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
         <SingleOutput>False</SingleOutput>
         <IO>
           <OutputSize>5</OutputSize>
@@ -20,7 +20,7 @@
         <DataFolder></DataFolder>
         <Location X="741" Y="100" />
         <Tasks>
-          <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="BrainSimulator.Testing.MyRNGTask">
+          <Task Enabled="False" PropertyName="MakeDecision" yaxlib:realtype="GoodAI.Modules.Common.MyRNGTask">
             <Distribution>Uniform</Distribution>
             <RandomPeriod>False</RandomPeriod>
             <Period>1</Period>
@@ -37,21 +37,21 @@
           </Task>
         </Tasks>
       </MyRandomNode>
-      <MySegment LoadOnStart="False" SaveOnStop="False" Id="37" Name="Nsegmetn00" yaxlib:realtype="BrainSimulator.Vision.MySegment">
+      <MySegment LoadOnStart="False" SaveOnStop="False" Id="37" Name="Nsegmetn00" yaxlib:realtype="GoodAI.Modules.Vision.MySegment">
         <nSegs>100</nSegs>
         <DataFolder></DataFolder>
         <Location X="445" Y="40" />
         <Tasks>
-          <Task Enabled="True" PropertyName="DoSLIC" yaxlib:realtype="BrainSimulator.Vision.MySegment+MySLICTask">
+          <Task Enabled="True" PropertyName="DoSLIC" yaxlib:realtype="GoodAI.Modules.Vision.MySegment+MySLICTask">
             <Weight>0.5</Weight>
             <nIters>2</nIters>
           </Task>
-          <Task Enabled="True" PropertyName="DoCalcDesc" yaxlib:realtype="BrainSimulator.Vision.MySegment+MyCalcDescTask" />
+          <Task Enabled="True" PropertyName="DoCalcDesc" yaxlib:realtype="GoodAI.Modules.Vision.MySegment+MyCalcDescTask" />
         </Tasks>
       </MySegment>
     </Children>
-    <LayoutProperties Zoom="1">
-      <Translation X="26" Y="202" />
+    <LayoutProperties Zoom="0.8408964">
+      <Translation X="-113" Y="40" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Visual">
@@ -89,14 +89,14 @@
     </Connections>
     <Tasks />
   </Network>
-  <World LoadOnStart="False" SaveOnStop="False" Id="21" Name="World" yaxlib:realtype="BrainSimulator.GameBoy.MyCustomPongWorld">
+  <World LoadOnStart="False" SaveOnStop="False" Id="21" Name="World" yaxlib:realtype="GoodAI.Modules.GameBoy.MyCustomPongWorld">
     <DISPLAY_WIDTH>160</DISPLAY_WIDTH>
     <DISPLAY_HEIGHT>140</DISPLAY_HEIGHT>
     <BricksEnabled>False</BricksEnabled>
     <DataFolder></DataFolder>
     <Tasks>
-      <Task Enabled="True" PropertyName="InitGameTask" yaxlib:realtype="BrainSimulator.GameBoy.MyCustomPongWorld+MyInitTask" />
-      <Task Enabled="True" PropertyName="UpdateTask" yaxlib:realtype="BrainSimulator.GameBoy.MyCustomPongWorld+MyUpdateTask">
+      <Task Enabled="True" PropertyName="InitGameTask" yaxlib:realtype="GoodAI.Modules.GameBoy.MyCustomPongWorld+MyInitTask" />
+      <Task Enabled="True" PropertyName="UpdateTask" yaxlib:realtype="GoodAI.Modules.GameBoy.MyCustomPongWorld+MyUpdateTask">
         <RandomBallDir>False</RandomBallDir>
         <FreezeAfterFail>0</FreezeAfterFail>
         <Structure>
@@ -105,15 +105,16 @@
           <BRICK_DESTROYED>0</BRICK_DESTROYED>
         </Structure>
       </Task>
-      <Task Enabled="True" PropertyName="RenderGameTask" yaxlib:realtype="BrainSimulator.GameBoy.MyCustomPongWorld+MyRenderTask" />
+      <Task Enabled="True" PropertyName="RenderGameTask" yaxlib:realtype="GoodAI.Modules.GameBoy.MyCustomPongWorld+MyRenderTask" />
     </Tasks>
   </World>
   <Observers>
-    <NodeObserver yaxlib:realtype="BrainSimulator.Observers.MySegmentObserver">
+    <NodeObserver yaxlib:realtype="GoodAI.Modules.Observers.MySegmentObserver">
+      <ObserverMode>ImSegBorders</ObserverMode>
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="392" Y="104" />
+        <Location X="829" Y="229" />
         <Size Width="324" Height="347" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
@@ -122,7 +123,7 @@
     </NodeObserver>
   </Observers>
   <UsedModules>
-    <Module Name="BrainSimulator.dll" Version="8" />
-    <Module Name="CustomModels.dll" Version="2" />
+    <Module Name="GoodAI.BasicNodes.dll" Version="4" />
+    <Module Name="GoodAI.Platform.Core.dll" Version="9" />
   </UsedModules>
 </Project>
