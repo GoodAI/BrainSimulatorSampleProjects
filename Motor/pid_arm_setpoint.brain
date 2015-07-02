@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Name="PIDSample" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+  <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
+    <Children>
+      <MyUserInput LoadOnStart="False" SaveOnStop="False" Id="12" Name="Goal" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput">
+        <IO>
+          <OutputSize>3</OutputSize>
+        </IO>
+        <ColumnHint>1</ColumnHint>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <UserInputStr>0.4365298;0.3877642;0.704743</UserInputStr>
+        <ConvertToBinary>False</ConvertToBinary>
+        <DataFolder></DataFolder>
+        <Location X="214" Y="212" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput+MyTransferTask" />
+        </Tasks>
+      </MyUserInput>
+      <Controller LoadOnStart="False" SaveOnStop="False" Id="13" Name="Node_13" yaxlib:realtype="GoodAI.Modules.Motor.MyPIDController">
+        <DataFolder></DataFolder>
+        <Location X="421" Y="42" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="InitTask" yaxlib:realtype="GoodAI.Modules.Motor.MyPIDController+MyInitTask" />
+          <Task Enabled="True" PropertyName="ControlTask" yaxlib:realtype="GoodAI.Modules.Motor.MyPIDController+MyControlTask">
+            <PROPORTIONAL_GAIN>10</PROPORTIONAL_GAIN>
+            <INTEGRAL_GAIN>0.5</INTEGRAL_GAIN>
+            <DERIVATIVE_GAIN>1</DERIVATIVE_GAIN>
+            <INTEGRAL_DECAY>1</INTEGRAL_DECAY>
+            <OFFSET>0</OFFSET>
+            <MIN_OUTPUT>-1</MIN_OUTPUT>
+            <MAX_OUTPUT>1</MAX_OUTPUT>
+          </Task>
+        </Tasks>
+      </Controller>
+    </Children>
+    <LayoutProperties Zoom="0.5946034">
+      <Translation X="-127" Y="83" />
+    </LayoutProperties>
+    <GroupInputNodes>
+      <MyParentInput ParentInputIndex="0" Id="1" Name="Visual">
+        <Location X="45" Y="-203" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="1" Id="4" Name="MusclesLength">
+        <Location X="44" Y="99" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="2" Id="5" Name="JointsPosition">
+        <Location X="42" Y="300" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="3" Id="7" Name="EndPosition">
+        <Location X="45" Y="436" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="4" Id="8" Name="Virtual">
+        <Location X="45" Y="-73" />
+      </MyParentInput>
+    </GroupInputNodes>
+    <GroupOutputNodes>
+      <MyOutput Id="9" Name="Muscles">
+        <Location X="640" Y="40" />
+      </MyOutput>
+      <MyOutput Id="10" Name="Reset">
+        <Location X="637" Y="423" />
+      </MyOutput>
+      <MyOutput Id="11" Name="VirtualMusclesLength">
+        <Location X="638" Y="213" />
+      </MyOutput>
+    </GroupOutputNodes>
+    <DataFolder></DataFolder>
+    <Connections>
+      <Connection From="13" To="9" FromIndex="0" ToIndex="0" />
+      <Connection From="12" To="11" FromIndex="0" ToIndex="0" />
+      <Connection From="4" To="13" FromIndex="0" ToIndex="0" />
+      <Connection From="12" To="13" FromIndex="0" ToIndex="1" />
+    </Connections>
+    <Tasks />
+  </Network>
+  <World LoadOnStart="False" SaveOnStop="False" Id="6" Name="World" yaxlib:realtype="GoodAI.Modules.Motor.MyArmWorld">
+    <WORLD_WIDTH>192</WORLD_WIDTH>
+    <WORLD_HEIGHT>256</WORLD_HEIGHT>
+    <JOINTS>3</JOINTS>
+    <DataFolder></DataFolder>
+    <Tasks>
+      <Task Enabled="True" PropertyName="PerformArmStep" yaxlib:realtype="GoodAI.Modules.Motor.MyArmWorld+MyArmTask">
+        <DRAW>False</DRAW>
+        <UPDATE_VISUAL_OUTPUT>True</UPDATE_VISUAL_OUTPUT>
+        <GRAVITY_FORCE>0.2</GRAVITY_FORCE>
+        <MUSCLE_FORCE>0.4</MUSCLE_FORCE>
+        <FRICTION>0.1</FRICTION>
+        <HIGHLIGHT_X>-1</HIGHLIGHT_X>
+        <HIGHLIGHT_Y>-1</HIGHLIGHT_Y>
+      </Task>
+    </Tasks>
+  </World>
+  <Observers>
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
+      <Method>RedGreenScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="900" Y="362" />
+        <Size Width="300" Height="417" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>6#VisualOutput</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>0</m_minValue>
+      <m_maxValue>1</m_maxValue>
+    </MemoryBlockObserver>
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
+      <Method>RedGreenScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1213" Y="361" />
+        <Size Width="300" Height="418" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>6#VirtualOutput</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>0</m_minValue>
+      <m_maxValue>1</m_maxValue>
+    </MemoryBlockObserver>
+  </Observers>
+  <UsedModules>
+    <Module Name="GoodAI.Platform.Core.dll" Version="9" />
+    <Module Name="GoodAI.BasicNodes.dll" Version="4" />
+  </UsedModules>
+</Project>

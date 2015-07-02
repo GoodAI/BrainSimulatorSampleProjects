@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Name="harm-gridworld" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+<Project Name="HARM-gridworld-mapF" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
   <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
     <Children>
-      <Group Sequential="True" LoadOnStart="False" SaveOnStop="False" Id="152" Name="Node_152" yaxlib:realtype="BrainSimulator.Nodes.MyConditionalGroup">
+      <Group Sequential="True" LoadOnStart="False" SaveOnStop="False" Id="152" Name="Node_152" yaxlib:realtype="GoodAI.Core.Nodes.MyConditionalGroup">
         <Signal>NewStateSignal</Signal>
         <Children>
-          <MyUserInput LoadOnStart="False" SaveOnStop="False" Id="158" Name="Manual Override" yaxlib:realtype="BrainSimulator.Nodes.MyUserInput">
+          <MyUserInput LoadOnStart="False" SaveOnStop="False" Id="158" Name="Manual Motivation Override" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput">
             <IO>
               <OutputSize>1</OutputSize>
             </IO>
             <ColumnHint>1</ColumnHint>
             <MinValue>0</MinValue>
             <MaxValue>1</MaxValue>
-            <UserInputStr>1</UserInputStr>
+            <UserInputStr>0</UserInputStr>
             <ConvertToBinary>False</ConvertToBinary>
             <DataFolder></DataFolder>
-            <Location X="241" Y="531" />
+            <Location X="177" Y="557" />
             <Tasks>
-              <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="BrainSimulator.Nodes.MyUserInput+MyTransferTask" />
+              <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput+MyTransferTask" />
             </Tasks>
           </MyUserInput>
-          <MyActionSelectionNode LoadOnStart="False" SaveOnStop="False" Id="159" Name="Node_159" yaxlib:realtype="BrainSimulator.Harm.MyActionSelectionNode">
+          <MyActionSelectionNode LoadOnStart="False" SaveOnStop="False" Id="159" Name="ASM" yaxlib:realtype="GoodAI.Modules.Harm.MyActionSelectionNode">
             <DataFolder></DataFolder>
             <Location X="649" Y="475" />
             <Tasks>
-              <Task Enabled="True" PropertyName="Sort" yaxlib:realtype="BrainSimulator.Harm.MySimpleSortTask">
+              <Task Enabled="True" PropertyName="Sort" yaxlib:realtype="GoodAI.Modules.Harm.MySimpleSortTask">
                 <MinEpsilon>0.1</MinEpsilon>
                 <ASMPeriod>1</ASMPeriod>
               </Task>
             </Tasks>
           </MyActionSelectionNode>
-          <MyUserInput LoadOnStart="False" SaveOnStop="False" Id="160" Name="Global Motivation" yaxlib:realtype="BrainSimulator.Nodes.MyUserInput">
+          <MyUserInput LoadOnStart="False" SaveOnStop="False" Id="160" Name="Global Motivation" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput">
             <IO>
               <OutputSize>1</OutputSize>
             </IO>
@@ -40,12 +40,12 @@
             <UserInputStr>1</UserInputStr>
             <ConvertToBinary>False</ConvertToBinary>
             <DataFolder></DataFolder>
-            <Location X="420" Y="547" />
+            <Location X="424" Y="553" />
             <Tasks>
-              <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="BrainSimulator.Nodes.MyUserInput+MyTransferTask" />
+              <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput+MyTransferTask" />
             </Tasks>
           </MyUserInput>
-          <MyJoin LoadOnStart="False" SaveOnStop="False" Id="161" Name="Node_161" yaxlib:realtype="BrainSimulator.Nodes.MyJoin">
+          <MyJoin LoadOnStart="False" SaveOnStop="False" Id="161" Name="Stack" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
             <IO>
               <InputBranches>2</InputBranches>
               <OutputColHint>0</OutputColHint>
@@ -56,26 +56,26 @@
             <DataFolder></DataFolder>
             <Location X="329" Y="126" />
             <Tasks>
-              <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="BrainSimulator.Nodes.MyJoin+MyInitTask" />
-              <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="BrainSimulator.Nodes.MyJoin+MyStackInputsTask" />
+              <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
+              <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
             </Tasks>
           </MyJoin>
-          <MyUserInput LoadOnStart="False" SaveOnStop="False" Id="162" Name="Abstract Actions" yaxlib:realtype="BrainSimulator.Nodes.MyUserInput">
+          <MyUserInput LoadOnStart="False" SaveOnStop="False" Id="162" Name="Abstract Actions" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput">
             <IO>
-              <OutputSize>8</OutputSize>
+              <OutputSize>11</OutputSize>
             </IO>
             <ColumnHint>1</ColumnHint>
             <MinValue>0</MinValue>
             <MaxValue>1</MaxValue>
-            <UserInputStr>0;0;0;0;0;0;0;0</UserInputStr>
+            <UserInputStr>0;0;0;0;0;0;0;0;0;0;0</UserInputStr>
             <ConvertToBinary>False</ConvertToBinary>
             <DataFolder></DataFolder>
-            <Location X="109" Y="230" />
+            <Location X="55" Y="203" />
             <Tasks>
-              <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="BrainSimulator.Nodes.MyUserInput+MyTransferTask" />
+              <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput+MyTransferTask" />
             </Tasks>
           </MyUserInput>
-          <MyUserInput LoadOnStart="False" SaveOnStop="False" Id="163" Name="Primitive Actions" yaxlib:realtype="BrainSimulator.Nodes.MyUserInput">
+          <MyUserInput LoadOnStart="False" SaveOnStop="False" Id="163" Name="Primitive Actions" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput">
             <IO>
               <OutputSize>6</OutputSize>
             </IO>
@@ -85,28 +85,28 @@
             <UserInputStr>0;0;0;0;0;0</UserInputStr>
             <ConvertToBinary>False</ConvertToBinary>
             <DataFolder></DataFolder>
-            <Location X="110" Y="-32" />
+            <Location X="58" Y="-27" />
             <Tasks>
-              <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="BrainSimulator.Nodes.MyUserInput+MyTransferTask" />
+              <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput+MyTransferTask" />
             </Tasks>
           </MyUserInput>
-          <MyDiscreteHarmNode LoadOnStart="False" SaveOnStop="False" Id="164" Name="Node_164" yaxlib:realtype="BrainSimulator.Harm.MyDiscreteHarmNode">
-            <ConnectedToGlobal>False</ConnectedToGlobal>
+          <MyDiscreteHarmNode LoadOnStart="False" SaveOnStop="False" Id="164" Name="HARM" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteHarmNode">
+            <ConnectedToGlobal>True</ConnectedToGlobal>
             <MaxActions>12</MaxActions>
             <NoActions>6</NoActions>
-            <RescaleVariables>15</RescaleVariables>
+            <RescaleVariables>9</RescaleVariables>
             <DataFolder></DataFolder>
-            <Location X="512" Y="223" />
+            <Location X="514" Y="223" />
             <Tasks>
-              <Task Enabled="True" PropertyName="StateSpaceUpdate" yaxlib:realtype="BrainSimulator.Harm.MyDiscreteHarmNode+MyVariableUpdateTask" />
-              <Task Enabled="True" PropertyName="UpdateActions" yaxlib:realtype="BrainSimulator.Harm.MyDiscreteHarmNode+MyActionUpdateTask" />
-              <Task Enabled="True" PropertyName="ReadUtils" yaxlib:realtype="BrainSimulator.Harm.MyDiscreteHarmNode+MyHierarchicalActionSelection">
+              <Task Enabled="True" PropertyName="StateSpaceUpdate" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteHarmNode+MyVariableUpdateTask" />
+              <Task Enabled="True" PropertyName="UpdateActions" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteHarmNode+MyActionUpdateTask" />
+              <Task Enabled="True" PropertyName="ReadUtils" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteHarmNode+MyHierarchicalActionSelection">
                 <MotivationChange>0.01</MotivationChange>
                 <UseHierarchicalASM>False</UseHierarchicalASM>
                 <MinEpsilon>0.05</MinEpsilon>
                 <PropagateUtilitiesInHierarchy>True</PropagateUtilitiesInHierarchy>
               </Task>
-              <Task Enabled="True" PropertyName="LearnFromRewards" yaxlib:realtype="BrainSimulator.Harm.MyDiscreteHarmNode+MyHierarchicalLearningTask">
+              <Task Enabled="True" PropertyName="LearnFromRewards" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteHarmNode+MyHierarchicalLearningTask">
                 <Alpha>0.5</Alpha>
                 <Gamma>0.7</Gamma>
                 <Lambda>0.6</Lambda>
@@ -114,11 +114,11 @@
                 <EligibilityTraceLen>100</EligibilityTraceLen>
                 <RewardScale>10000000</RewardScale>
               </Task>
-              <Task Enabled="True" PropertyName="MotivationOverride" yaxlib:realtype="BrainSimulator.Harm.MyDiscreteHarmNode+MyMotivationOverrideTask" />
-              <Task Enabled="True" PropertyName="HierarchyCreation" yaxlib:realtype="BrainSimulator.Harm.MyDiscreteHarmNode+MyHierarchyCreationTask">
-                <ActionTraceLength>100</ActionTraceLength>
-                <VariableTraceLength>100</VariableTraceLength>
-                <ActionSubspacingThreshold>0.1</ActionSubspacingThreshold>
+              <Task Enabled="True" PropertyName="MotivationOverride" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteHarmNode+MyMotivationOverrideTask" />
+              <Task Enabled="True" PropertyName="HierarchyCreation" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteHarmNode+MyHierarchyCreationTask">
+                <ActionTraceLength>30</ActionTraceLength>
+                <VariableTraceLength>170</VariableTraceLength>
+                <ActionSubspacingThreshold>0.2</ActionSubspacingThreshold>
                 <VariableSubspacingThreshold>0.1</VariableSubspacingThreshold>
                 <HistoryForgettingRate>0.01</HistoryForgettingRate>
                 <SubspaceActions>False</SubspaceActions>
@@ -127,31 +127,31 @@
                 <OnlineHistoryForgettingRate>0.001</OnlineHistoryForgettingRate>
                 <OnlineVariableRemovingThreshold>0.001</OnlineVariableRemovingThreshold>
               </Task>
-              <Task Enabled="True" PropertyName="PostSimStep" yaxlib:realtype="BrainSimulator.Harm.MyDiscreteHarmNode+MyPostSimulationStepTask" />
-              <Task Enabled="False" PropertyName="Vis" yaxlib:realtype="BrainSimulator.Harm.MyDiscreteHarmNode+MyActionUtilsVisualization" />
+              <Task Enabled="True" PropertyName="PostSimStep" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteHarmNode+MyPostSimulationStepTask" />
+              <Task Enabled="False" PropertyName="Vis" yaxlib:realtype="GoodAI.Modules.Harm.MyDiscreteHarmNode+MyActionUtilsVisualization" />
             </Tasks>
           </MyDiscreteHarmNode>
         </Children>
         <LayoutProperties Zoom="0.7071068">
-          <Translation X="-116.5" Y="18.03906" />
+          <Translation X="-58.5" Y="-23.96094" />
         </LayoutProperties>
         <GroupInputNodes>
-          <MyParentInput ParentInputIndex="0" Id="153" Name="Input 1">
-            <Location X="102" Y="542" />
+          <MyParentInput ParentInputIndex="0" Id="153" Name="States">
+            <Location X="-25" Y="525" />
           </MyParentInput>
         </GroupInputNodes>
         <GroupOutputNodes>
-          <MyOutput Id="154" Name="Output 1">
-            <Location X="850" Y="473" />
+          <MyOutput Id="154" Name="Actions">
+            <Location X="907" Y="403" />
           </MyOutput>
         </GroupOutputNodes>
         <DataFolder></DataFolder>
-        <Location X="84" Y="562" />
+        <Location X="86" Y="562" />
         <Tasks />
       </Group>
     </Children>
-    <LayoutProperties Zoom="0.5635605">
-      <Translation X="41.3692" Y="-268.0675" />
+    <LayoutProperties Zoom="0.7969948">
+      <Translation X="129.3692" Y="-309.0675" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Visual">
@@ -164,7 +164,7 @@
         <Location X="-145" Y="395" />
       </MyParentInput>
       <MyParentInput ParentInputIndex="3" Id="7" Name="Global">
-        <Location X="-146" Y="531" />
+        <Location X="-155" Y="544" />
       </MyParentInput>
       <MyParentInput ParentInputIndex="4" Id="8" Name="Variables">
         <Location X="-144" Y="659" />
@@ -184,7 +184,7 @@
     <DataFolder></DataFolder>
     <Connections>
       <Connection From="152" To="9" FromIndex="0" ToIndex="0" />
-      <Connection From="8" To="152" FromIndex="0" ToIndex="0" />
+      <Connection From="7" To="152" FromIndex="0" ToIndex="0" />
       <Connection From="159" To="154" FromIndex="0" ToIndex="0" />
       <Connection From="164" To="159" FromIndex="0" ToIndex="0" />
       <Connection From="160" To="159" FromIndex="0" ToIndex="1" />
@@ -197,19 +197,19 @@
     </Connections>
     <Tasks />
   </Network>
-  <World LoadOnStart="False" SaveOnStop="False" Id="167" Name="World" yaxlib:realtype="BrainSimulator.GridWorld.MyGridWorld">
-    <USED_MAP>mapG</USED_MAP>
+  <World LoadOnStart="False" SaveOnStop="False" Id="167" Name="World" yaxlib:realtype="GoodAI.Modules.GridWorld.MyGridWorld">
+    <USED_MAP>mapF</USED_MAP>
     <TEXTURE>textureD</TEXTURE>
     <RES>16</RES>
     <VISIBLE_HEIGHT>160</VISIBLE_HEIGHT>
-    <VISIBLE_WIDTH>256</VISIBLE_WIDTH>
+    <VISIBLE_WIDTH>160</VISIBLE_WIDTH>
     <ShowInEgocentricView>True</ShowInEgocentricView>
     <EgocentricViewLimit>2</EgocentricViewLimit>
     <WorldBoundsValue>0</WorldBoundsValue>
     <DataFolder></DataFolder>
     <Tasks>
-      <Task Enabled="True" PropertyName="InitGameTask" yaxlib:realtype="BrainSimulator.GridWorld.MyGridWorld+MyInitTask" />
-      <Task Enabled="True" PropertyName="UpdateTask" yaxlib:realtype="BrainSimulator.GridWorld.MyGridWorld+MyUpdateTask">
+      <Task Enabled="True" PropertyName="InitGameTask" yaxlib:realtype="GoodAI.Modules.GridWorld.MyGridWorld+MyInitTask" />
+      <Task Enabled="True" PropertyName="UpdateTask" yaxlib:realtype="GoodAI.Modules.GridWorld.MyGridWorld+MyUpdateTask">
         <ForceDoorSwitches>False</ForceDoorSwitches>
         <ForceDoorSwitchesState>False</ForceDoorSwitchesState>
         <ForceLightSwitches>False</ForceLightSwitches>
@@ -217,19 +217,19 @@
         <LimitFieldOfView>False</LimitFieldOfView>
         <m_contMove>False</m_contMove>
       </Task>
-      <Task Enabled="True" PropertyName="RenderGameTask" yaxlib:realtype="BrainSimulator.GridWorld.MyGridWorld+MyRenderTask" />
+      <Task Enabled="True" PropertyName="RenderGameTask" yaxlib:realtype="GoodAI.Modules.GridWorld.MyGridWorld+MyRenderTask" />
     </Tasks>
   </World>
   <Observers>
-    <MemoryBlockObserver yaxlib:realtype="BrainSimulator.Observers.MyMemoryBlockObserver">
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
       <Method>RedGreenScale</Method>
       <Scale>Linear</Scale>
       <Elements>2</Elements>
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="923" Y="328" />
-        <Size Width="300" Height="226" />
+        <Location X="275" Y="218" />
+        <Size Width="374" Height="184" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -238,7 +238,7 @@
       <m_minValue>0</m_minValue>
       <m_maxValue>1</m_maxValue>
     </MemoryBlockObserver>
-    <NodeObserver yaxlib:realtype="BrainSimulator.Observers.MySRPObserver">
+    <NodeObserver yaxlib:realtype="GoodAI.Modules.Observers.MySRPObserver">
       <ShowSRPNames>True</ShowSRPNames>
       <MaxQValue>0.03</MaxQValue>
       <ShowCurrentMotivations>True</ShowCurrentMotivations>
@@ -247,23 +247,23 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="711" Y="575" />
-        <Size Width="528" Height="356" />
+        <Location X="1142" Y="481" />
+        <Size Width="426" Height="446" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
       <TargetIdentifier>164</TargetIdentifier>
       <m_srpVariableIndex>2</m_srpVariableIndex>
     </NodeObserver>
-    <MemoryBlockObserver yaxlib:realtype="BrainSimulator.Observers.MyMemoryBlockObserver">
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
       <Method>RedGreenScale</Method>
       <Scale>Linear</Scale>
       <Elements>2</Elements>
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1232" Y="209" />
-        <Size Width="539" Height="364" />
+        <Location X="1140" Y="44" />
+        <Size Width="427" Height="437" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -272,7 +272,7 @@
       <m_minValue>0</m_minValue>
       <m_maxValue>1</m_maxValue>
     </MemoryBlockObserver>
-    <NodeObserver yaxlib:realtype="BrainSimulator.Observers.MySRPObserver">
+    <NodeObserver yaxlib:realtype="GoodAI.Modules.Observers.MySRPObserver">
       <ShowSRPNames>True</ShowSRPNames>
       <MaxQValue>0.03</MaxQValue>
       <ShowCurrentMotivations>True</ShowCurrentMotivations>
@@ -281,15 +281,15 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="186" Y="576" />
-        <Size Width="531" Height="355" />
+        <Location X="277" Y="478" />
+        <Size Width="438" Height="454" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
       <TargetIdentifier>164</TargetIdentifier>
       <m_srpVariableIndex>6</m_srpVariableIndex>
     </NodeObserver>
-    <NodeObserver yaxlib:realtype="BrainSimulator.Observers.MySRPObserver">
+    <NodeObserver yaxlib:realtype="GoodAI.Modules.Observers.MySRPObserver">
       <ShowSRPNames>True</ShowSRPNames>
       <MaxQValue>0.03</MaxQValue>
       <ShowCurrentMotivations>True</ShowCurrentMotivations>
@@ -298,68 +298,85 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1240" Y="577" />
-        <Size Width="533" Height="355" />
+        <Location X="709" Y="481" />
+        <Size Width="437" Height="446" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
       <TargetIdentifier>164</TargetIdentifier>
-      <m_srpVariableIndex>4</m_srpVariableIndex>
+      <m_srpVariableIndex>5</m_srpVariableIndex>
     </NodeObserver>
-    <NodeObserver yaxlib:realtype="BrainSimulator.Observers.MySRPObserver">
+    <NodeObserver yaxlib:realtype="GoodAI.Modules.Observers.MySRPObserver">
       <ShowSRPNames>True</ShowSRPNames>
-      <MaxQValue>0</MaxQValue>
+      <MaxQValue>0.03</MaxQValue>
       <ShowCurrentMotivations>True</ShowCurrentMotivations>
       <XAxisVariableIndex>0</XAxisVariableIndex>
       <YAxisVariableIndex>1</YAxisVariableIndex>
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="138" Y="102" />
-        <Size Width="330" Height="284" />
+        <Location X="648" Y="41" />
+        <Size Width="65" Height="447" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
       <TargetIdentifier>164</TargetIdentifier>
       <m_srpVariableIndex>1</m_srpVariableIndex>
     </NodeObserver>
-    <NodeObserver yaxlib:realtype="BrainSimulator.Observers.MySRPObserver">
+    <NodeObserver yaxlib:realtype="GoodAI.Modules.Observers.MySRPObserver">
       <ShowSRPNames>True</ShowSRPNames>
-      <MaxQValue>0</MaxQValue>
+      <MaxQValue>0.03</MaxQValue>
       <ShowCurrentMotivations>True</ShowCurrentMotivations>
       <XAxisVariableIndex>0</XAxisVariableIndex>
       <YAxisVariableIndex>1</YAxisVariableIndex>
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="476" Y="94" />
-        <Size Width="407" Height="296" />
+        <Location X="272" Y="401" />
+        <Size Width="443" Height="80" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
       <TargetIdentifier>164</TargetIdentifier>
       <m_srpVariableIndex>0</m_srpVariableIndex>
     </NodeObserver>
-    <MemoryBlockObserver yaxlib:realtype="BrainSimulator.Observers.MyMemoryBlockObserver">
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
       <Method>RedGreenScale</Method>
       <Scale>Linear</Scale>
       <Elements>2</Elements>
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="899" Y="92" />
-        <Size Width="334" Height="223" />
+        <Location X="273" Y="41" />
+        <Size Width="377" Height="184" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
       <TargetIdentifier>164#UtilityOutput</TargetIdentifier>
       <m_boundPolicy>MANUAL</m_boundPolicy>
       <m_minValue>0</m_minValue>
-      <m_maxValue>0.5</m_maxValue>
+      <m_maxValue>0.8</m_maxValue>
     </MemoryBlockObserver>
+    <NodeObserver yaxlib:realtype="GoodAI.Modules.Observers.MySRPObserver">
+      <ShowSRPNames>False</ShowSRPNames>
+      <MaxQValue>0.03</MaxQValue>
+      <ShowCurrentMotivations>False</ShowCurrentMotivations>
+      <XAxisVariableIndex>0</XAxisVariableIndex>
+      <YAxisVariableIndex>1</YAxisVariableIndex>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="714" Y="42" />
+        <Size Width="430" Height="441" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>164</TargetIdentifier>
+      <m_srpVariableIndex>9</m_srpVariableIndex>
+    </NodeObserver>
   </Observers>
   <UsedModules>
-    <Module Name="BrainSimulator.dll" Version="8" />
-    <Module Name="CustomModels.dll" Version="2" />
+    <Module Name="GoodAI.Platform.Core.dll" Version="9" />
+    <Module Name="GoodAI.BasicNodes.dll" Version="4" />
   </UsedModules>
 </Project>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Name="Bipedal-height" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+  <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
+    <Children>
+      <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="15" Name="SineWave" yaxlib:realtype="GoodAI.Core.Nodes.MyNodeGroup">
+        <Children>
+          <GoniometricFunction LoadOnStart="False" SaveOnStop="False" Id="18" Name="Node_151" yaxlib:realtype="GoodAI.Modules.Transforms.MyGoniometricFunction">
+            <DataFolder></DataFolder>
+            <Location X="385.4464" Y="143.1903" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyGoniometricFunction+MyGoniometricTask">
+                <Params Type="Sine" />
+              </Task>
+            </Tasks>
+          </GoniometricFunction>
+          <MyJoin LoadOnStart="False" SaveOnStop="False" Id="19" Name="Node_152" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
+            <IO>
+              <InputBranches>2</InputBranches>
+              <OutputColHint>0</OutputColHint>
+            </IO>
+            <Behavior>
+              <Operation>Addition</Operation>
+            </Behavior>
+            <DataFolder></DataFolder>
+            <Location X="207.8075" Y="47.15289" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
+              <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
+            </Tasks>
+          </MyJoin>
+          <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="20" Name="Node_153" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
+            <DataFolder></DataFolder>
+            <Location X="210.0702" Y="222.5153" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
+                <Params A3="0" A2="0" A1="1" A0="0" />
+              </Task>
+            </Tasks>
+          </PolynomialFunction>
+          <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="21" Name="Node_154" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
+            <SingleOutput>False</SingleOutput>
+            <IO>
+              <OutputSize>1</OutputSize>
+            </IO>
+            <ColumnHint>1</ColumnHint>
+            <DataFolder></DataFolder>
+            <Location X="17" Y="106" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="GoodAI.Modules.Common.MyRNGTask">
+                <Distribution>Constant</Distribution>
+                <RandomPeriod>False</RandomPeriod>
+                <Period>1</Period>
+                <RandomPeriodMin>1</RandomPeriodMin>
+                <RandomPeriodMax>10</RandomPeriodMax>
+                <MinValue>0</MinValue>
+                <MaxValue>1</MaxValue>
+                <Mean>0</Mean>
+                <StdDev>1</StdDev>
+                <Constant>0.01</Constant>
+                <Min>0</Min>
+                <Max>1024</Max>
+                <Unique>True</Unique>
+              </Task>
+            </Tasks>
+          </MyRandomNode>
+        </Children>
+        <LayoutProperties Zoom="0.8408964">
+          <Translation X="178" Y="0" />
+        </LayoutProperties>
+        <GroupInputNodes />
+        <GroupOutputNodes>
+          <MyOutput Id="16" Name="Output 1">
+            <Location X="583" Y="144" />
+          </MyOutput>
+        </GroupOutputNodes>
+        <DataFolder></DataFolder>
+        <Location X="228" Y="539" />
+        <Tasks />
+      </Group>
+      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="41" Name="Node_179" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
+        <SingleOutput>False</SingleOutput>
+        <IO>
+          <OutputSize>1</OutputSize>
+        </IO>
+        <ColumnHint>1</ColumnHint>
+        <DataFolder></DataFolder>
+        <Location X="419" Y="476" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="GoodAI.Modules.Common.MyRNGTask">
+            <Distribution>Constant</Distribution>
+            <RandomPeriod>False</RandomPeriod>
+            <Period>1</Period>
+            <RandomPeriodMin>1</RandomPeriodMin>
+            <RandomPeriodMax>10</RandomPeriodMax>
+            <MinValue>0</MinValue>
+            <MaxValue>1</MaxValue>
+            <Mean>0</Mean>
+            <StdDev>1</StdDev>
+            <Constant>0</Constant>
+            <Min>0</Min>
+            <Max>1024</Max>
+            <Unique>True</Unique>
+          </Task>
+        </Tasks>
+      </MyRandomNode>
+      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="42" Name="Node_178" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
+        <SingleOutput>False</SingleOutput>
+        <IO>
+          <OutputSize>1</OutputSize>
+        </IO>
+        <ColumnHint>1</ColumnHint>
+        <DataFolder></DataFolder>
+        <Location X="424" Y="728" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="GoodAI.Modules.Common.MyRNGTask">
+            <Distribution>Constant</Distribution>
+            <RandomPeriod>False</RandomPeriod>
+            <Period>1</Period>
+            <RandomPeriodMin>1</RandomPeriodMin>
+            <RandomPeriodMax>10</RandomPeriodMax>
+            <MinValue>0</MinValue>
+            <MaxValue>1</MaxValue>
+            <Mean>0</Mean>
+            <StdDev>1</StdDev>
+            <Constant>0</Constant>
+            <Min>0</Min>
+            <Max>1024</Max>
+            <Unique>True</Unique>
+          </Task>
+        </Tasks>
+      </MyRandomNode>
+      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="43" Name="Node_177" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
+        <IO>
+          <InputBranches>3</InputBranches>
+          <OutputColHint>0</OutputColHint>
+        </IO>
+        <Behavior>
+          <Operation>StackInputs</Operation>
+        </Behavior>
+        <DataFolder></DataFolder>
+        <Location X="594" Y="515" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
+          <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
+        </Tasks>
+      </MyJoin>
+      <Controller LoadOnStart="False" SaveOnStop="False" Id="57" Name="Node_176" yaxlib:realtype="GoodAI.Modules.Motor.MyPIDController">
+        <DataFolder></DataFolder>
+        <Location X="791" Y="374" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="InitTask" yaxlib:realtype="GoodAI.Modules.Motor.MyPIDController+MyInitTask" />
+          <Task Enabled="True" PropertyName="ControlTask" yaxlib:realtype="GoodAI.Modules.Motor.MyPIDController+MyControlTask">
+            <PROPORTIONAL_GAIN>10</PROPORTIONAL_GAIN>
+            <INTEGRAL_GAIN>0.5</INTEGRAL_GAIN>
+            <DERIVATIVE_GAIN>0</DERIVATIVE_GAIN>
+            <INTEGRAL_DECAY>1</INTEGRAL_DECAY>
+            <OFFSET>0</OFFSET>
+            <MIN_OUTPUT>-1</MIN_OUTPUT>
+            <MAX_OUTPUT>1</MAX_OUTPUT>
+          </Task>
+        </Tasks>
+      </Controller>
+      <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="70" Name="Node_150" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
+        <DataFolder></DataFolder>
+        <Location X="422" Y="598" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
+            <Params A3="0" A2="0" A1="2" A0="4" />
+          </Task>
+        </Tasks>
+      </PolynomialFunction>
+      <JacobianTransposeControl LoadOnStart="False" SaveOnStop="False" Id="71" Name="Node_71" yaxlib:realtype="GoodAI.Modules.Motor.MyJacobianTransposeControl">
+        <DataFolder></DataFolder>
+        <Location X="977" Y="191" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="jacobianTransposeTask" yaxlib:realtype="GoodAI.Modules.Motor.MyJacobianTransposeControl+MyJacobianTransposeTask" />
+        </Tasks>
+      </JacobianTransposeControl>
+      <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="75" Name="Node_150" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
+        <DataFolder></DataFolder>
+        <Location X="1245" Y="193" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
+            <Params A3="0" A2="0" A1="1" A0="0" />
+          </Task>
+        </Tasks>
+      </PolynomialFunction>
+    </Children>
+    <LayoutProperties Zoom="0.5946034">
+      <Translation X="-138" Y="-169" />
+    </LayoutProperties>
+    <GroupInputNodes>
+      <MyParentInput ParentInputIndex="0" Id="1" Name="Joints">
+        <Location X="50" Y="100" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="1" Id="4" Name="TorsoRotation">
+        <Location X="50" Y="250" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="2" Id="5" Name="FeetPressure">
+        <Location X="53" Y="397" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="3" Id="7" Name="ControlsCopy">
+        <Location X="50" Y="550" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="4" Id="8" Name="CenterOfMass">
+        <Location X="50" Y="700" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="5" Id="9" Name="CenterOfPressure">
+        <Location X="50" Y="850" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="6" Id="10" Name="JointPosition">
+        <Location X="571" Y="59" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="7" Id="11" Name="JointAxis">
+        <Location X="599" Y="173" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="8" Id="12" Name="TorsoPosition">
+        <Location X="567" Y="290" />
+      </MyParentInput>
+    </GroupInputNodes>
+    <GroupOutputNodes>
+      <MyOutput Id="13" Name="Controls">
+        <Location X="1435" Y="190" />
+      </MyOutput>
+      <MyOutput Id="14" Name="Push">
+        <Location X="1438" Y="355" />
+      </MyOutput>
+    </GroupOutputNodes>
+    <DataFolder></DataFolder>
+    <Connections>
+      <Connection From="75" To="13" FromIndex="0" ToIndex="0" />
+      <Connection From="18" To="16" FromIndex="0" ToIndex="0" />
+      <Connection From="19" To="18" FromIndex="0" ToIndex="0" />
+      <Connection From="21" To="19" FromIndex="0" ToIndex="0" />
+      <Connection From="20" To="19" FromIndex="0" ToIndex="1" />
+      <Connection From="19" To="20" FromIndex="0" ToIndex="0" />
+      <Connection From="41" To="43" FromIndex="0" ToIndex="0" />
+      <Connection From="70" To="43" FromIndex="0" ToIndex="1" />
+      <Connection From="42" To="43" FromIndex="0" ToIndex="2" />
+      <Connection From="12" To="57" FromIndex="0" ToIndex="0" />
+      <Connection From="43" To="57" FromIndex="0" ToIndex="1" />
+      <Connection From="15" To="70" FromIndex="0" ToIndex="0" />
+      <Connection From="10" To="71" FromIndex="0" ToIndex="0" />
+      <Connection From="11" To="71" FromIndex="0" ToIndex="1" />
+      <Connection From="12" To="71" FromIndex="0" ToIndex="2" />
+      <Connection From="57" To="71" FromIndex="0" ToIndex="3" />
+      <Connection From="71" To="75" FromIndex="0" ToIndex="0" />
+    </Connections>
+    <Tasks />
+  </Network>
+  <World LoadOnStart="False" SaveOnStop="False" Id="6" Name="World" yaxlib:realtype="GoodAI.Modules.Motor.My3DBipedalRobotWorld">
+    <MOTOR_MODE>VELOCITY_MOTOR</MOTOR_MODE>
+    <MOTOR_MAX_FORCE>200</MOTOR_MAX_FORCE>
+    <JOINT_STIFFNESS>100</JOINT_STIFFNESS>
+    <DataFolder></DataFolder>
+    <Tasks>
+      <Task Enabled="True" PropertyName="WorldTask" yaxlib:realtype="GoodAI.Modules.Motor.My3DBipedalRobotWorld+My3DWorldTask">
+        <GROUND>True</GROUND>
+        <GRAVITY>9.81</GRAVITY>
+        <TORSO_WEIGHT>5</TORSO_WEIGHT>
+        <PELVIS_WEIGHT>4</PELVIS_WEIGHT>
+        <UPPER_THIGH_WEIGHT>3</UPPER_THIGH_WEIGHT>
+        <THIGH_WEIGHT>2</THIGH_WEIGHT>
+        <CALF_WEIGHT>1</CALF_WEIGHT>
+        <FOOT_WEIGHT>0</FOOT_WEIGHT>
+        <FRONT_FOOT_WEIGHT>0.5</FRONT_FOOT_WEIGHT>
+        <UPPER_THIGH_HEIGHT>0.6</UPPER_THIGH_HEIGHT>
+        <THIGH_WIDTH>0.5</THIGH_WIDTH>
+        <THIGH_HEIGHT>2</THIGH_HEIGHT>
+        <CALF_WIDTH>0.4</CALF_WIDTH>
+        <CALF_HEIGHT>2</CALF_HEIGHT>
+        <PELVIS_HEIGHT>2</PELVIS_HEIGHT>
+        <FORCE_MULTIPLIER>5</FORCE_MULTIPLIER>
+        <VELOCITY_MULTIPLIER>3</VELOCITY_MULTIPLIER>
+      </Task>
+    </Tasks>
+  </World>
+  <Observers>
+    <NodeObserver yaxlib:realtype="GoodAI.Modules.Motor.My3DWorldObserver">
+      <ViewMode>Orbit_3D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="195" Y="0" />
+        <Size Width="655" Height="829" />
+        <CameraData CameraType="Orbit_3D" X="-43.5" Y="25.5" Z="2.089328" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>6</TargetIdentifier>
+    </NodeObserver>
+  </Observers>
+  <UsedModules>
+    <Module Name="GoodAI.Platform.Core.dll" Version="9" />
+    <Module Name="GoodAI.BasicNodes.dll" Version="4" />
+  </UsedModules>
+</Project>

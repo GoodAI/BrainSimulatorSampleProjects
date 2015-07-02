@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Name="PID-InvertedPendulum" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+  <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
+    <Children>
+      <Controller LoadOnStart="False" SaveOnStop="False" Id="10" Name="Node_10" yaxlib:realtype="GoodAI.Modules.Motor.MyPIDController">
+        <DataFolder></DataFolder>
+        <Location X="518" Y="106" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="InitTask" yaxlib:realtype="GoodAI.Modules.Motor.MyPIDController+MyInitTask" />
+          <Task Enabled="True" PropertyName="ControlTask" yaxlib:realtype="GoodAI.Modules.Motor.MyPIDController+MyControlTask">
+            <PROPORTIONAL_GAIN>-100</PROPORTIONAL_GAIN>
+            <INTEGRAL_GAIN>-0.5</INTEGRAL_GAIN>
+            <DERIVATIVE_GAIN>-10</DERIVATIVE_GAIN>
+            <INTEGRAL_DECAY>1</INTEGRAL_DECAY>
+            <OFFSET>0</OFFSET>
+            <MIN_OUTPUT>-5</MIN_OUTPUT>
+            <MAX_OUTPUT>5</MAX_OUTPUT>
+          </Task>
+        </Tasks>
+      </Controller>
+      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="11" Name="Node_11" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
+        <SingleOutput>False</SingleOutput>
+        <IO>
+          <OutputSize>1</OutputSize>
+        </IO>
+        <ColumnHint>1</ColumnHint>
+        <DataFolder></DataFolder>
+        <Location X="300" Y="232" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="GoodAI.Modules.Common.MyRNGTask">
+            <Distribution>Constant</Distribution>
+            <RandomPeriod>False</RandomPeriod>
+            <Period>1</Period>
+            <RandomPeriodMin>1</RandomPeriodMin>
+            <RandomPeriodMax>10</RandomPeriodMax>
+            <MinValue>0</MinValue>
+            <MaxValue>1</MaxValue>
+            <Mean>0</Mean>
+            <StdDev>1</StdDev>
+            <Constant>0</Constant>
+            <Min>0</Min>
+            <Max>1024</Max>
+            <Unique>True</Unique>
+          </Task>
+        </Tasks>
+      </MyRandomNode>
+      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="15" Name="Node_15" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
+        <SingleOutput>False</SingleOutput>
+        <IO>
+          <OutputSize>3</OutputSize>
+        </IO>
+        <ColumnHint>1</ColumnHint>
+        <DataFolder></DataFolder>
+        <Location X="538" Y="382" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="GoodAI.Modules.Common.MyRNGTask">
+            <Distribution>Normal</Distribution>
+            <RandomPeriod>False</RandomPeriod>
+            <Period>1</Period>
+            <RandomPeriodMin>1</RandomPeriodMin>
+            <RandomPeriodMax>10</RandomPeriodMax>
+            <MinValue>0</MinValue>
+            <MaxValue>1</MaxValue>
+            <Mean>0</Mean>
+            <StdDev>0.05</StdDev>
+            <Constant>0</Constant>
+            <Min>0</Min>
+            <Max>1024</Max>
+            <Unique>True</Unique>
+          </Task>
+        </Tasks>
+      </MyRandomNode>
+    </Children>
+    <LayoutProperties Zoom="0.9999997">
+      <Translation X="535" Y="333" />
+    </LayoutProperties>
+    <GroupInputNodes>
+      <MyParentInput ParentInputIndex="0" Id="1" Name="Joints">
+        <Location X="50" Y="100" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="1" Id="4" Name="PoleRotation">
+        <Location X="274" Y="110" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="2" Id="5" Name="ControlsCopy">
+        <Location X="50" Y="400" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="3" Id="7" Name="SpherePosition">
+        <Location X="50" Y="550" />
+      </MyParentInput>
+    </GroupInputNodes>
+    <GroupOutputNodes>
+      <MyOutput Id="8" Name="Controls">
+        <Location X="762" Y="106" />
+      </MyOutput>
+      <MyOutput Id="9" Name="SpherePush">
+        <Location X="762" Y="382" />
+      </MyOutput>
+    </GroupOutputNodes>
+    <DataFolder></DataFolder>
+    <Connections>
+      <Connection From="10" To="8" FromIndex="0" ToIndex="0" />
+      <Connection From="15" To="9" FromIndex="0" ToIndex="0" />
+      <Connection From="4" To="10" FromIndex="0" ToIndex="0" />
+      <Connection From="11" To="10" FromIndex="0" ToIndex="1" />
+    </Connections>
+    <Tasks />
+  </Network>
+  <World LoadOnStart="False" SaveOnStop="False" Id="6" Name="World" yaxlib:realtype="GoodAI.Modules.Motor.My3DPendulumWorld">
+    <MOTOR_MODE>VelocityMotor</MOTOR_MODE>
+    <ELBOW_FIXED>True</ELBOW_FIXED>
+    <POLE_DOF>1</POLE_DOF>
+    <GRAVITY>9.81</GRAVITY>
+    <DataFolder></DataFolder>
+    <Tasks>
+      <Task Enabled="True" PropertyName="WorldTask" yaxlib:realtype="GoodAI.Modules.Motor.My3DPendulumWorld+My3DWorldTask" />
+    </Tasks>
+  </World>
+  <Observers>
+    <NodeObserver yaxlib:realtype="GoodAI.Modules.Motor.My3DWorldObserver">
+      <ViewMode>Orbit_3D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="2724" Y="593" />
+        <Size Width="774" Height="648" />
+        <CameraData CameraType="Orbit_3D" X="-2.25" Y="55.5" Z="1.969065" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>6</TargetIdentifier>
+    </NodeObserver>
+  </Observers>
+  <UsedModules>
+    <Module Name="GoodAI.BasicNodes.dll" Version="4" />
+    <Module Name="GoodAI.Platform.Core.dll" Version="9" />
+  </UsedModules>
+</Project>
