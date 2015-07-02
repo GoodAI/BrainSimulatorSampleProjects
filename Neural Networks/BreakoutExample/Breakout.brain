@@ -9,7 +9,7 @@
         <Children>
           <MyHiddenLayer LoadOnStart="False" SaveOnStop="False" Id="17" Name="Node_17" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyHiddenLayer">
             <ActivationFunction>SIGMOID</ActivationFunction>
-            <Neurons>32</Neurons>
+            <Neurons>128</Neurons>
             <OutputColumnHint>1</OutputColumnHint>
             <DataFolder></DataFolder>
             <Location X="313" Y="159" />
@@ -39,13 +39,13 @@
             <ActivationFunction>SIGMOID</ActivationFunction>
             <OutputColumnHint>1</OutputColumnHint>
             <DataFolder></DataFolder>
-            <Location X="541" Y="152" />
+            <Location X="544" Y="153" />
             <Tasks>
               <Task Enabled="True" PropertyName="QLearning" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyQLearningTask">
-                <DiscountFactor>0.995</DiscountFactor>
+                <DiscountFactor>0.999</DiscountFactor>
                 <BindLower>0</BindLower>
                 <BindUpper>1</BindUpper>
-                <BindValues>True</BindValues>
+                <BindTarget>False</BindTarget>
               </Task>
               <Task Enabled="True" PropertyName="RestoreValues" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyRestoreValuesTask" />
               <Task Enabled="True" PropertyName="SquaredLoss" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MySquaredLossTask" />
@@ -54,9 +54,10 @@
               <Task Enabled="True" PropertyName="CreateDropoutMask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
               <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCForwardTask" />
               <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
+              <Task Enabled="True" PropertyName="SaveAction" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MySaveActionTask" />
             </Tasks>
           </MyQLearningLayer>
-          <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="24" Name="Node_24" yaxlib:realtype="GoodAI.Modules.Testing.MyRandomNode">
+          <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="24" Name="Node_24" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
             <SingleOutput>True</SingleOutput>
             <IO>
               <OutputSize>3</OutputSize>
@@ -65,7 +66,7 @@
             <DataFolder></DataFolder>
             <Location X="523" Y="478" />
             <Tasks>
-              <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="GoodAI.Modules.Testing.MyRNGTask">
+              <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="GoodAI.Modules.Common.MyRNGTask">
                 <Distribution>Constant</Distribution>
                 <RandomPeriod>False</RandomPeriod>
                 <Period>1</Period>
@@ -115,9 +116,9 @@
             <Momentum>0</Momentum>
           </Task>
           <Task Enabled="True" PropertyName="RMS" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyRMSTask">
-            <TrainingRate>1E-06</TrainingRate>
+            <TrainingRate>0.0001</TrainingRate>
             <Momentum>0</Momentum>
-            <SmoothingFactor>0.9</SmoothingFactor>
+            <SmoothingFactor>0.999</SmoothingFactor>
           </Task>
           <Task Enabled="True" PropertyName="InitGroup" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyInitNNGroupTask" />
           <Task Enabled="False" PropertyName="GradientCheck" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyGradientCheckTask">
@@ -204,7 +205,7 @@
         <RandomBallDir>True</RandomBallDir>
         <FreezeAfterFail>0</FreezeAfterFail>
         <Structure>
-          <BOUNCE_BALL>1</BOUNCE_BALL>
+          <BOUNCE_BALL>0.05</BOUNCE_BALL>
           <LOST_LIFE>-1</LOST_LIFE>
           <BRICK_DESTROYED>0</BRICK_DESTROYED>
         </Structure>
@@ -246,9 +247,25 @@
       <m_yStart>0</m_yStart>
       <m_yLength>3</m_yLength>
     </MyMatrixObserver>
+    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="699" Y="555" />
+        <Size Width="300" Height="300" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>16#Output</TargetIdentifier>
+      <m_nbDecimals>2</m_nbDecimals>
+      <m_xStart>0</m_xStart>
+      <m_xLength>1</m_xLength>
+      <m_yStart>0</m_yStart>
+      <m_yLength>2</m_yLength>
+    </MyMatrixObserver>
   </Observers>
   <UsedModules>
-    <Module Name="GoodAI.BasicNodes.dll" Version="3" />
+    <Module Name="GoodAI.BasicNodes.dll" Version="4" />
     <Module Name="GoodAI.Platform.Core.dll" Version="9" />
   </UsedModules>
 </Project>
