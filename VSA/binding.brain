@@ -130,10 +130,10 @@
               <OutputSize>1024</OutputSize>
             </IO>
             <ColumnHint>32</ColumnHint>
-            <Location X="224" Y="350" />
+            <Location X="130" Y="312" />
             <Tasks>
               <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="GoodAI.Modules.Common.MyRNGTask">
-                <Distribution>Uniform</Distribution>
+                <Distribution>Normal</Distribution>
                 <RandomPeriod>False</RandomPeriod>
                 <Period>1</Period>
                 <RandomPeriodMin>1</RandomPeriodMin>
@@ -141,7 +141,7 @@
                 <MinValue>-1</MinValue>
                 <MaxValue>1</MaxValue>
                 <Mean>0</Mean>
-                <StdDev>0.01</StdDev>
+                <StdDev>0.03</StdDev>
                 <Constant>0</Constant>
                 <Min>0</Min>
                 <Max>1024</Max>
@@ -166,7 +166,7 @@
             <Behavior>
               <Operation>Addition</Operation>
             </Behavior>
-            <Location X="560" Y="107" />
+            <Location X="553" Y="109" />
             <Tasks>
               <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
               <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
@@ -174,7 +174,7 @@
           </MyJoin>
           <Accumulator LoadOnStart="False" SaveOnStop="False" Id="79" Name="Memory Accumulator" yaxlib:realtype="GoodAI.Modules.Transforms.MyAccumulator">
             <DelayMemorySize>1</DelayMemorySize>
-            <Location X="756" Y="200" />
+            <Location X="741" Y="206" />
             <Tasks>
               <Task Enabled="False" PropertyName="ShiftData" yaxlib:realtype="GoodAI.Modules.Transforms.MyAccumulator+MyShiftDataTask">
                 <UseFirstInput>True</UseFirstInput>
@@ -182,7 +182,7 @@
               </Task>
               <Task Enabled="True" PropertyName="ApproachValue" yaxlib:realtype="GoodAI.Modules.Transforms.MyAccumulator+MyApproachValueTask">
                 <ApproachMethod>Momentum</ApproachMethod>
-                <Factor>0.995</Factor>
+                <Factor>0.99</Factor>
                 <Delta>0.1</Delta>
                 <Target>0</Target>
               </Task>
@@ -192,14 +192,64 @@
             </Tasks>
           </Accumulator>
           <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="80" Name="Magnitude" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
-            <Location X="415" Y="352" />
+            <Location X="323" Y="314" />
             <Tasks>
               <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
-                <Params A3="0" A2="0" A1="0.001" A0="0" />
+                <Params A3="0" A2="0" A1="1" A0="0" />
               </Task>
             </Tasks>
           </PolynomialFunction>
+          <MyJoin LoadOnStart="False" SaveOnStop="False" Id="128" Name="Memory Trace" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
+            <IO>
+              <InputBranches>2</InputBranches>
+              <OutputColHint>0</OutputColHint>
+            </IO>
+            <Behavior>
+              <Operation>Addition</Operation>
+            </Behavior>
+            <Location X="985" Y="150" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
+              <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
+            </Tasks>
+          </MyJoin>
+          <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="129" Name="Magnitude" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
+            <Location X="775" Y="323" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
+                <Params A3="0" A2="0" A1="1" A0="0" />
+              </Task>
+            </Tasks>
+          </PolynomialFunction>
+          <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="130" Name="Noise generator" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
+            <SingleOutput>False</SingleOutput>
+            <IO>
+              <OutputSize>1024</OutputSize>
+            </IO>
+            <ColumnHint>32</ColumnHint>
+            <Location X="582" Y="321" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="GoodAI.Modules.Common.MyRNGTask">
+                <Distribution>Normal</Distribution>
+                <RandomPeriod>False</RandomPeriod>
+                <Period>1</Period>
+                <RandomPeriodMin>1</RandomPeriodMin>
+                <RandomPeriodMax>10</RandomPeriodMax>
+                <MinValue>-1</MinValue>
+                <MaxValue>1</MaxValue>
+                <Mean>0</Mean>
+                <StdDev>0.03</StdDev>
+                <Constant>0</Constant>
+                <Min>0</Min>
+                <Max>1024</Max>
+                <Unique>True</Unique>
+              </Task>
+            </Tasks>
+          </MyRandomNode>
         </Children>
+        <LayoutProperties Zoom="1">
+          <Translation X="-5" Y="-97" />
+        </LayoutProperties>
         <GroupInputNodes>
           <MyParentInput ParentInputIndex="0" Id="61" Name="New Input">
             <Location X="30" Y="166" />
@@ -207,7 +257,7 @@
         </GroupInputNodes>
         <GroupOutputNodes>
           <MyOutput Id="62" Name="Memory Trace">
-            <Location X="1086" Y="198" />
+            <Location X="1162" Y="248" />
           </MyOutput>
         </GroupOutputNodes>
         <Location X="661" Y="289" />
@@ -324,7 +374,7 @@
         <OneToZeroRatio>1</OneToZeroRatio>
         <VectorMode>Normal</VectorMode>
         <DataFolder></DataFolder>
-        <Location X="769" Y="511" />
+        <Location X="782" Y="510" />
         <Tasks>
           <Task Enabled="True" PropertyName="PerformTask" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook+MyCodeVectorsTask">
             <CodeVector>Extra</CodeVector>
@@ -463,7 +513,7 @@
       </PolynomialFunction>
     </Children>
     <LayoutProperties Zoom="0.7071068">
-      <Translation X="-8" Y="-58" />
+      <Translation X="4" Y="-74" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Output">
@@ -501,12 +551,15 @@
       <Connection From="112" To="58" FromIndex="0" ToIndex="1" />
       <Connection From="113" To="58" FromIndex="0" ToIndex="2" />
       <Connection From="36" To="60" FromIndex="0" ToIndex="0" />
-      <Connection From="79" To="62" FromIndex="0" ToIndex="0" />
+      <Connection From="128" To="62" FromIndex="0" ToIndex="0" />
       <Connection From="61" To="71" FromIndex="0" ToIndex="0" />
       <Connection From="71" To="77" FromIndex="0" ToIndex="0" />
       <Connection From="80" To="77" FromIndex="0" ToIndex="1" />
       <Connection From="77" To="79" FromIndex="0" ToIndex="0" />
       <Connection From="67" To="80" FromIndex="0" ToIndex="0" />
+      <Connection From="79" To="128" FromIndex="0" ToIndex="0" />
+      <Connection From="129" To="128" FromIndex="0" ToIndex="1" />
+      <Connection From="130" To="129" FromIndex="0" ToIndex="0" />
       <Connection From="37" To="99" FromIndex="0" ToIndex="0" />
       <Connection From="37" To="103" FromIndex="0" ToIndex="0" />
       <Connection From="37" To="107" FromIndex="0" ToIndex="0" />
@@ -539,8 +592,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="302" Y="711" />
-        <Size Width="660" Height="264" />
+        <Location X="240" Y="735" />
+        <Size Width="660" Height="272" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>True</BilinearFiltering>
@@ -573,8 +626,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="971" Y="700" />
-        <Size Width="674" Height="277" />
+        <Location X="914" Y="738" />
+        <Size Width="674" Height="273" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>True</BilinearFiltering>
@@ -601,6 +654,23 @@
       <COLOR_CURVE6>4278255615</COLOR_CURVE6>
       <COLOR_CURVE_EXTRA>4278190080</COLOR_CURVE_EXTRA>
     </MyTimePlotObserver>
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
+      <Method>RedGreenScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="774" Y="434" />
+        <Size Width="300" Height="300" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>128#Output</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>0</m_minValue>
+      <m_maxValue>0.1</m_maxValue>
+    </MemoryBlockObserver>
   </Observers>
   <UsedModules>
     <Module Name="GoodAI.BasicNodes.dll" Version="4" />
