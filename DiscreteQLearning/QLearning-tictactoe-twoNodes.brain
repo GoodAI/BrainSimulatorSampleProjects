@@ -19,7 +19,7 @@
         <ColumnHint>1</ColumnHint>
         <MinValue>0</MinValue>
         <MaxValue>1</MaxValue>
-        <UserInputStr>0.4680672</UserInputStr>
+        <UserInputStr>0.5388339</UserInputStr>
         <ConvertToBinary>False</ConvertToBinary>
         <DataFolder></DataFolder>
         <Location X="471" Y="58" />
@@ -172,7 +172,7 @@
         <ColumnHint>1</ColumnHint>
         <MinValue>0</MinValue>
         <MaxValue>1</MaxValue>
-        <UserInputStr>0.4780262</UserInputStr>
+        <UserInputStr>0.4924564</UserInputStr>
         <ConvertToBinary>False</ConvertToBinary>
         <DataFolder></DataFolder>
         <Location X="470" Y="-274" />
@@ -252,7 +252,7 @@
       </PolynomialFunction>
     </Children>
     <LayoutProperties Zoom="0.7071066">
-      <Translation X="188" Y="367" />
+      <Translation X="35" Y="364" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Visual">
@@ -324,7 +324,7 @@
     <DataFolder></DataFolder>
     <Tasks>
       <Task Enabled="True" PropertyName="InitGameTask" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToeWorld+MyInitTask" />
-      <Task Enabled="False" PropertyName="RenderGameTask" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToeWorld+MyRenderTask" />
+      <Task Enabled="True" PropertyName="RenderGameTask" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToeWorld+MyRenderTask" />
       <Task Enabled="True" PropertyName="MultiPlayer" yaxlib:realtype="GoodAI.Modules.TicTacToe.MyTicTacToeWorld+MyMultiPlayerTask">
         <PlayerXStarts>False</PlayerXStarts>
         <RandomizeStartingPlayer>True</RandomizeStartingPlayer>
@@ -338,18 +338,18 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1999" Y="535" />
-        <Size Width="909" Height="508" />
+        <Location X="1007" Y="654" />
+        <Size Width="576" Height="373" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
+      <BilinearFiltering>True</BilinearFiltering>
       <TargetIdentifier>78#Output</TargetIdentifier>
       <m_displayMethod>CYCLE</m_displayMethod>
       <m_boundPolicy>AUTO</m_boundPolicy>
-      <m_boundMin>-13.11221</m_boundMin>
-      <m_boundMax>12.10111</m_boundMax>
-      <m_manualBoundMin>-12.1001</m_manualBoundMin>
-      <m_manualBoundMax>13.1011</m_manualBoundMax>
+      <m_boundMin>-12.1011</m_boundMin>
+      <m_boundMax>13.1121</m_boundMax>
+      <m_manualBoundMin>-13.11221</m_manualBoundMin>
+      <m_manualBoundMax>12.10111</m_manualBoundMax>
       <m_manualBoundHaveBeenSet>False</m_manualBoundHaveBeenSet>
       <m_period>1</m_period>
       <m_delay>0</m_delay>
@@ -366,6 +366,23 @@
       <COLOR_CURVE6>4278255615</COLOR_CURVE6>
       <COLOR_CURVE_EXTRA>4278190080</COLOR_CURVE_EXTRA>
     </MyTimePlotObserver>
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
+      <Method>RedGreenScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="696" Y="727" />
+        <Size Width="300" Height="300" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>6#Visual</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>0</m_minValue>
+      <m_maxValue>1</m_maxValue>
+    </MemoryBlockObserver>
   </Observers>
   <UsedModules>
     <Module Name="GoodAI.Platform.Core.dll" Version="9" />
