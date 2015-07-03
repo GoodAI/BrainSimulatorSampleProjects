@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network
+  inputwidth="1024" inputheight="1" inputcount="1" samplesperstep="1"
+  outputMinValue="0" outputMaxValue="1" outputColumnHint="1">
+       
+  <neuronLayer nbNeurons="1024"/>       
+  <activationLayer function="TANH"/>
+  <neuronLayer nbNeurons="1024"/>       
+  <activationLayer function="TANH"/>  
+</network>

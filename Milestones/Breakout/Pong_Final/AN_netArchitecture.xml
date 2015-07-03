@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network
+  inputwidth="32" inputheight="32" inputcount="1" samplesperstep="1"
+	outputMinValue="0" outputMaxValue="1" outputColumnHint="32"
+	>
+
+	<convolutionLayer 	id="conv1" 	nbFeatures="4" 	patchWidth="5" patchHeight="5" />
+	<activationLayer 	function="tanh" />
+	<convolutionLayer 	id="conv2" 	nbFeatures="8" patchWidth="5" patchHeight="5" />
+	<activationLayer 	function="tanh" />
+
+
+	<neuronLayer		id="neur0" 	nbNeurons="64"/>
+	<activationLayer 	function="tanh" />
+
+
+
+
+	<neuronLayer		id="neur1" 	nbNeurons="32"/>
+
+	<featureLayer/>
+
+	<mirrorNeuronLayer 	original="neur1" />
+
+
+
+
+
+	<mirrorNeuronLayer 	original="neur0" />
+	<activationLayer 	function="tanh" />
+
+	<mirrorConvolutionLayer original="conv2" />
+	<activationLayer 	function="tanh" />
+	<mirrorConvolutionLayer original="conv1" />
+	<activationLayer 	function="tanh" />
+</network>
