@@ -11,7 +11,6 @@
         <Tasks>
           <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>-1</DataInput0>
-            <DataInput1>-1</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
@@ -50,7 +49,6 @@
         <Tasks>
           <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>-1</DataInput0>
-            <DataInput1>-1</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
@@ -63,7 +61,6 @@
         <Tasks>
           <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>-1</DataInput0>
-            <DataInput1>-1</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
@@ -76,7 +73,6 @@
         <Tasks>
           <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>-1</DataInput0>
-            <DataInput1>-1</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
@@ -89,13 +85,12 @@
         <Tasks>
           <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>-1</DataInput0>
-            <DataInput1>-1</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
     </Children>
     <LayoutProperties Zoom="0.7071068">
-      <Translation X="-63" Y="107" />
+      <Translation X="-198" Y="163" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Output">
@@ -134,7 +129,56 @@
       </Task>
     </Tasks>
   </World>
-  <Observers />
+  <Observers>
+    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="523" Y="182" />
+        <Size Width="300" Height="300" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>43#Output</TargetIdentifier>
+      <m_nbDecimals>2</m_nbDecimals>
+      <m_xStart>0</m_xStart>
+      <m_xLength>2</m_xLength>
+      <m_yStart>0</m_yStart>
+      <m_yLength>4</m_yLength>
+    </MyMatrixObserver>
+    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1150" Y="148" />
+        <Size Width="234" Height="209" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>32#Output</TargetIdentifier>
+      <m_nbDecimals>2</m_nbDecimals>
+      <m_xStart>0</m_xStart>
+      <m_xLength>2</m_xLength>
+      <m_yStart>0</m_yStart>
+      <m_yLength>4</m_yLength>
+    </MyMatrixObserver>
+    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1152" Y="377" />
+        <Size Width="232" Height="209" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>67#Output</TargetIdentifier>
+      <m_nbDecimals>2</m_nbDecimals>
+      <m_xStart>0</m_xStart>
+      <m_xLength>2</m_xLength>
+      <m_yStart>0</m_yStart>
+      <m_yLength>4</m_yLength>
+    </MyMatrixObserver>
+  </Observers>
   <UsedModules>
     <Module Name="GoodAI.BasicNodes.dll" Version="4" />
     <Module Name="GoodAI.Platform.Core.dll" Version="9" />
