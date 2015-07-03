@@ -231,7 +231,7 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="2277" Y="357" />
+        <Location X="913" Y="572" />
         <Size Width="714" Height="466" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
@@ -239,10 +239,10 @@
       <TargetIdentifier>78#Output</TargetIdentifier>
       <m_displayMethod>CYCLE</m_displayMethod>
       <m_boundPolicy>AUTO</m_boundPolicy>
-      <m_boundMin>-12.11101</m_boundMin>
-      <m_boundMax>13.22111</m_boundMax>
-      <m_manualBoundMin>-13.1011</m_manualBoundMin>
-      <m_manualBoundMax>12.1001</m_manualBoundMax>
+      <m_boundMin>-13.1011</m_boundMin>
+      <m_boundMax>12.1001</m_boundMax>
+      <m_manualBoundMin>-12.11101</m_manualBoundMin>
+      <m_manualBoundMax>13.22111</m_manualBoundMax>
       <m_manualBoundHaveBeenSet>False</m_manualBoundHaveBeenSet>
       <m_period>1</m_period>
       <m_delay>0</m_delay>
@@ -266,7 +266,7 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="2178" Y="852" />
+        <Location X="601" Y="660" />
         <Size Width="300" Height="300" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
