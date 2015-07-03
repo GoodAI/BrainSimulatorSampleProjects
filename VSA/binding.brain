@@ -1,238 +1,530 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Name="Matrix_Addition" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+<Project Name="binding" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
   <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
     <Children>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="9" Name="Node_9" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
-        <Behavior>
-          <Operation>Addition</Operation>
-        </Behavior>
-        <DataFolder></DataFolder>
-        <Location X="1154" Y="404" />
+      <MyBindingNode LoadOnStart="False" SaveOnStop="False" Id="4" Name="Visual * Ball" yaxlib:realtype="GoodAI.Modules.VSA.MyBindingNode">
+        <Mode>HRR</Mode>
+        <Location X="214" Y="13" />
         <Tasks>
-          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
-            <DataInput0>10</DataInput0>
-            <DataInput1>-1</DataInput1>
+          <Task Enabled="True" PropertyName="BindInputs" yaxlib:realtype="GoodAI.Modules.VSA.MyBindingNode+MyBindingTask">
+            <DoQuery>False</DoQuery>
+            <UseExactQuery>False</UseExactQuery>
+            <ExactNormalization>False</ExactNormalization>
+            <ManualDenomination>False</ManualDenomination>
+            <Denominator>1</Denominator>
           </Task>
         </Tasks>
-      </MyMatrixNode>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="10" Name="Node_10" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
-        <Behavior>
-          <Operation>Addition</Operation>
-        </Behavior>
-        <DataFolder></DataFolder>
-        <Location X="1153" Y="14" />
-        <Tasks>
-          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
-            <DataInput0>-1</DataInput0>
-            <DataInput1>-1</DataInput1>
-          </Task>
-        </Tasks>
-      </MyMatrixNode>
-      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="11" Name="Node_11" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
+      </MyBindingNode>
+      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="30" Name="Visual" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
         <IO>
-          <InputBranches>2</InputBranches>
+          <InputBranches>3</InputBranches>
           <OutputColHint>0</OutputColHint>
         </IO>
         <Behavior>
-          <Operation>DistanceSquared</Operation>
+          <Operation>StackInputs</Operation>
         </Behavior>
-        <DataFolder></DataFolder>
-        <Location X="715" Y="72" />
+        <Location X="1385" Y="43" />
         <Tasks>
           <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
           <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
         </Tasks>
       </MyJoin>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="12" Name="Node_12" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
-        <Behavior>
-          <Operation>Addition</Operation>
-        </Behavior>
-        <DataFolder></DataFolder>
-        <Location X="1156" Y="236" />
+      <MyBindingNode LoadOnStart="False" SaveOnStop="False" Id="33" Name="Audio * Ball" yaxlib:realtype="GoodAI.Modules.VSA.MyBindingNode">
+        <Mode>HRR</Mode>
+        <Location X="214" Y="213" />
         <Tasks>
-          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
-            <DataInput0>-1</DataInput0>
-            <DataInput1>-1</DataInput1>
+          <Task Enabled="True" PropertyName="BindInputs" yaxlib:realtype="GoodAI.Modules.VSA.MyBindingNode+MyBindingTask">
+            <DoQuery>False</DoQuery>
+            <UseExactQuery>False</UseExactQuery>
+            <ExactNormalization>False</ExactNormalization>
+            <ManualDenomination>False</ManualDenomination>
+            <Denominator>1</Denominator>
           </Task>
         </Tasks>
-      </MyMatrixNode>
-      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="13" Name="Node_13" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
+      </MyBindingNode>
+      <MyBindingNode LoadOnStart="False" SaveOnStop="False" Id="34" Name="Audio * Paddle" yaxlib:realtype="GoodAI.Modules.VSA.MyBindingNode">
+        <Mode>HRR</Mode>
+        <Location X="217" Y="399" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="BindInputs" yaxlib:realtype="GoodAI.Modules.VSA.MyBindingNode+MyBindingTask">
+            <DoQuery>False</DoQuery>
+            <UseExactQuery>False</UseExactQuery>
+            <ExactNormalization>False</ExactNormalization>
+            <ManualDenomination>False</ManualDenomination>
+            <Denominator>1</Denominator>
+          </Task>
+        </Tasks>
+      </MyBindingNode>
+      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="36" Name="Superposition" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
         <IO>
-          <OutputSize>3</OutputSize>
-        </IO>
-        <ColumnHint>1</ColumnHint>
-        <UserInput>1 2 3</UserInput>
-        <GenerateType>UserData</GenerateType>
-        <DataFolder></DataFolder>
-        <Location X="908" Y="239" />
-        <Tasks>
-          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput+MyTransferTask">
-            <MinValue>0</MinValue>
-            <MaxValue>1</MaxValue>
-            <ShiftSpeed>0</ShiftSpeed>
-          </Task>
-        </Tasks>
-      </MyGenerateInput>
-      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="14" Name="Node_14" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
-        <IO>
-          <OutputSize>9</OutputSize>
-        </IO>
-        <ColumnHint>3</ColumnHint>
-        <UserInput>1 2 3 4 5 6 7 8 9</UserInput>
-        <GenerateType>UserData</GenerateType>
-        <DataFolder></DataFolder>
-        <Location X="904" Y="358" />
-        <Tasks>
-          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput+MyTransferTask">
-            <MinValue>0</MinValue>
-            <MaxValue>1</MaxValue>
-            <ShiftSpeed>0</ShiftSpeed>
-          </Task>
-        </Tasks>
-      </MyGenerateInput>
-      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="15" Name="Node_15" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
-        <IO>
-          <OutputSize>3</OutputSize>
-        </IO>
-        <ColumnHint>1</ColumnHint>
-        <UserInput>1 2 3</UserInput>
-        <GenerateType>UserData</GenerateType>
-        <DataFolder></DataFolder>
-        <Location X="906" Y="-121" />
-        <Tasks>
-          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput+MyTransferTask">
-            <MinValue>0</MinValue>
-            <MaxValue>1</MaxValue>
-            <ShiftSpeed>0</ShiftSpeed>
-          </Task>
-        </Tasks>
-      </MyGenerateInput>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="16" Name="Node_16" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
-        <Behavior>
-          <Operation>Addition</Operation>
-        </Behavior>
-        <DataFolder></DataFolder>
-        <Location X="1156" Y="-144" />
-        <Tasks>
-          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
-            <DataInput0>-1</DataInput0>
-            <DataInput1>-1</DataInput1>
-          </Task>
-        </Tasks>
-      </MyMatrixNode>
-      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="17" Name="Node_17" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
-        <IO>
-          <OutputSize>1</OutputSize>
-        </IO>
-        <ColumnHint>1</ColumnHint>
-        <UserInput>0 1</UserInput>
-        <GenerateType>SimulationStepFce</GenerateType>
-        <DataFolder></DataFolder>
-        <Location X="904" Y="34" />
-        <Tasks>
-          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput+MyTransferTask">
-            <MinValue>0</MinValue>
-            <MaxValue>1</MaxValue>
-            <ShiftSpeed>0</ShiftSpeed>
-          </Task>
-        </Tasks>
-      </MyGenerateInput>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="18" Name="Node_18" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
-        <Behavior>
-          <Operation>Addition</Operation>
-        </Behavior>
-        <DataFolder></DataFolder>
-        <Location X="466" Y="202" />
-        <Tasks>
-          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
-            <DataInput0>-1</DataInput0>
-            <DataInput1>-1</DataInput1>
-          </Task>
-        </Tasks>
-      </MyMatrixNode>
-      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="19" Name="Node_19" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
-        <IO>
-          <InputBranches>2</InputBranches>
+          <InputBranches>4</InputBranches>
           <OutputColHint>0</OutputColHint>
         </IO>
         <Behavior>
           <Operation>Addition</Operation>
         </Behavior>
-        <DataFolder></DataFolder>
-        <Location X="458" Y="-29" />
+        <Location X="480" Y="210" />
         <Tasks>
           <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
           <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
         </Tasks>
       </MyJoin>
-      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="20" Name="Node_20" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
-        <SingleOutput>False</SingleOutput>
-        <IO>
-          <OutputSize>10000</OutputSize>
-        </IO>
-        <ColumnHint>100</ColumnHint>
-        <DataFolder></DataFolder>
-        <Location X="248" Y="-138" />
+      <MyBindingNode LoadOnStart="False" SaveOnStop="False" Id="37" Name="Whay I See?" yaxlib:realtype="GoodAI.Modules.VSA.MyBindingNode">
+        <Mode>HRR</Mode>
+        <Location X="962" Y="98" />
         <Tasks>
-          <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="GoodAI.Modules.Common.MyRNGTask">
-            <Distribution>Uniform</Distribution>
-            <RandomPeriod>False</RandomPeriod>
-            <Period>1</Period>
-            <RandomPeriodMin>1</RandomPeriodMin>
-            <RandomPeriodMax>10</RandomPeriodMax>
-            <MinValue>0</MinValue>
-            <MaxValue>1</MaxValue>
-            <Mean>0</Mean>
-            <StdDev>1</StdDev>
-            <Constant>1</Constant>
-            <Min>0</Min>
-            <Max>1024</Max>
-            <Unique>True</Unique>
+          <Task Enabled="True" PropertyName="BindInputs" yaxlib:realtype="GoodAI.Modules.VSA.MyBindingNode+MyBindingTask">
+            <DoQuery>True</DoQuery>
+            <UseExactQuery>False</UseExactQuery>
+            <ExactNormalization>False</ExactNormalization>
+            <ManualDenomination>False</ManualDenomination>
+            <Denominator>1</Denominator>
           </Task>
         </Tasks>
-      </MyRandomNode>
+      </MyBindingNode>
+      <MyBindingNode LoadOnStart="False" SaveOnStop="False" Id="40" Name="What I Hear?" yaxlib:realtype="GoodAI.Modules.VSA.MyBindingNode">
+        <Mode>HRR</Mode>
+        <Location X="963" Y="434" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="BindInputs" yaxlib:realtype="GoodAI.Modules.VSA.MyBindingNode+MyBindingTask">
+            <DoQuery>True</DoQuery>
+            <UseExactQuery>False</UseExactQuery>
+            <ExactNormalization>False</ExactNormalization>
+            <ManualDenomination>False</ManualDenomination>
+            <Denominator>1</Denominator>
+          </Task>
+        </Tasks>
+      </MyBindingNode>
+      <MyBindingNode LoadOnStart="False" SaveOnStop="False" Id="55" Name="Audio * Goal" yaxlib:realtype="GoodAI.Modules.VSA.MyBindingNode">
+        <Mode>HRR</Mode>
+        <Location X="223" Y="583" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="BindInputs" yaxlib:realtype="GoodAI.Modules.VSA.MyBindingNode+MyBindingTask">
+            <DoQuery>False</DoQuery>
+            <UseExactQuery>False</UseExactQuery>
+            <ExactNormalization>False</ExactNormalization>
+            <ManualDenomination>False</ManualDenomination>
+            <Denominator>1</Denominator>
+          </Task>
+        </Tasks>
+      </MyBindingNode>
+      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="58" Name="Audio" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
+        <IO>
+          <InputBranches>3</InputBranches>
+          <OutputColHint>0</OutputColHint>
+        </IO>
+        <Behavior>
+          <Operation>StackInputs</Operation>
+        </Behavior>
+        <Location X="1417" Y="363" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
+          <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
+        </Tasks>
+      </MyJoin>
+      <Group Sequential="True" LoadOnStart="False" SaveOnStop="False" Id="60" Name="Working M." yaxlib:realtype="GoodAI.Core.Nodes.MyNodeGroup">
+        <Children>
+          <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="67" Name="Noise generator" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
+            <SingleOutput>False</SingleOutput>
+            <IO>
+              <OutputSize>1024</OutputSize>
+            </IO>
+            <ColumnHint>32</ColumnHint>
+            <Location X="224" Y="350" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="MakeDecision" yaxlib:realtype="GoodAI.Modules.Common.MyRNGTask">
+                <Distribution>Uniform</Distribution>
+                <RandomPeriod>False</RandomPeriod>
+                <Period>1</Period>
+                <RandomPeriodMin>1</RandomPeriodMin>
+                <RandomPeriodMax>10</RandomPeriodMax>
+                <MinValue>-1</MinValue>
+                <MaxValue>1</MaxValue>
+                <Mean>0</Mean>
+                <StdDev>0.01</StdDev>
+                <Constant>0</Constant>
+                <Min>0</Min>
+                <Max>1024</Max>
+                <Unique>True</Unique>
+              </Task>
+            </Tasks>
+          </MyRandomNode>
+          <AbsoluteValue LoadOnStart="False" SaveOnStop="False" Id="71" Name="Normalize" yaxlib:realtype="GoodAI.Modules.Transforms.MyAbsoluteValue">
+            <Location X="298" Y="166" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyAbsoluteValue+MyAbsoluteValueTask">
+                <VectorNormalization>True</VectorNormalization>
+                <ScalarNormalization>False</ScalarNormalization>
+              </Task>
+            </Tasks>
+          </AbsoluteValue>
+          <MyJoin LoadOnStart="False" SaveOnStop="False" Id="77" Name="Add Noise" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
+            <IO>
+              <InputBranches>2</InputBranches>
+              <OutputColHint>0</OutputColHint>
+            </IO>
+            <Behavior>
+              <Operation>Addition</Operation>
+            </Behavior>
+            <Location X="560" Y="107" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
+              <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
+            </Tasks>
+          </MyJoin>
+          <Accumulator LoadOnStart="False" SaveOnStop="False" Id="79" Name="Memory Accumulator" yaxlib:realtype="GoodAI.Modules.Transforms.MyAccumulator">
+            <DelayMemorySize>1</DelayMemorySize>
+            <Location X="756" Y="200" />
+            <Tasks>
+              <Task Enabled="False" PropertyName="ShiftData" yaxlib:realtype="GoodAI.Modules.Transforms.MyAccumulator+MyShiftDataTask">
+                <UseFirstInput>True</UseFirstInput>
+                <InitialValue>0</InitialValue>
+              </Task>
+              <Task Enabled="True" PropertyName="ApproachValue" yaxlib:realtype="GoodAI.Modules.Transforms.MyAccumulator+MyApproachValueTask">
+                <ApproachMethod>Momentum</ApproachMethod>
+                <Factor>0.995</Factor>
+                <Delta>0.1</Delta>
+                <Target>0</Target>
+              </Task>
+              <Task Enabled="False" PropertyName="CopyInput" yaxlib:realtype="GoodAI.Modules.Transforms.MyAccumulator+MyQuantizedCopyTask">
+                <TimePeriod>10</TimePeriod>
+              </Task>
+            </Tasks>
+          </Accumulator>
+          <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="80" Name="Magnitude" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
+            <Location X="415" Y="352" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
+                <Params A3="0" A2="0" A1="0.001" A0="0" />
+              </Task>
+            </Tasks>
+          </PolynomialFunction>
+        </Children>
+        <GroupInputNodes>
+          <MyParentInput ParentInputIndex="0" Id="61" Name="New Input">
+            <Location X="30" Y="166" />
+          </MyParentInput>
+        </GroupInputNodes>
+        <GroupOutputNodes>
+          <MyOutput Id="62" Name="Memory Trace">
+            <Location X="1086" Y="198" />
+          </MyOutput>
+        </GroupOutputNodes>
+        <Location X="661" Y="289" />
+        <Tasks />
+      </Group>
+      <MyCodeBook LoadOnStart="False" SaveOnStop="False" Id="82" Name="I see" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook">
+        <Mode>GenerateOutput</Mode>
+        <InputAsOffset>False</InputAsOffset>
+        <SymbolSize>1024</SymbolSize>
+        <ColumnHint>32</ColumnHint>
+        <UseBSCVariety>False</UseBSCVariety>
+        <OneToZeroRatio>1</OneToZeroRatio>
+        <VectorMode>Normal</VectorMode>
+        <DataFolder></DataFolder>
+        <Location X="-11" Y="69" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="PerformTask" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook+MyCodeVectorsTask">
+            <CodeVector>Visual</CodeVector>
+            <SimilarityOperator>XNOR</SimilarityOperator>
+          </Task>
+        </Tasks>
+      </MyCodeBook>
+      <MyCodeBook LoadOnStart="False" SaveOnStop="False" Id="83" Name="Item1" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook">
+        <Mode>GenerateOutput</Mode>
+        <InputAsOffset>False</InputAsOffset>
+        <SymbolSize>1024</SymbolSize>
+        <ColumnHint>32</ColumnHint>
+        <UseBSCVariety>False</UseBSCVariety>
+        <OneToZeroRatio>1</OneToZeroRatio>
+        <VectorMode>Normal</VectorMode>
+        <DataFolder></DataFolder>
+        <Location X="-204" Y="205" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="PerformTask" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook+MyCodeVectorsTask">
+            <CodeVector>Ball</CodeVector>
+            <SimilarityOperator>XNOR</SimilarityOperator>
+          </Task>
+        </Tasks>
+      </MyCodeBook>
+      <MyCodeBook LoadOnStart="False" SaveOnStop="False" Id="85" Name="Item2" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook">
+        <Mode>GenerateOutput</Mode>
+        <InputAsOffset>False</InputAsOffset>
+        <SymbolSize>1024</SymbolSize>
+        <ColumnHint>32</ColumnHint>
+        <UseBSCVariety>False</UseBSCVariety>
+        <OneToZeroRatio>1</OneToZeroRatio>
+        <VectorMode>Normal</VectorMode>
+        <DataFolder></DataFolder>
+        <Location X="-216" Y="493" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="PerformTask" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook+MyCodeVectorsTask">
+            <CodeVector>Paddle</CodeVector>
+            <SimilarityOperator>XNOR</SimilarityOperator>
+          </Task>
+        </Tasks>
+      </MyCodeBook>
+      <MyCodeBook LoadOnStart="False" SaveOnStop="False" Id="86" Name="Item3" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook">
+        <Mode>GenerateOutput</Mode>
+        <InputAsOffset>False</InputAsOffset>
+        <SymbolSize>1024</SymbolSize>
+        <ColumnHint>32</ColumnHint>
+        <UseBSCVariety>False</UseBSCVariety>
+        <OneToZeroRatio>1</OneToZeroRatio>
+        <VectorMode>Normal</VectorMode>
+        <DataFolder></DataFolder>
+        <Location X="-215" Y="632" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="PerformTask" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook+MyCodeVectorsTask">
+            <CodeVector>Goal</CodeVector>
+            <SimilarityOperator>XNOR</SimilarityOperator>
+          </Task>
+        </Tasks>
+      </MyCodeBook>
+      <MyCodeBook LoadOnStart="False" SaveOnStop="False" Id="90" Name="I see" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook">
+        <Mode>GenerateOutput</Mode>
+        <InputAsOffset>False</InputAsOffset>
+        <SymbolSize>1024</SymbolSize>
+        <ColumnHint>32</ColumnHint>
+        <UseBSCVariety>False</UseBSCVariety>
+        <OneToZeroRatio>1</OneToZeroRatio>
+        <VectorMode>Normal</VectorMode>
+        <DataFolder></DataFolder>
+        <Location X="766" Y="174" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="PerformTask" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook+MyCodeVectorsTask">
+            <CodeVector>Visual</CodeVector>
+            <SimilarityOperator>XNOR</SimilarityOperator>
+          </Task>
+        </Tasks>
+      </MyCodeBook>
+      <MyCodeBook LoadOnStart="False" SaveOnStop="False" Id="91" Name="I hear (Extra == Audio)" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook">
+        <Mode>GenerateOutput</Mode>
+        <InputAsOffset>False</InputAsOffset>
+        <SymbolSize>1024</SymbolSize>
+        <ColumnHint>32</ColumnHint>
+        <UseBSCVariety>False</UseBSCVariety>
+        <OneToZeroRatio>1</OneToZeroRatio>
+        <VectorMode>Normal</VectorMode>
+        <DataFolder></DataFolder>
+        <Location X="-82" Y="364" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="PerformTask" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook+MyCodeVectorsTask">
+            <CodeVector>Extra</CodeVector>
+            <SimilarityOperator>XNOR</SimilarityOperator>
+          </Task>
+        </Tasks>
+      </MyCodeBook>
+      <MyCodeBook LoadOnStart="False" SaveOnStop="False" Id="95" Name="I hear" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook">
+        <Mode>GenerateOutput</Mode>
+        <InputAsOffset>False</InputAsOffset>
+        <SymbolSize>1024</SymbolSize>
+        <ColumnHint>32</ColumnHint>
+        <UseBSCVariety>False</UseBSCVariety>
+        <OneToZeroRatio>1</OneToZeroRatio>
+        <VectorMode>Normal</VectorMode>
+        <DataFolder></DataFolder>
+        <Location X="769" Y="511" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="PerformTask" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook+MyCodeVectorsTask">
+            <CodeVector>Extra</CodeVector>
+            <SimilarityOperator>XNOR</SimilarityOperator>
+          </Task>
+        </Tasks>
+      </MyCodeBook>
+      <MyCodeBook LoadOnStart="False" SaveOnStop="False" Id="99" Name="Ball?" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook">
+        <Mode>CompareWithInput</Mode>
+        <InputAsOffset>False</InputAsOffset>
+        <SymbolSize>1024</SymbolSize>
+        <ColumnHint>32</ColumnHint>
+        <UseBSCVariety>False</UseBSCVariety>
+        <OneToZeroRatio>1</OneToZeroRatio>
+        <VectorMode>Normal</VectorMode>
+        <DataFolder></DataFolder>
+        <Location X="1183" Y="-13" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="PerformTask" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook+MyCodeVectorsTask">
+            <CodeVector>Ball</CodeVector>
+            <SimilarityOperator>XNOR</SimilarityOperator>
+          </Task>
+        </Tasks>
+      </MyCodeBook>
+      <MyCodeBook LoadOnStart="False" SaveOnStop="False" Id="103" Name="Paddle?" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook">
+        <Mode>CompareWithInput</Mode>
+        <InputAsOffset>False</InputAsOffset>
+        <SymbolSize>1024</SymbolSize>
+        <ColumnHint>32</ColumnHint>
+        <UseBSCVariety>False</UseBSCVariety>
+        <OneToZeroRatio>1</OneToZeroRatio>
+        <VectorMode>Normal</VectorMode>
+        <DataFolder></DataFolder>
+        <Location X="1183" Y="106" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="PerformTask" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook+MyCodeVectorsTask">
+            <CodeVector>Paddle</CodeVector>
+            <SimilarityOperator>XNOR</SimilarityOperator>
+          </Task>
+        </Tasks>
+      </MyCodeBook>
+      <MyCodeBook LoadOnStart="False" SaveOnStop="False" Id="107" Name="Goal?" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook">
+        <Mode>CompareWithInput</Mode>
+        <InputAsOffset>False</InputAsOffset>
+        <SymbolSize>1024</SymbolSize>
+        <ColumnHint>32</ColumnHint>
+        <UseBSCVariety>False</UseBSCVariety>
+        <OneToZeroRatio>1</OneToZeroRatio>
+        <VectorMode>Normal</VectorMode>
+        <DataFolder></DataFolder>
+        <Location X="1191" Y="221" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="PerformTask" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook+MyCodeVectorsTask">
+            <CodeVector>Goal</CodeVector>
+            <SimilarityOperator>XNOR</SimilarityOperator>
+          </Task>
+        </Tasks>
+      </MyCodeBook>
+      <MyCodeBook LoadOnStart="False" SaveOnStop="False" Id="111" Name="Ball?" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook">
+        <Mode>CompareWithInput</Mode>
+        <InputAsOffset>False</InputAsOffset>
+        <SymbolSize>1024</SymbolSize>
+        <ColumnHint>32</ColumnHint>
+        <UseBSCVariety>False</UseBSCVariety>
+        <OneToZeroRatio>1</OneToZeroRatio>
+        <VectorMode>Normal</VectorMode>
+        <DataFolder></DataFolder>
+        <Location X="1174" Y="340" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="PerformTask" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook+MyCodeVectorsTask">
+            <CodeVector>Ball</CodeVector>
+            <SimilarityOperator>XNOR</SimilarityOperator>
+          </Task>
+        </Tasks>
+      </MyCodeBook>
+      <MyCodeBook LoadOnStart="False" SaveOnStop="False" Id="112" Name="Paddle?" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook">
+        <Mode>CompareWithInput</Mode>
+        <InputAsOffset>False</InputAsOffset>
+        <SymbolSize>1024</SymbolSize>
+        <ColumnHint>32</ColumnHint>
+        <UseBSCVariety>False</UseBSCVariety>
+        <OneToZeroRatio>1</OneToZeroRatio>
+        <VectorMode>Normal</VectorMode>
+        <DataFolder></DataFolder>
+        <Location X="1174" Y="459" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="PerformTask" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook+MyCodeVectorsTask">
+            <CodeVector>Paddle</CodeVector>
+            <SimilarityOperator>XNOR</SimilarityOperator>
+          </Task>
+        </Tasks>
+      </MyCodeBook>
+      <MyCodeBook LoadOnStart="False" SaveOnStop="False" Id="113" Name="Goal?" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook">
+        <Mode>CompareWithInput</Mode>
+        <InputAsOffset>False</InputAsOffset>
+        <SymbolSize>1024</SymbolSize>
+        <ColumnHint>32</ColumnHint>
+        <UseBSCVariety>False</UseBSCVariety>
+        <OneToZeroRatio>1</OneToZeroRatio>
+        <VectorMode>Normal</VectorMode>
+        <DataFolder></DataFolder>
+        <Location X="1182" Y="574" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="PerformTask" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook+MyCodeVectorsTask">
+            <CodeVector>Goal</CodeVector>
+            <SimilarityOperator>XNOR</SimilarityOperator>
+          </Task>
+        </Tasks>
+      </MyCodeBook>
+      <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="116" Name="Turn on/off" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
+        <DataFolder></DataFolder>
+        <Location X="-26" Y="200" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
+            <Params A3="0" A2="0" A1="1" A0="0" />
+          </Task>
+        </Tasks>
+      </PolynomialFunction>
+      <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="120" Name="Turn on/off" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
+        <DataFolder></DataFolder>
+        <Location X="-28" Y="493" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
+            <Params A3="0" A2="0" A1="1" A0="0" />
+          </Task>
+        </Tasks>
+      </PolynomialFunction>
+      <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="124" Name="Turn on/off" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
+        <DataFolder></DataFolder>
+        <Location X="-30" Y="629" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
+            <Params A3="0" A2="0" A1="1" A0="0" />
+          </Task>
+        </Tasks>
+      </PolynomialFunction>
     </Children>
-    <LayoutProperties Zoom="0.7071069">
-      <Translation X="-190" Y="53" />
+    <LayoutProperties Zoom="0.7071068">
+      <Translation X="-8" Y="-58" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Output">
-        <Location X="50" Y="100" />
+        <Location X="-20" Y="804" />
       </MyParentInput>
-      <MyParentInput ParentInputIndex="1" Id="4" Name="RandomPool">
-        <Location X="50" Y="250" />
+      <MyParentInput ParentInputIndex="1" Id="3" Name="RandomPool">
+        <Location X="-147" Y="803" />
       </MyParentInput>
-      <MyParentInput ParentInputIndex="2" Id="8" Name="Label">
-        <Location X="50" Y="400" />
+      <MyParentInput ParentInputIndex="2" Id="81" Name="Label">
+        <Location X="-262" Y="815" />
       </MyParentInput>
     </GroupInputNodes>
     <GroupOutputNodes />
-    <DataFolder></DataFolder>
     <Connections>
-      <Connection From="13" To="9" FromIndex="0" ToIndex="0" />
-      <Connection From="15" To="10" FromIndex="0" ToIndex="0" />
-      <Connection From="17" To="10" FromIndex="0" ToIndex="1" />
-      <Connection From="19" To="11" FromIndex="0" ToIndex="0" />
-      <Connection From="18" To="11" FromIndex="0" ToIndex="1" />
-      <Connection From="14" To="12" FromIndex="0" ToIndex="0" />
-      <Connection From="13" To="12" FromIndex="0" ToIndex="1" />
-      <Connection From="17" To="16" FromIndex="0" ToIndex="0" />
-      <Connection From="15" To="16" FromIndex="0" ToIndex="1" />
-      <Connection From="20" To="18" FromIndex="0" ToIndex="0" />
-      <Connection From="20" To="18" FromIndex="0" ToIndex="1" />
-      <Connection From="20" To="19" FromIndex="0" ToIndex="0" />
-      <Connection From="20" To="19" FromIndex="0" ToIndex="1" />
+      <Connection From="82" To="4" FromIndex="0" ToIndex="0" />
+      <Connection From="116" To="4" FromIndex="0" ToIndex="1" />
+      <Connection From="99" To="30" FromIndex="0" ToIndex="0" />
+      <Connection From="103" To="30" FromIndex="0" ToIndex="1" />
+      <Connection From="107" To="30" FromIndex="0" ToIndex="2" />
+      <Connection From="91" To="33" FromIndex="0" ToIndex="0" />
+      <Connection From="116" To="33" FromIndex="0" ToIndex="1" />
+      <Connection From="91" To="34" FromIndex="0" ToIndex="0" />
+      <Connection From="120" To="34" FromIndex="0" ToIndex="1" />
+      <Connection From="4" To="36" FromIndex="0" ToIndex="0" />
+      <Connection From="33" To="36" FromIndex="0" ToIndex="1" />
+      <Connection From="34" To="36" FromIndex="0" ToIndex="2" />
+      <Connection From="55" To="36" FromIndex="0" ToIndex="3" />
+      <Connection From="60" To="37" FromIndex="0" ToIndex="0" />
+      <Connection From="90" To="37" FromIndex="0" ToIndex="1" />
+      <Connection From="60" To="40" FromIndex="0" ToIndex="0" />
+      <Connection From="95" To="40" FromIndex="0" ToIndex="1" />
+      <Connection From="91" To="55" FromIndex="0" ToIndex="0" />
+      <Connection From="124" To="55" FromIndex="0" ToIndex="1" />
+      <Connection From="111" To="58" FromIndex="0" ToIndex="0" />
+      <Connection From="112" To="58" FromIndex="0" ToIndex="1" />
+      <Connection From="113" To="58" FromIndex="0" ToIndex="2" />
+      <Connection From="36" To="60" FromIndex="0" ToIndex="0" />
+      <Connection From="79" To="62" FromIndex="0" ToIndex="0" />
+      <Connection From="61" To="71" FromIndex="0" ToIndex="0" />
+      <Connection From="71" To="77" FromIndex="0" ToIndex="0" />
+      <Connection From="80" To="77" FromIndex="0" ToIndex="1" />
+      <Connection From="77" To="79" FromIndex="0" ToIndex="0" />
+      <Connection From="67" To="80" FromIndex="0" ToIndex="0" />
+      <Connection From="37" To="99" FromIndex="0" ToIndex="0" />
+      <Connection From="37" To="103" FromIndex="0" ToIndex="0" />
+      <Connection From="37" To="107" FromIndex="0" ToIndex="0" />
+      <Connection From="40" To="111" FromIndex="0" ToIndex="0" />
+      <Connection From="40" To="112" FromIndex="0" ToIndex="0" />
+      <Connection From="40" To="113" FromIndex="0" ToIndex="0" />
+      <Connection From="83" To="116" FromIndex="0" ToIndex="0" />
+      <Connection From="85" To="120" FromIndex="0" ToIndex="0" />
+      <Connection From="86" To="124" FromIndex="0" ToIndex="0" />
     </Connections>
-    <Tasks />
   </Network>
-  <World LoadOnStart="False" SaveOnStop="False" Id="7" Name="World" yaxlib:realtype="GoodAI.Modules.Testing.MyTestingWorld">
+  <World LoadOnStart="False" SaveOnStop="False" Id="32" Name="World" yaxlib:realtype="GoodAI.Modules.Testing.MyTestingWorld">
     <IO>
       <OutputSize>1</OutputSize>
       <ColumnHint>1</ColumnHint>
       <PatternCount>0</PatternCount>
       <PatternGroups>1</PatternGroups>
     </IO>
-    <DataFolder></DataFolder>
     <Tasks>
       <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Modules.Testing.MyTestingWorld+MyCUDAGenerateInputTask">
         <ExpositionTime>1</ExpositionTime>
@@ -241,54 +533,74 @@
     </Tasks>
   </World>
   <Observers>
-    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
+    <MyTimePlotObserver yaxlib:realtype="GoodAI.Core.Observers.MyTimePlotObserver">
+      <ObserverWidth>400</ObserverWidth>
+      <ObserverHeight>200</ObserverHeight>
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1227" Y="232" />
-        <Size Width="312" Height="92" />
+        <Location X="302" Y="711" />
+        <Size Width="660" Height="264" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>14#Output</TargetIdentifier>
-      <m_nbDecimals>2</m_nbDecimals>
-      <m_xStart>0</m_xStart>
-      <m_xLength>3</m_xLength>
-      <m_yStart>0</m_yStart>
-      <m_yLength>3</m_yLength>
-    </MyMatrixObserver>
-    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
+      <BilinearFiltering>True</BilinearFiltering>
+      <TargetIdentifier>30#Output</TargetIdentifier>
+      <m_displayMethod>CYCLE</m_displayMethod>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_boundMin>-0.1</m_boundMin>
+      <m_boundMax>0.8</m_boundMax>
+      <m_manualBoundMin>-0.1</m_manualBoundMin>
+      <m_manualBoundMax>0.8</m_manualBoundMax>
+      <m_manualBoundHaveBeenSet>True</m_manualBoundHaveBeenSet>
+      <m_period>1</m_period>
+      <m_delay>0</m_delay>
+      <m_offset>0</m_offset>
+      <m_stride>1</m_stride>
+      <m_count>3</m_count>
+      <COLOR_BACKGROUND>4278190080</COLOR_BACKGROUND>
+      <COLOR_FONT>4294967040</COLOR_FONT>
+      <COLOR_CURVE1>4294934656</COLOR_CURVE1>
+      <COLOR_CURVE2>4286611711</COLOR_CURVE2>
+      <COLOR_CURVE3>4286644096</COLOR_CURVE3>
+      <COLOR_CURVE4>4290822399</COLOR_CURVE4>
+      <COLOR_CURVE5>4294934656</COLOR_CURVE5>
+      <COLOR_CURVE6>4294934783</COLOR_CURVE6>
+      <COLOR_CURVE_EXTRA>4294902015</COLOR_CURVE_EXTRA>
+    </MyTimePlotObserver>
+    <MyTimePlotObserver yaxlib:realtype="GoodAI.Core.Observers.MyTimePlotObserver">
+      <ObserverWidth>400</ObserverWidth>
+      <ObserverHeight>200</ObserverHeight>
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1232" Y="334" />
-        <Size Width="272" Height="151" />
+        <Location X="971" Y="700" />
+        <Size Width="674" Height="277" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>13#Output</TargetIdentifier>
-      <m_nbDecimals>2</m_nbDecimals>
-      <m_xStart>0</m_xStart>
-      <m_xLength>1</m_xLength>
-      <m_yStart>0</m_yStart>
-      <m_yLength>3</m_yLength>
-    </MyMatrixObserver>
-    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="1218" Y="496" />
-        <Size Width="301" Height="82" />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>12#Output</TargetIdentifier>
-      <m_nbDecimals>2</m_nbDecimals>
-      <m_xStart>0</m_xStart>
-      <m_xLength>3</m_xLength>
-      <m_yStart>0</m_yStart>
-      <m_yLength>3</m_yLength>
-    </MyMatrixObserver>
+      <BilinearFiltering>True</BilinearFiltering>
+      <TargetIdentifier>58#Output</TargetIdentifier>
+      <m_displayMethod>CYCLE</m_displayMethod>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_boundMin>-0.1</m_boundMin>
+      <m_boundMax>0.8</m_boundMax>
+      <m_manualBoundMin>-1</m_manualBoundMin>
+      <m_manualBoundMax>1</m_manualBoundMax>
+      <m_manualBoundHaveBeenSet>True</m_manualBoundHaveBeenSet>
+      <m_period>1</m_period>
+      <m_delay>0</m_delay>
+      <m_offset>0</m_offset>
+      <m_stride>1</m_stride>
+      <m_count>3</m_count>
+      <COLOR_BACKGROUND>4278190080</COLOR_BACKGROUND>
+      <COLOR_FONT>4294967040</COLOR_FONT>
+      <COLOR_CURVE1>4294934656</COLOR_CURVE1>
+      <COLOR_CURVE2>4286611711</COLOR_CURVE2>
+      <COLOR_CURVE3>4286644096</COLOR_CURVE3>
+      <COLOR_CURVE4>4292927712</COLOR_CURVE4>
+      <COLOR_CURVE5>4294934783</COLOR_CURVE5>
+      <COLOR_CURVE6>4278255615</COLOR_CURVE6>
+      <COLOR_CURVE_EXTRA>4278190080</COLOR_CURVE_EXTRA>
+    </MyTimePlotObserver>
   </Observers>
   <UsedModules>
     <Module Name="GoodAI.BasicNodes.dll" Version="4" />
