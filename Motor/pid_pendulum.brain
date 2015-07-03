@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Name="PID-InvertedPendulum" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+<Project Name="pid_pendulum" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
   <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
     <Children>
       <Controller LoadOnStart="False" SaveOnStop="False" Id="10" Name="Node_10" yaxlib:realtype="GoodAI.Modules.Motor.MyPIDController">
@@ -120,7 +120,7 @@
       <ViewMode>Orbit_3D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="2724" Y="593" />
+        <Location X="985" Y="322" />
         <Size Width="774" Height="648" />
         <CameraData CameraType="Orbit_3D" X="-2.25" Y="55.5" Z="1.969065" />
       </Window>
