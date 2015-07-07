@@ -2,20 +2,19 @@
 <Project Name="Matrix_Addition" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
   <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
     <Children>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="9" Name="Node_9" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
+      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="9" Name="Mat Addition + number" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
         <Behavior>
           <Operation>Addition</Operation>
         </Behavior>
         <DataFolder></DataFolder>
-        <Location X="1154" Y="404" />
+        <Location X="1126" Y="402" />
         <Tasks>
           <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>10</DataInput0>
-            <DataInput1>-1</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="10" Name="Node_10" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
+      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="10" Name="Mat Addition" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
         <Behavior>
           <Operation>Addition</Operation>
         </Behavior>
@@ -24,7 +23,6 @@
         <Tasks>
           <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>-1</DataInput0>
-            <DataInput1>-1</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
@@ -43,7 +41,7 @@
           <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
         </Tasks>
       </MyJoin>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="12" Name="Node_12" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
+      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="12" Name="Mat Addition" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
         <Behavior>
           <Operation>Addition</Operation>
         </Behavior>
@@ -52,11 +50,10 @@
         <Tasks>
           <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>-1</DataInput0>
-            <DataInput1>-1</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
-      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="13" Name="Node_13" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
+      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="13" Name="Row vec." yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
         <IO>
           <OutputSize>3</OutputSize>
         </IO>
@@ -73,7 +70,7 @@
           </Task>
         </Tasks>
       </MyGenerateInput>
-      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="14" Name="Node_14" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
+      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="14" Name="3x3 Matrix" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
         <IO>
           <OutputSize>9</OutputSize>
         </IO>
@@ -90,7 +87,7 @@
           </Task>
         </Tasks>
       </MyGenerateInput>
-      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="15" Name="Node_15" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
+      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="15" Name="Row vec." yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
         <IO>
           <OutputSize>3</OutputSize>
         </IO>
@@ -107,7 +104,7 @@
           </Task>
         </Tasks>
       </MyGenerateInput>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="16" Name="Node_16" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
+      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="16" Name="Mat Addition" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
         <Behavior>
           <Operation>Addition</Operation>
         </Behavior>
@@ -116,11 +113,10 @@
         <Tasks>
           <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>-1</DataInput0>
-            <DataInput1>-1</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
-      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="17" Name="Node_17" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
+      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="17" Name="Number" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
         <IO>
           <OutputSize>1</OutputSize>
         </IO>
@@ -137,7 +133,7 @@
           </Task>
         </Tasks>
       </MyGenerateInput>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="18" Name="Node_18" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
+      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="18" Name="Mat Additon" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
         <Behavior>
           <Operation>Addition</Operation>
         </Behavior>
@@ -146,11 +142,10 @@
         <Tasks>
           <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>-1</DataInput0>
-            <DataInput1>-1</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
-      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="19" Name="Node_19" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
+      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="19" Name="Join Addition" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
         <IO>
           <InputBranches>2</InputBranches>
           <OutputColHint>0</OutputColHint>
@@ -165,7 +160,7 @@
           <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
         </Tasks>
       </MyJoin>
-      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="20" Name="Node_20" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
+      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="20" Name="100x100 Matrix" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
         <SingleOutput>False</SingleOutput>
         <IO>
           <OutputSize>10000</OutputSize>
@@ -192,8 +187,8 @@
         </Tasks>
       </MyRandomNode>
     </Children>
-    <LayoutProperties Zoom="0.7071069">
-      <Translation X="-190" Y="53" />
+    <LayoutProperties Zoom="0.8408964">
+      <Translation X="-299" Y="126" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Output">
@@ -245,8 +240,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1227" Y="232" />
-        <Size Width="312" Height="92" />
+        <Location X="1227" Y="196" />
+        <Size Width="334" Height="83" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -261,8 +256,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1232" Y="334" />
-        <Size Width="272" Height="151" />
+        <Location X="1229" Y="303" />
+        <Size Width="164" Height="98" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -277,8 +272,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1218" Y="496" />
-        <Size Width="301" Height="82" />
+        <Location X="1227" Y="425" />
+        <Size Width="327" Height="83" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>

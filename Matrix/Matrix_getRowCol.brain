@@ -2,7 +2,7 @@
 <Project Name="Matrix_getRowCol" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
   <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
     <Children>
-      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="20" Name="Node_20" yaxlib:realtype="BrainSimulator.Common.MyGenerateInput">
+      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="20" Name="Matrix" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
         <IO>
           <OutputSize>12</OutputSize>
         </IO>
@@ -12,14 +12,14 @@
         <DataFolder></DataFolder>
         <Location X="456" Y="262" />
         <Tasks>
-          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="BrainSimulator.Common.MyGenerateInput+MyTransferTask">
+          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput+MyTransferTask">
             <MinValue>0</MinValue>
             <MaxValue>1</MaxValue>
             <ShiftSpeed>0</ShiftSpeed>
           </Task>
         </Tasks>
       </MyGenerateInput>
-      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="42" Name="Node_42" yaxlib:realtype="BrainSimulator.Common.MyGenerateInput">
+      <MyGenerateInput LoadOnStart="False" SaveOnStop="False" Id="42" Name="Number ID" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput">
         <IO>
           <OutputSize>1</OutputSize>
         </IO>
@@ -27,70 +27,66 @@
         <UserInput>0 1</UserInput>
         <GenerateType>SimulationStepFce</GenerateType>
         <DataFolder></DataFolder>
-        <Location X="433" Y="384" />
+        <Location X="445" Y="387" />
         <Tasks>
-          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="BrainSimulator.Common.MyGenerateInput+MyTransferTask">
+          <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Modules.Common.MyGenerateInput+MyTransferTask">
             <MinValue>0</MinValue>
             <MaxValue>1</MaxValue>
             <ShiftSpeed>0</ShiftSpeed>
           </Task>
         </Tasks>
       </MyGenerateInput>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="55" Name="Node_55" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode">
+      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="55" Name="Node_55" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
         <Behavior>
           <Operation>GetCol</Operation>
         </Behavior>
         <DataFolder></DataFolder>
         <Location X="693" Y="250" />
         <Tasks>
-          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode+MyExecuteTask">
+          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>NaN</DataInput0>
-            <DataInput1>NaN</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="59" Name="Node_59" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode">
+      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="59" Name="Node_59" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
         <Behavior>
           <Operation>GetCol</Operation>
         </Behavior>
         <DataFolder></DataFolder>
         <Location X="700" Y="444" />
         <Tasks>
-          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode+MyExecuteTask">
+          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>1</DataInput0>
-            <DataInput1>NaN</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="63" Name="Node_63" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode">
+      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="63" Name="Node_63" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
         <Behavior>
           <Operation>GetRow</Operation>
         </Behavior>
         <DataFolder></DataFolder>
         <Location X="995" Y="203" />
         <Tasks>
-          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode+MyExecuteTask">
+          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>NaN</DataInput0>
-            <DataInput1>NaN</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
-      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="67" Name="Node_67" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode">
+      <MyMatrixNode LoadOnStart="False" SaveOnStop="False" Id="67" Name="Node_67" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode">
         <Behavior>
           <Operation>GetRow</Operation>
         </Behavior>
         <DataFolder></DataFolder>
-        <Location X="1012" Y="439" />
+        <Location X="1005" Y="436" />
         <Tasks>
-          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="BrainSimulator.Matrix.MyMatrixNode+MyExecuteTask">
+          <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Matrix.MyMatrixNode+MyExecuteTask">
             <DataInput0>1</DataInput0>
-            <DataInput1>NaN</DataInput1>
           </Task>
         </Tasks>
       </MyMatrixNode>
     </Children>
     <LayoutProperties Zoom="0.7071067">
-      <Translation X="-77" Y="42" />
+      <Translation X="-5" Y="42" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Output">
@@ -115,7 +111,7 @@
     </Connections>
     <Tasks />
   </Network>
-  <World LoadOnStart="False" SaveOnStop="False" Id="3" Name="World" yaxlib:realtype="BrainSimulator.Testing.MyTestingWorld">
+  <World LoadOnStart="False" SaveOnStop="False" Id="3" Name="World" yaxlib:realtype="GoodAI.Modules.Testing.MyTestingWorld">
     <IO>
       <OutputSize>1</OutputSize>
       <ColumnHint>1</ColumnHint>
@@ -124,19 +120,19 @@
     </IO>
     <DataFolder></DataFolder>
     <Tasks>
-      <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="BrainSimulator.Testing.MyTestingWorld+MyCUDAGenerateInputTask">
+      <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.Modules.Testing.MyTestingWorld+MyCUDAGenerateInputTask">
         <ExpositionTime>1</ExpositionTime>
         <RandomOrder>False</RandomOrder>
       </Task>
     </Tasks>
   </World>
   <Observers>
-    <MyMatrixObserver yaxlib:realtype="BrainSimulator.Observers.MyMatrixObserver">
+    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="100" Y="100" />
-        <Size Width="300" Height="300" />
+        <Location X="405" Y="389" />
+        <Size Width="425" Height="135" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -147,12 +143,12 @@
       <m_yStart>0</m_yStart>
       <m_yLength>4</m_yLength>
     </MyMatrixObserver>
-    <MyMatrixObserver yaxlib:realtype="BrainSimulator.Observers.MyMatrixObserver">
+    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="515" Y="143" />
-        <Size Width="300" Height="300" />
+        <Location X="534" Y="249" />
+        <Size Width="296" Height="125" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -163,12 +159,12 @@
       <m_yStart>0</m_yStart>
       <m_yLength>1</m_yLength>
     </MyMatrixObserver>
-    <MyMatrixObserver yaxlib:realtype="BrainSimulator.Observers.MyMatrixObserver">
+    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="184" Y="429" />
-        <Size Width="300" Height="300" />
+        <Location X="403" Y="537" />
+        <Size Width="431" Height="57" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -181,7 +177,7 @@
     </MyMatrixObserver>
   </Observers>
   <UsedModules>
-    <Module Name="CustomModels.dll" Version="2" />
-    <Module Name="BrainSimulator.dll" Version="8" />
+    <Module Name="GoodAI.BasicNodes.dll" Version="4" />
+    <Module Name="GoodAI.Platform.Core.dll" Version="9" />
   </UsedModules>
 </Project>
