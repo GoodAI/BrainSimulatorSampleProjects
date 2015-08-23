@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Name="SoundWorldExample FFT" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+  <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
+    <Children>
+      <PolynomialFunction LoadOnStart="False" SaveOnStop="False" Id="29" Name="Node_29" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction">
+        <DataFolder></DataFolder>
+        <Location X="245.0346" Y="96.38097" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="DoTransform" yaxlib:realtype="GoodAI.Modules.Transforms.MyPolynomialFunction+MyPolynomialFunctionTask">
+            <Params A3="0" A2="0" A1="1" A0="0" />
+          </Task>
+        </Tasks>
+      </PolynomialFunction>
+    </Children>
+    <LayoutProperties Zoom="0.9611018">
+      <Translation X="42" Y="-40" />
+    </LayoutProperties>
+    <GroupInputNodes>
+      <MyParentInput ParentInputIndex="0" Id="1" Name="Features">
+        <Location X="50" Y="100" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="1" Id="14" Name="Label">
+        <Location X="50" Y="250" />
+      </MyParentInput>
+    </GroupInputNodes>
+    <GroupOutputNodes />
+    <DataFolder></DataFolder>
+    <Connections>
+      <Connection From="1" To="29" FromIndex="0" ToIndex="0" />
+    </Connections>
+    <Tasks />
+  </Network>
+  <World LoadOnStart="False" SaveOnStop="False" Id="13" Name="World" yaxlib:realtype="GoodAI.SoundWorld.MySoundWorld">
+    <UserDefinedAudio></UserDefinedAudio>
+    <InputPathCorpus></InputPathCorpus>
+    <IO>
+      <InputType>SampleSound</InputType>
+      <MicrophoneDevice>-1</MicrophoneDevice>
+      <RecordSeconds>3</RecordSeconds>
+    </IO>
+    <Features>
+      <FeaturesCount>256</FeaturesCount>
+      <FeaturesType>FFT</FeaturesType>
+    </Features>
+    <DataFolder></DataFolder>
+    <m_InputPathAudio></m_InputPathAudio>
+    <m_InputPathCorpus></m_InputPathCorpus>
+    <m_FeaturesType>FFT</m_FeaturesType>
+    <m_UserInput>SampleSound</m_UserInput>
+    <Tasks>
+      <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.SoundWorld.MySoundWorld+MyCUDAGenerateInputTask">
+        <ExpositionTime>1</ExpositionTime>
+      </Task>
+    </Tasks>
+  </World>
+  <Observers>
+    <MySpikeRasterObserver yaxlib:realtype="GoodAI.Core.Observers.MySpikeRasterObserver">
+      <Structure>
+        <CustomCount>-1</CustomCount>
+        <Offset>0</Offset>
+        <NumberOfSteps>1000</NumberOfSteps>
+        <GridStep>10</GridStep>
+      </Structure>
+      <MinValue>0</MinValue>
+      <MaxValue>65535</MaxValue>
+      <Method>ColorScale</Method>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="207" Y="468" />
+        <Size Width="1080" Height="320" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>13#Features</TargetIdentifier>
+      <MARKER_COLOR>4294967168</MARKER_COLOR>
+      <BACKGROUND_COLOR_1>4280295456</BACKGROUND_COLOR_1>
+      <BACKGROUND_COLOR_2>4278190080</BACKGROUND_COLOR_2>
+      <GRID_COLOR>4283979864</GRID_COLOR>
+    </MySpikeRasterObserver>
+    <MyTextObserver yaxlib:realtype="GoodAI.Core.Observers.MyTextObserver">
+      <MaxRows>16</MaxRows>
+      <MaxLineLength>80</MaxLineLength>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="366" Y="3" />
+        <Size Width="873" Height="463" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>13#Label</TargetIdentifier>
+      <m_Rows>16</m_Rows>
+      <m_Cols>80</m_Cols>
+      <BACKGROUND>0</BACKGROUND>
+    </MyTextObserver>
+  </Observers>
+  <UsedModules>
+    <Module Name="GoodAI.Platform.Core.dll" Version="9" />
+    <Module Name="GoodAI.SoundWorld.dll" Version="1" />
+  </UsedModules>
+</Project>
