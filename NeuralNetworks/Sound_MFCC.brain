@@ -24,7 +24,7 @@
             </Tasks>
           </MyOutputLayer>
           <MyLSTMLayer LoadOnStart="False" SaveOnStop="False" Id="47" Name="Node_47" yaxlib:realtype="GoodAI.Modules.LSTM.MyLSTMLayer">
-            <MemoryBlocks>64</MemoryBlocks>
+            <MemoryBlocks>256</MemoryBlocks>
             <CellsPerBlock>1</CellsPerBlock>
             <ActivationFunction>GAUSSIAN</ActivationFunction>
             <OutputColumnHint>1</OutputColumnHint>
@@ -112,8 +112,6 @@
     <InputPathCorpus></InputPathCorpus>
     <IO>
       <InputType>SampleSound</InputType>
-      <MicrophoneDevice>-1</MicrophoneDevice>
-      <RecordSeconds>3</RecordSeconds>
     </IO>
     <Features>
       <FeaturesCount>13</FeaturesCount>
@@ -144,8 +142,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="278" Y="76" />
-        <Size Width="954" Height="101" />
+        <Location X="277" Y="94" />
+        <Size Width="956" Height="101" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -161,7 +159,7 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="419" Y="400" />
+        <Location X="252" Y="189" />
         <Size Width="779" Height="425" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
@@ -175,7 +173,7 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="256" Y="500" />
+        <Location X="297" Y="487" />
         <Size Width="156" Height="300" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
@@ -200,8 +198,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="419" Y="400" />
-        <Size Width="779" Height="425" />
+        <Location X="1216" Y="372" />
+        <Size Width="317" Height="425" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -217,7 +215,7 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="419" Y="400" />
+        <Location X="447" Y="371" />
         <Size Width="779" Height="425" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>

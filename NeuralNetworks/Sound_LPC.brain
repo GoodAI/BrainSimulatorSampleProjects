@@ -24,7 +24,7 @@
             </Tasks>
           </MyOutputLayer>
           <MyLSTMLayer LoadOnStart="False" SaveOnStop="False" Id="44" Name="Node_44" yaxlib:realtype="GoodAI.Modules.LSTM.MyLSTMLayer">
-            <MemoryBlocks>64</MemoryBlocks>
+            <MemoryBlocks>512</MemoryBlocks>
             <CellsPerBlock>1</CellsPerBlock>
             <ActivationFunction>GAUSSIAN</ActivationFunction>
             <OutputColumnHint>1</OutputColumnHint>
@@ -62,11 +62,11 @@
         <Location X="454" Y="132" />
         <Tasks>
           <Task Enabled="False" PropertyName="SGD" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MySGDTask">
-            <TrainingRate>0.01</TrainingRate>
+            <TrainingRate>0.1</TrainingRate>
             <Momentum>0</Momentum>
           </Task>
           <Task Enabled="True" PropertyName="RMS" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyRMSTask">
-            <TrainingRate>0.0025</TrainingRate>
+            <TrainingRate>0.01</TrainingRate>
             <Momentum>0</Momentum>
             <SmoothingFactor>0.9</SmoothingFactor>
           </Task>
@@ -112,8 +112,6 @@
     <InputPathCorpus></InputPathCorpus>
     <IO>
       <InputType>SampleSound</InputType>
-      <MicrophoneDevice>-1</MicrophoneDevice>
-      <RecordSeconds>3</RecordSeconds>
     </IO>
     <Features>
       <FeaturesCount>10</FeaturesCount>
@@ -144,8 +142,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="251" Y="50" />
-        <Size Width="1034" Height="121" />
+        <Location X="1811" Y="95" />
+        <Size Width="1034" Height="94" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -161,8 +159,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="500" Y="389" />
-        <Size Width="747" Height="417" />
+        <Location X="1741" Y="183" />
+        <Size Width="764" Height="417" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -175,8 +173,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="289" Y="536" />
-        <Size Width="175" Height="284" />
+        <Location X="1724" Y="594" />
+        <Size Width="224" Height="270" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -185,7 +183,7 @@
       <m_xStart>0</m_xStart>
       <m_xLength>1</m_xLength>
       <m_yStart>0</m_yStart>
-      <m_yLength>13</m_yLength>
+      <m_yLength>10</m_yLength>
     </MyMatrixObserver>
     <MySpikeRasterObserver yaxlib:realtype="GoodAI.Core.Observers.MySpikeRasterObserver">
       <Structure>
@@ -200,8 +198,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="500" Y="389" />
-        <Size Width="747" Height="417" />
+        <Location X="2705" Y="425" />
+        <Size Width="307" Height="417" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -217,8 +215,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="500" Y="389" />
-        <Size Width="747" Height="417" />
+        <Location X="1939" Y="434" />
+        <Size Width="776" Height="426" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
