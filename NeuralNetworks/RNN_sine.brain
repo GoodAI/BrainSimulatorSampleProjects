@@ -19,6 +19,7 @@
           </Task>
           <Task Enabled="False" PropertyName="CopyInput" yaxlib:realtype="GoodAI.Modules.Transforms.MyAccumulator+MyQuantizedCopyTask">
             <TimePeriod>10</TimePeriod>
+            <TimeOffset>0</TimeOffset>
           </Task>
         </Tasks>
       </Accumulator>
@@ -95,12 +96,8 @@
         <ACTIVATION_FUNCTION>SIGMOID</ACTIVATION_FUNCTION>
         <Structure>
           <INPUT_UNITS>1</INPUT_UNITS>
-          <HIDDEN_UNITS>10</HIDDEN_UNITS>
+          <HIDDEN_UNITS>16</HIDDEN_UNITS>
           <OUTPUT_UNITS>1</OUTPUT_UNITS>
-          <UNITS>13</UNITS>
-          <HIDDEN_UNIT_WEIGHTS>120</HIDDEN_UNIT_WEIGHTS>
-          <OUTPUT_UNIT_WEIGHTS>11</OUTPUT_UNIT_WEIGHTS>
-          <WEIGHTS>131</WEIGHTS>
         </Structure>
         <DataFolder></DataFolder>
         <Location X="1116" Y="215" />
@@ -109,15 +106,15 @@
           <Task Enabled="True" PropertyName="Feedforward" yaxlib:realtype="GoodAI.Modules.Motor.MyRecurrentNetwork+MyFeedforwardTask" />
           <Task Enabled="True" PropertyName="RTRL" yaxlib:realtype="GoodAI.Modules.Motor.MyRecurrentNetwork+MyRTRLTask">
             <Structure>
-              <LEARNING_RATE>0.3</LEARNING_RATE>
-              <MOMENTUM_RATE>0.5</MOMENTUM_RATE>
+              <LEARNING_RATE>0.5</LEARNING_RATE>
+              <MOMENTUM_RATE>0</MOMENTUM_RATE>
             </Structure>
           </Task>
         </Tasks>
       </RecurrentNetwork>
     </Children>
-    <LayoutProperties Zoom="0.7071068">
-      <Translation X="-223" Y="-167" />
+    <LayoutProperties Zoom="0.7071067">
+      <Translation X="-152" Y="-140" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Output">
@@ -234,7 +231,7 @@
     </MySpikeRasterObserver>
   </Observers>
   <UsedModules>
-    <Module Name="GoodAI.BasicNodes.dll" Version="4" />
+    <Module Name="GoodAI.BasicNodes.dll" Version="6" />
     <Module Name="GoodAI.Platform.Core.dll" Version="9" />
   </UsedModules>
 </Project>

@@ -19,6 +19,7 @@
           </Task>
           <Task Enabled="False" PropertyName="CopyInput" yaxlib:realtype="GoodAI.Modules.Transforms.MyAccumulator+MyQuantizedCopyTask">
             <TimePeriod>10</TimePeriod>
+            <TimeOffset>0</TimeOffset>
           </Task>
         </Tasks>
       </Accumulator>
@@ -97,19 +98,25 @@
         <Dropout>0</Dropout>
         <Children>
           <MyLSTMLayer LoadOnStart="False" SaveOnStop="False" Id="16" Name="Node_16" yaxlib:realtype="GoodAI.Modules.LSTM.MyLSTMLayer">
+            <InputActivationFunction>TANH</InputActivationFunction>
+            <GateActivationFunction>SIGMOID</GateActivationFunction>
             <MemoryBlocks>8</MemoryBlocks>
             <CellsPerBlock>1</CellsPerBlock>
-            <ActivationFunction>SIGMOID</ActivationFunction>
             <OutputColumnHint>1</OutputColumnHint>
             <DataFolder></DataFolder>
             <Location X="255" Y="101" />
             <Tasks>
-              <Task Enabled="True" PropertyName="initLayerTask" yaxlib:realtype="GoodAI.Modules.LSTM.Tasks.MyLSTMInitLayerTask" />
+              <Task Enabled="True" PropertyName="initLayerTask" yaxlib:realtype="GoodAI.Modules.LSTM.Tasks.MyLSTMInitLayerTask">
+                <INIT_WEIGHTS_STDDEV>0.25</INIT_WEIGHTS_STDDEV>
+              </Task>
               <Task Enabled="True" PropertyName="partialDerivativesTask" yaxlib:realtype="GoodAI.Modules.LSTM.Tasks.MyLSTMPartialDerivativesTask" />
-              <Task Enabled="True" PropertyName="deltaTask" yaxlib:realtype="GoodAI.Modules.LSTM.Tasks.MyLSTMDeltaTask" />
-              <Task Enabled="True" PropertyName="updateWeightsTask" yaxlib:realtype="GoodAI.Modules.LSTM.Tasks.MyLSTMUpdateWeightsTask" />
-              <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="GoodAI.Modules.LSTM.Tasks.MyLSTMFeedForwardTask" />
-              <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.LSTM.Tasks.MyLSTMDummyDeltaTask" />
+              <Task Enabled="True" PropertyName="updateWeightsTask" yaxlib:realtype="GoodAI.Modules.LSTM.Tasks.MyLSTMUpdateWeightsTask">
+                <CLIP_GRADIENT>0</CLIP_GRADIENT>
+              </Task>
+              <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="GoodAI.Modules.LSTM.Tasks.MyLSTMFeedForwardTask">
+                <CLIP_CELL_STATE>2</CLIP_CELL_STATE>
+              </Task>
+              <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.LSTM.Tasks.MyLSTMDeltaTask" />
             </Tasks>
           </MyLSTMLayer>
           <MyOutputLayer LoadOnStart="False" SaveOnStop="False" Id="17" Name="Node_17" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyOutputLayer">
@@ -125,6 +132,7 @@
               <Task Enabled="True" PropertyName="CreateDropoutMask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
               <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCForwardTask" />
               <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
+              <Task Enabled="False" PropertyName="CrossEntropy" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCrossEntropyLossTask" />
             </Tasks>
           </MyOutputLayer>
         </Children>
@@ -145,8 +153,8 @@
         <Location X="1098" Y="299" />
         <Tasks>
           <Task Enabled="True" PropertyName="SGD" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MySGDTask">
-            <TrainingRate>0.1</TrainingRate>
-            <Momentum>0.2</Momentum>
+            <TrainingRate>0.5</TrainingRate>
+            <Momentum>0</Momentum>
           </Task>
           <Task Enabled="False" PropertyName="RMS" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyRMSTask">
             <TrainingRate>0.0025</TrainingRate>
@@ -159,6 +167,10 @@
             <SamplesPerTimestep>1</SamplesPerTimestep>
             <ThresholdRelative>0.001</ThresholdRelative>
             <ThresholdAbsolute>0.0001</ThresholdAbsolute>
+          </Task>
+          <Task Enabled="False" PropertyName="Adadelta" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyAdadeltaTask">
+            <Epsilon>1E-06</Epsilon>
+            <Ro>0.95</Ro>
           </Task>
         </Tasks>
       </Group>
@@ -309,7 +321,7 @@
     </MySpikeRasterObserver>
   </Observers>
   <UsedModules>
-    <Module Name="GoodAI.BasicNodes.dll" Version="4" />
+    <Module Name="GoodAI.BasicNodes.dll" Version="6" />
     <Module Name="GoodAI.Platform.Core.dll" Version="9" />
   </UsedModules>
 </Project>
