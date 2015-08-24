@@ -24,12 +24,12 @@
             </Tasks>
           </MyOutputLayer>
           <MyLSTMLayer LoadOnStart="False" SaveOnStop="False" Id="44" Name="Node_44" yaxlib:realtype="GoodAI.Modules.LSTM.MyLSTMLayer">
-            <MemoryBlocks>512</MemoryBlocks>
+            <MemoryBlocks>256</MemoryBlocks>
             <CellsPerBlock>1</CellsPerBlock>
             <ActivationFunction>GAUSSIAN</ActivationFunction>
             <OutputColumnHint>1</OutputColumnHint>
             <DataFolder></DataFolder>
-            <Location X="294" Y="99" />
+            <Location X="259" Y="38" />
             <Tasks>
               <Task Enabled="True" PropertyName="initLayerTask" yaxlib:realtype="GoodAI.Modules.LSTM.Tasks.MyLSTMInitLayerTask">
                 <INIT_WEIGHTS_STDDEV>0.05</INIT_WEIGHTS_STDDEV>
@@ -44,7 +44,24 @@
               <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.LSTM.Tasks.MyLSTMDeltaTask" />
             </Tasks>
           </MyLSTMLayer>
+          <MyHiddenLayer LoadOnStart="False" SaveOnStop="False" Id="50" Name="Node_50" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyHiddenLayer">
+            <ActivationFunction>TANH</ActivationFunction>
+            <Neurons>128</Neurons>
+            <OutputColumnHint>1</OutputColumnHint>
+            <DataFolder></DataFolder>
+            <Location X="499.9041" Y="35.10814" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
+              <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyInitWeightsTask" />
+              <Task Enabled="True" PropertyName="CreateDropoutMask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
+              <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCForwardTask" />
+              <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
+            </Tasks>
+          </MyHiddenLayer>
         </Children>
+        <LayoutProperties Zoom="0.8513131">
+          <Translation X="0" Y="157" />
+        </LayoutProperties>
         <GroupInputNodes>
           <MyParentInput ParentInputIndex="0" Id="31" Name="Input">
             <Location X="50" Y="100" />
@@ -62,7 +79,7 @@
         <Location X="454" Y="132" />
         <Tasks>
           <Task Enabled="False" PropertyName="SGD" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MySGDTask">
-            <TrainingRate>0.1</TrainingRate>
+            <TrainingRate>0.01</TrainingRate>
             <Momentum>0</Momentum>
           </Task>
           <Task Enabled="True" PropertyName="RMS" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyRMSTask">
@@ -84,8 +101,8 @@
         </Tasks>
       </Group>
     </Children>
-    <LayoutProperties Zoom="0.9611018">
-      <Translation X="42" Y="-40" />
+    <LayoutProperties Zoom="0.8941537">
+      <Translation X="444" Y="17" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Features">
@@ -101,9 +118,10 @@
       <Connection From="1" To="30" FromIndex="0" ToIndex="0" />
       <Connection From="14" To="30" FromIndex="0" ToIndex="1" />
       <Connection From="36" To="33" FromIndex="0" ToIndex="0" />
-      <Connection From="44" To="36" FromIndex="0" ToIndex="0" />
+      <Connection From="50" To="36" FromIndex="0" ToIndex="0" />
       <Connection From="32" To="36" FromIndex="0" ToIndex="1" />
       <Connection From="31" To="44" FromIndex="0" ToIndex="0" />
+      <Connection From="44" To="50" FromIndex="0" ToIndex="0" />
     </Connections>
     <Tasks />
   </Network>
@@ -114,7 +132,7 @@
       <InputType>SampleSound</InputType>
     </IO>
     <Features>
-      <FeaturesCount>10</FeaturesCount>
+      <FeaturesCount>13</FeaturesCount>
       <FeaturesType>LPC</FeaturesType>
     </Features>
     <DataFolder></DataFolder>
@@ -142,8 +160,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1811" Y="95" />
-        <Size Width="1034" Height="94" />
+        <Location X="294" Y="93" />
+        <Size Width="858" Height="94" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -159,32 +177,32 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1741" Y="183" />
-        <Size Width="764" Height="417" />
+        <Location X="282" Y="185" />
+        <Size Width="776" Height="417" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
+      <BilinearFiltering>True</BilinearFiltering>
       <TargetIdentifier>13#Label</TargetIdentifier>
       <m_Rows>16</m_Rows>
       <m_Cols>80</m_Cols>
       <BACKGROUND>0</BACKGROUND>
     </MyTextObserver>
-    <MyMatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MyMatrixObserver">
+    <MyTextObserver yaxlib:realtype="GoodAI.Core.Observers.MyTextObserver">
+      <MaxRows>16</MaxRows>
+      <MaxLineLength>80</MaxLineLength>
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1724" Y="594" />
-        <Size Width="224" Height="270" />
+        <Location X="414" Y="435" />
+        <Size Width="794" Height="429" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>13#Features</TargetIdentifier>
-      <m_nbDecimals>2</m_nbDecimals>
-      <m_xStart>0</m_xStart>
-      <m_xLength>1</m_xLength>
-      <m_yStart>0</m_yStart>
-      <m_yLength>10</m_yLength>
-    </MyMatrixObserver>
+      <BilinearFiltering>True</BilinearFiltering>
+      <TargetIdentifier>36#Output</TargetIdentifier>
+      <m_Rows>16</m_Rows>
+      <m_Cols>80</m_Cols>
+      <BACKGROUND>0</BACKGROUND>
+    </MyTextObserver>
     <MySpikeRasterObserver yaxlib:realtype="GoodAI.Core.Observers.MySpikeRasterObserver">
       <Structure>
         <CustomCount>-1</CustomCount>
@@ -198,8 +216,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="2705" Y="425" />
-        <Size Width="307" Height="417" />
+        <Location X="1324" Y="446" />
+        <Size Width="208" Height="300" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -209,22 +227,6 @@
       <BACKGROUND_COLOR_2>4278190080</BACKGROUND_COLOR_2>
       <GRID_COLOR>4283979864</GRID_COLOR>
     </MySpikeRasterObserver>
-    <MyTextObserver yaxlib:realtype="GoodAI.Core.Observers.MyTextObserver">
-      <MaxRows>16</MaxRows>
-      <MaxLineLength>80</MaxLineLength>
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="1939" Y="434" />
-        <Size Width="776" Height="426" />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>36#Output</TargetIdentifier>
-      <m_Rows>16</m_Rows>
-      <m_Cols>80</m_Cols>
-      <BACKGROUND>0</BACKGROUND>
-    </MyTextObserver>
   </Observers>
   <UsedModules>
     <Module Name="GoodAI.BasicNodes.dll" Version="5" />
