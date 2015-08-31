@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Name="Sound_LPC" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+  <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
+    <Children>
+      <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="30" Name="Node_30" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyNeuralNetworkGroup">
+        <L1>0</L1>
+        <L2>0</L2>
+        <Dropout>0</Dropout>
+        <Children>
+          <MyOutputLayer LoadOnStart="False" SaveOnStop="False" Id="36" Name="Node_36" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyOutputLayer">
+            <Neurons>95</Neurons>
+            <ActivationFunction>SIGMOID</ActivationFunction>
+            <OutputColumnHint>1</OutputColumnHint>
+            <DataFolder></DataFolder>
+            <Location X="679" Y="86" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="SquaredLoss" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MySquaredLossTask" />
+              <Task Enabled="False" PropertyName="CrossEntropy" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCrossEntropyLossTask" />
+              <Task Enabled="True" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
+              <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyInitWeightsTask" />
+              <Task Enabled="True" PropertyName="CreateDropoutMask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
+              <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCForwardTask" />
+              <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
+            </Tasks>
+          </MyOutputLayer>
+          <MyLSTMLayer LoadOnStart="False" SaveOnStop="False" Id="44" Name="Node_44" yaxlib:realtype="GoodAI.Modules.LSTM.MyLSTMLayer">
+            <MemoryBlocks>256</MemoryBlocks>
+            <CellsPerBlock>1</CellsPerBlock>
+            <ActivationFunction>GAUSSIAN</ActivationFunction>
+            <OutputColumnHint>1</OutputColumnHint>
+            <DataFolder></DataFolder>
+            <Location X="259" Y="38" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="initLayerTask" yaxlib:realtype="GoodAI.Modules.LSTM.Tasks.MyLSTMInitLayerTask">
+                <INIT_WEIGHTS_STDDEV>0.05</INIT_WEIGHTS_STDDEV>
+              </Task>
+              <Task Enabled="True" PropertyName="partialDerivativesTask" yaxlib:realtype="GoodAI.Modules.LSTM.Tasks.MyLSTMPartialDerivativesTask" />
+              <Task Enabled="True" PropertyName="updateWeightsTask" yaxlib:realtype="GoodAI.Modules.LSTM.Tasks.MyLSTMUpdateWeightsTask">
+                <CLIP_GRADIENT>0</CLIP_GRADIENT>
+              </Task>
+              <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="GoodAI.Modules.LSTM.Tasks.MyLSTMFeedForwardTask">
+                <CLIP_CELL_STATE>0</CLIP_CELL_STATE>
+              </Task>
+              <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.LSTM.Tasks.MyLSTMDeltaTask" />
+            </Tasks>
+          </MyLSTMLayer>
+          <MyHiddenLayer LoadOnStart="False" SaveOnStop="False" Id="50" Name="Node_50" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyHiddenLayer">
+            <ActivationFunction>TANH</ActivationFunction>
+            <Neurons>128</Neurons>
+            <OutputColumnHint>1</OutputColumnHint>
+            <DataFolder></DataFolder>
+            <Location X="499.9041" Y="35.10814" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
+              <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyInitWeightsTask" />
+              <Task Enabled="True" PropertyName="CreateDropoutMask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
+              <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCForwardTask" />
+              <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
+            </Tasks>
+          </MyHiddenLayer>
+        </Children>
+        <LayoutProperties Zoom="0.8513131">
+          <Translation X="0" Y="157" />
+        </LayoutProperties>
+        <GroupInputNodes>
+          <MyParentInput ParentInputIndex="0" Id="31" Name="Input">
+            <Location X="50" Y="100" />
+          </MyParentInput>
+          <MyParentInput ParentInputIndex="1" Id="32" Name="Target">
+            <Location X="50" Y="250" />
+          </MyParentInput>
+        </GroupInputNodes>
+        <GroupOutputNodes>
+          <MyOutput Id="33" Name="Output">
+            <Location X="908" Y="179" />
+          </MyOutput>
+        </GroupOutputNodes>
+        <DataFolder></DataFolder>
+        <Location X="454" Y="132" />
+        <Tasks>
+          <Task Enabled="False" PropertyName="SGD" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MySGDTask">
+            <TrainingRate>0.01</TrainingRate>
+            <Momentum>0</Momentum>
+          </Task>
+          <Task Enabled="True" PropertyName="RMS" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyRMSTask">
+            <TrainingRate>0.01</TrainingRate>
+            <Momentum>0</Momentum>
+            <SmoothingFactor>0.9</SmoothingFactor>
+          </Task>
+          <Task Enabled="False" PropertyName="Adadelta" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyAdadeltaTask">
+            <Epsilon>1E-06</Epsilon>
+            <Ro>0.95</Ro>
+          </Task>
+          <Task Enabled="True" PropertyName="InitGroup" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyInitNNGroupTask" />
+          <Task Enabled="False" PropertyName="GradientCheck" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyGradientCheckTask">
+            <RelativeStepSize>0.1</RelativeStepSize>
+            <SamplesPerTimestep>1</SamplesPerTimestep>
+            <ThresholdRelative>0.001</ThresholdRelative>
+            <ThresholdAbsolute>0.0001</ThresholdAbsolute>
+          </Task>
+        </Tasks>
+      </Group>
+    </Children>
+    <LayoutProperties Zoom="0.8941537">
+      <Translation X="444" Y="17" />
+    </LayoutProperties>
+    <GroupInputNodes>
+      <MyParentInput ParentInputIndex="0" Id="1" Name="Features">
+        <Location X="50" Y="100" />
+      </MyParentInput>
+      <MyParentInput ParentInputIndex="1" Id="14" Name="Label">
+        <Location X="50" Y="250" />
+      </MyParentInput>
+    </GroupInputNodes>
+    <GroupOutputNodes />
+    <DataFolder></DataFolder>
+    <Connections>
+      <Connection From="1" To="30" FromIndex="0" ToIndex="0" />
+      <Connection From="14" To="30" FromIndex="0" ToIndex="1" />
+      <Connection From="36" To="33" FromIndex="0" ToIndex="0" />
+      <Connection From="50" To="36" FromIndex="0" ToIndex="0" />
+      <Connection From="32" To="36" FromIndex="0" ToIndex="1" />
+      <Connection From="31" To="44" FromIndex="0" ToIndex="0" />
+      <Connection From="44" To="50" FromIndex="0" ToIndex="0" />
+    </Connections>
+    <Tasks />
+  </Network>
+  <World LoadOnStart="False" SaveOnStop="False" Id="13" Name="World" yaxlib:realtype="GoodAI.SoundWorld.MySoundWorld">
+    <UserDefinedAudio></UserDefinedAudio>
+    <InputPathCorpus></InputPathCorpus>
+    <IO>
+      <InputType>SampleSound</InputType>
+    </IO>
+    <Features>
+      <FeaturesCount>13</FeaturesCount>
+      <FeaturesType>LPC</FeaturesType>
+    </Features>
+    <DataFolder></DataFolder>
+    <m_InputPathAudio></m_InputPathAudio>
+    <m_InputPathCorpus></m_InputPathCorpus>
+    <m_FeaturesType>LPC</m_FeaturesType>
+    <m_UserInput>SampleSound</m_UserInput>
+    <Tasks>
+      <Task Enabled="True" PropertyName="GenerateInput" yaxlib:realtype="GoodAI.SoundWorld.MySoundWorld+MyCUDAGenerateInputTask">
+        <ExpositionTime>1</ExpositionTime>
+      </Task>
+    </Tasks>
+  </World>
+  <Observers>
+    <MySpikeRasterObserver yaxlib:realtype="GoodAI.Core.Observers.MySpikeRasterObserver">
+      <Structure>
+        <CustomCount>-1</CustomCount>
+        <Offset>0</Offset>
+        <NumberOfSteps>200</NumberOfSteps>
+        <GridStep>20</GridStep>
+      </Structure>
+      <MinValue>-1</MinValue>
+      <MaxValue>5</MaxValue>
+      <Method>RedGreenScale</Method>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="294" Y="93" />
+        <Size Width="858" Height="94" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>13#Features</TargetIdentifier>
+      <MARKER_COLOR>4294967168</MARKER_COLOR>
+      <BACKGROUND_COLOR_1>4280295456</BACKGROUND_COLOR_1>
+      <BACKGROUND_COLOR_2>4278190080</BACKGROUND_COLOR_2>
+      <GRID_COLOR>4283979864</GRID_COLOR>
+    </MySpikeRasterObserver>
+    <MyTextObserver yaxlib:realtype="GoodAI.Core.Observers.MyTextObserver">
+      <MaxRows>16</MaxRows>
+      <MaxLineLength>80</MaxLineLength>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="282" Y="185" />
+        <Size Width="776" Height="417" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>True</BilinearFiltering>
+      <TargetIdentifier>13#Label</TargetIdentifier>
+      <m_Rows>16</m_Rows>
+      <m_Cols>80</m_Cols>
+      <BACKGROUND>0</BACKGROUND>
+    </MyTextObserver>
+    <MyTextObserver yaxlib:realtype="GoodAI.Core.Observers.MyTextObserver">
+      <MaxRows>16</MaxRows>
+      <MaxLineLength>80</MaxLineLength>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="414" Y="435" />
+        <Size Width="794" Height="429" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>True</BilinearFiltering>
+      <TargetIdentifier>36#Output</TargetIdentifier>
+      <m_Rows>16</m_Rows>
+      <m_Cols>80</m_Cols>
+      <BACKGROUND>0</BACKGROUND>
+    </MyTextObserver>
+    <MySpikeRasterObserver yaxlib:realtype="GoodAI.Core.Observers.MySpikeRasterObserver">
+      <Structure>
+        <CustomCount>-1</CustomCount>
+        <Offset>0</Offset>
+        <NumberOfSteps>200</NumberOfSteps>
+        <GridStep>20</GridStep>
+      </Structure>
+      <MinValue>0</MinValue>
+      <MaxValue>1</MaxValue>
+      <Method>RedGreenScale</Method>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1324" Y="446" />
+        <Size Width="208" Height="300" />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>44#Output</TargetIdentifier>
+      <MARKER_COLOR>4294967168</MARKER_COLOR>
+      <BACKGROUND_COLOR_1>4280295456</BACKGROUND_COLOR_1>
+      <BACKGROUND_COLOR_2>4278190080</BACKGROUND_COLOR_2>
+      <GRID_COLOR>4283979864</GRID_COLOR>
+    </MySpikeRasterObserver>
+  </Observers>
+  <UsedModules>
+    <Module Name="GoodAI.BasicNodes.dll" Version="5" />
+    <Module Name="GoodAI.Platform.Core.dll" Version="9" />
+    <Module Name="GoodAI.SoundWorld.dll" Version="1" />
+  </UsedModules>
+</Project>
