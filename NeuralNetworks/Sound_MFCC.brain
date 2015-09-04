@@ -24,9 +24,10 @@
             </Tasks>
           </MyOutputLayer>
           <MyLSTMLayer LoadOnStart="False" SaveOnStop="False" Id="53" Name="Node_44" yaxlib:realtype="GoodAI.Modules.LSTM.MyLSTMLayer">
+            <InputActivationFunction>GAUSSIAN</InputActivationFunction>
+            <GateActivationFunction>SIGMOID</GateActivationFunction>
             <MemoryBlocks>256</MemoryBlocks>
             <CellsPerBlock>1</CellsPerBlock>
-            <ActivationFunction>GAUSSIAN</ActivationFunction>
             <OutputColumnHint>1</OutputColumnHint>
             <DataFolder></DataFolder>
             <Location X="259" Y="38" />
@@ -81,15 +82,18 @@
           <Task Enabled="False" PropertyName="SGD" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MySGDTask">
             <TrainingRate>0.01</TrainingRate>
             <Momentum>0</Momentum>
+            <BatchSize>1</BatchSize>
           </Task>
           <Task Enabled="True" PropertyName="RMS" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyRMSTask">
             <TrainingRate>0.01</TrainingRate>
             <Momentum>0</Momentum>
             <SmoothingFactor>0.9</SmoothingFactor>
+            <BatchSize>1</BatchSize>
           </Task>
           <Task Enabled="False" PropertyName="Adadelta" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyAdadeltaTask">
             <Epsilon>1E-06</Epsilon>
             <Ro>0.95</Ro>
+            <BatchSize>1</BatchSize>
           </Task>
           <Task Enabled="True" PropertyName="InitGroup" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyInitNNGroupTask" />
           <Task Enabled="False" PropertyName="GradientCheck" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyGradientCheckTask">
@@ -100,9 +104,30 @@
           </Task>
         </Tasks>
       </Group>
+      <Accumulator LoadOnStart="False" SaveOnStop="False" Id="55" Name="Delay" yaxlib:realtype="GoodAI.Modules.Transforms.MyAccumulator">
+        <DelayMemorySize>1</DelayMemorySize>
+        <DataFolder></DataFolder>
+        <Location X="205" Y="237" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="ShiftData" yaxlib:realtype="GoodAI.Modules.Transforms.MyAccumulator+MyShiftDataTask">
+            <UseFirstInput>True</UseFirstInput>
+            <InitialValue>0</InitialValue>
+          </Task>
+          <Task Enabled="False" PropertyName="ApproachValue" yaxlib:realtype="GoodAI.Modules.Transforms.MyAccumulator+MyApproachValueTask">
+            <ApproachMethod>Geometric</ApproachMethod>
+            <Factor>0.9</Factor>
+            <Delta>0.1</Delta>
+            <Target>0</Target>
+          </Task>
+          <Task Enabled="False" PropertyName="CopyInput" yaxlib:realtype="GoodAI.Modules.Transforms.MyAccumulator+MyQuantizedCopyTask">
+            <TimePeriod>10</TimePeriod>
+            <TimeOffset>0</TimeOffset>
+          </Task>
+        </Tasks>
+      </Accumulator>
     </Children>
-    <LayoutProperties Zoom="0.9611018">
-      <Translation X="42" Y="-40" />
+    <LayoutProperties Zoom="1.0788">
+      <Translation X="450" Y="-62" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Features">
@@ -116,12 +141,13 @@
     <DataFolder></DataFolder>
     <Connections>
       <Connection From="1" To="48" FromIndex="0" ToIndex="0" />
-      <Connection From="14" To="48" FromIndex="0" ToIndex="1" />
+      <Connection From="55" To="48" FromIndex="0" ToIndex="1" />
       <Connection From="52" To="51" FromIndex="0" ToIndex="0" />
       <Connection From="54" To="52" FromIndex="0" ToIndex="0" />
       <Connection From="50" To="52" FromIndex="0" ToIndex="1" />
       <Connection From="49" To="53" FromIndex="0" ToIndex="0" />
       <Connection From="53" To="54" FromIndex="0" ToIndex="0" />
+      <Connection From="14" To="55" FromIndex="0" ToIndex="0" />
     </Connections>
     <Tasks />
   </Network>
@@ -177,7 +203,7 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="287" Y="186" />
+        <Location X="356" Y="197" />
         <Size Width="779" Height="425" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
@@ -191,7 +217,7 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="214" Y="535" />
+        <Location X="74" Y="535" />
         <Size Width="156" Height="300" />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
@@ -245,7 +271,7 @@
     </MySpikeRasterObserver>
   </Observers>
   <UsedModules>
-    <Module Name="GoodAI.BasicNodes.dll" Version="5" />
+    <Module Name="GoodAI.BasicNodes.dll" Version="6" />
     <Module Name="GoodAI.Platform.Core.dll" Version="9" />
     <Module Name="GoodAI.SoundWorld.dll" Version="1" />
   </UsedModules>
