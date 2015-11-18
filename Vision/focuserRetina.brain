@@ -113,7 +113,7 @@
           <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
         </Tasks>
       </MyJoin>
-      <MyFocuser LoadOnStart="False" SaveOnStop="False" Id="43" Name="Standart Focuser" yaxlib:realtype="GoodAI.Modules.Retina.MyFocuser">
+      <MyFocuser LoadOnStart="False" SaveOnStop="False" Id="43" Name="Standard Focuser" yaxlib:realtype="GoodAI.Modules.Retina.MyFocuser">
         <OutputWidth>9</OutputWidth>
         <RetinaCircles>8</RetinaCircles>
         <DataFolder></DataFolder>
