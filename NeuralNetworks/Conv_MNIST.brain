@@ -25,7 +25,7 @@
             </Tasks>
           </MyPoolingLayer>
           <MyConvolutionLayer LoadOnStart="False" SaveOnStop="False" Id="12" Name="Conv 1" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyConvolutionLayer">
-            <Neurons>-384</Neurons>
+            <Neurons>9216</Neurons>
             <ActivationFunction>RELU</ActivationFunction>
             <DataFolder></DataFolder>
             <Location X="195" Y="92" />
