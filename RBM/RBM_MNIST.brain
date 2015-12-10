@@ -4,16 +4,18 @@
     <Children>
       <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="6" Name="Node_6" yaxlib:realtype="GoodAI.Modules.RBM.MyRBMGroup">
         <Dropout>0</Dropout>
+        <TimeStep>-1</TimeStep>
+        <SequenceLength>1</SequenceLength>
         <L1>0</L1>
         <L2>0</L2>
+        <BatchSize>1</BatchSize>
         <Children>
-          <MyRBMLayer LoadOnStart="False" SaveOnStop="False" Id="10" Name="Output / Hidden / Features" yaxlib:realtype="GoodAI.Modules.RBM.MyRBMLayer">
+          <MyRBMLayer LoadOnStart="True" SaveOnStop="False" Id="10" Name="Output / Hidden / Features" yaxlib:realtype="GoodAI.Modules.RBM.MyRBMLayer">
+            <Neurons>64</Neurons>
             <StoreEnergy>True</StoreEnergy>
             <ActivationFunction>NO_ACTIVATION</ActivationFunction>
-            <Neurons>100</Neurons>
-            <OutputColumnHint>1</OutputColumnHint>
-            <DataFolder>mnist.statedata\MyRBMLayer_10</DataFolder>
-            <Location X="476" Y="108" />
+            <DataFolder>RBM_MNIST.statedata\Hidden</DataFolder>
+            <Location X="477" Y="109" />
             <m_dropout>0</m_dropout>
             <Tasks>
               <Task Enabled="True" PropertyName="RBMInitLayerTask" yaxlib:realtype="GoodAI.Modules.RBM.Tasks.MyRBMInitLayerTask" />
@@ -22,18 +24,28 @@
                 <StandardDeviation>0.01</StandardDeviation>
               </Task>
               <Task Enabled="False" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
-              <Task Enabled="False" PropertyName="InitWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyInitWeightsTask" />
+              <Task Enabled="False" PropertyName="InitWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyInitWeightsTask">
+                <Distribution>Default</Distribution>
+                <Multiplier>1</Multiplier>
+                <MultiplierBias>1</MultiplierBias>
+              </Task>
               <Task Enabled="False" PropertyName="CreateDropoutMask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
               <Task Enabled="False" PropertyName="ForwardTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCForwardTask" />
               <Task Enabled="False" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
+              <Task Enabled="False" PropertyName="SquaredLoss" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MySquaredLossTask" />
+              <Task Enabled="False" PropertyName="CrossEntropyLoss" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCrossEntropyLossTask" />
+              <Task Enabled="False" PropertyName="CustomLoss" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCustomLossTask" />
+              <Task Enabled="False" PropertyName="ShareWeightsTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyShareWeightsTask">
+                <SourceNodeName></SourceNodeName>
+                <ApproachRate>1</ApproachRate>
+              </Task>
             </Tasks>
           </MyRBMLayer>
-          <MyRBMInputLayer LoadOnStart="False" SaveOnStop="False" Id="12" Name="Input / Visible / Reconstruction" yaxlib:realtype="GoodAI.Modules.RBM.MyRBMInputLayer">
+          <MyRBMInputLayer LoadOnStart="True" SaveOnStop="False" Id="12" Name="Input / Visible / Reconstruction" yaxlib:realtype="GoodAI.Modules.RBM.MyRBMInputLayer">
             <ApplyBiases>False</ApplyBiases>
             <StoreEnergy>False</StoreEnergy>
             <ActivationFunction>NO_ACTIVATION</ActivationFunction>
-            <OutputColumnHint>1</OutputColumnHint>
-            <DataFolder>mnist.statedata\MyRBMInputLayer_11</DataFolder>
+            <DataFolder>RBM_MNIST.statedata\Visible</DataFolder>
             <Location X="235" Y="101" />
             <Tasks>
               <Task Enabled="True" PropertyName="RBMInitLayerTask" yaxlib:realtype="GoodAI.Modules.RBM.Tasks.MyRBMInitLayerTask" />
@@ -41,13 +53,91 @@
               <Task Enabled="False" PropertyName="DeltaBackTask" yaxlib:realtype="CustomModels.RBM.Tasks.MyRBMInputBackwardTask" />
             </Tasks>
           </MyRBMInputLayer>
+          <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="14" Name="RandomActivations" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
+            <SingleOutput>False</SingleOutput>
+            <IO>
+              <OutputSize>64</OutputSize>
+            </IO>
+            <ColumnHint>1</ColumnHint>
+            <DataFolder></DataFolder>
+            <Location X="158" Y="290" />
+            <Tasks>
+              <Task Enabled="False" PropertyName="PeriodTask" yaxlib:realtype="GoodAI.Modules.Common.PeriodRNGTask">
+                <RandomPeriod>False</RandomPeriod>
+                <Period>1</Period>
+                <RandomPeriodMin>1</RandomPeriodMin>
+                <RandomPeriodMax>10</RandomPeriodMax>
+              </Task>
+              <Task Enabled="True" PropertyName="UniformRNG" yaxlib:realtype="GoodAI.Modules.Common.UniformRNGTask">
+                <MinValue>0</MinValue>
+                <MaxValue>1</MaxValue>
+              </Task>
+              <Task Enabled="False" PropertyName="NormalRNG" yaxlib:realtype="GoodAI.Modules.Common.NormalRNGTask">
+                <Mean>0.5</Mean>
+                <StdDev>0.5</StdDev>
+              </Task>
+              <Task Enabled="False" PropertyName="ConstantRNG" yaxlib:realtype="GoodAI.Modules.Common.ConstantRNGTask">
+                <Constant>1</Constant>
+              </Task>
+              <Task Enabled="False" PropertyName="CombinationRNG" yaxlib:realtype="GoodAI.Modules.Common.CombinationRNGTask">
+                <Min>0</Min>
+                <Max>1024</Max>
+                <Unique>True</Unique>
+              </Task>
+            </Tasks>
+          </MyRandomNode>
+          <MyCSharpNode LoadOnStart="False" SaveOnStop="False" Id="16" Name="RandomFilter" yaxlib:realtype="GoodAI.Modules.Scripting.MyCSharpNode">
+            <IO>
+              <InputBranches>1</InputBranches>
+              <OutputBranchesSpec>64</OutputBranchesSpec>
+            </IO>
+            <DataFolder></DataFolder>
+            <Location X="316" Y="264" />
+            <m_script>using System;
+using GoodAI.Core.Utils;
+using GoodAI.Core.Nodes;
+using GoodAI.Modules.Scripting;
+
+namespace Runtime
+{
+    public class Script
+    {
+    
+        static Random rnd;
+        public static void Init(MyCSharpNode owner)
+        {
+            MyLog.DEBUG.WriteLine("Init called");
+            rnd = new Random();
+        }
+        
+        public static void Execute(MyCSharpNode owner)
+        {
+            MyLog.DEBUG.WriteLine("Execute called");
+            
+            float[] input = owner.GetInput(0).Host;
+            float[] output = owner.GetOutput(0).Host;
+            for (int i = 0; i &lt; input.Length; i++) {
+                output[i] = input[i] * ((rnd.Next(10)) &lt; 2 ? 1 : 0);
+            }
+        
+        }
+    }
+}</m_script>
+            <Tasks>
+              <Task Enabled="True" PropertyName="InitScript" yaxlib:realtype="GoodAI.Modules.Scripting.MyCSharpNode+MyInitScriptTask" />
+              <Task Enabled="True" PropertyName="ExecuteScript" yaxlib:realtype="GoodAI.Modules.Scripting.MyCSharpNode+MyExecuteScriptTask" />
+            </Tasks>
+          </MyCSharpNode>
         </Children>
         <LayoutProperties Zoom="0.7071062">
-          <Translation X="-222" Y="-84" />
+          <Translation X="-201" Y="-117" />
         </LayoutProperties>
         <GroupInputNodes>
-          <MyParentInput ParentInputIndex="0" Id="7" Name="Input 1">
+          <MyParentInput ParentInputIndex="0" Id="7" Name="Image">
             <Location X="50" Y="100" />
+          </MyParentInput>
+          <MyParentInput ParentInputIndex="1" Id="13" Name="Label">
+            <Location X="50" Y="250" />
           </MyParentInput>
         </GroupInputNodes>
         <GroupOutputNodes>
@@ -58,11 +148,11 @@
         <DataFolder></DataFolder>
         <Location X="275" Y="181" />
         <Tasks>
-          <Task Enabled="True" PropertyName="RBMLearning" yaxlib:realtype="GoodAI.Modules.RBM.MyRBMLearningTask">
+          <Task Enabled="False" PropertyName="RBMLearning" yaxlib:realtype="GoodAI.Modules.RBM.MyRBMLearningTask">
             <RandomVisible>False</RandomVisible>
             <RandomHidden>True</RandomHidden>
             <RandomPrevious>False</RandomPrevious>
-            <BatchSize>1</BatchSize>
+            <DisableLearning>False</DisableLearning>
             <m_layerIndex>0</m_layerIndex>
             <m_cdk>1</m_cdk>
             <m_learningRate>0.01</m_learningRate>
@@ -70,20 +160,20 @@
             <m_weightDecay>0</m_weightDecay>
             <m_sigmoidSteepness>0.5</m_sigmoidSteepness>
           </Task>
-          <Task Enabled="False" PropertyName="RBMReconstruction" yaxlib:realtype="GoodAI.Modules.RBM.MyRBMReconstructionTask">
+          <Task Enabled="True" PropertyName="RBMReconstruction" yaxlib:realtype="GoodAI.Modules.RBM.MyRBMReconstructionTask">
             <ReconstructionSource>INPUT</ReconstructionSource>
             <RandomVisible>False</RandomVisible>
             <RandomHidden>True</RandomHidden>
             <RandomPrevious>False</RandomPrevious>
-            <BatchSize>1</BatchSize>
-            <m_layerIndex>0</m_layerIndex>
+            <DisableLearning>False</DisableLearning>
+            <m_layerIndex>1</m_layerIndex>
             <cdk>1</cdk>
             <m_sigmoidSteepness>0.5</m_sigmoidSteepness>
           </Task>
           <Task Enabled="False" PropertyName="SGD" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MySGDTask">
             <TrainingRate>0.25</TrainingRate>
             <Momentum>0.15</Momentum>
-            <BatchSize>1</BatchSize>
+            <DisableLearning>False</DisableLearning>
           </Task>
           <Task Enabled="True" PropertyName="InitGroup" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyInitNNGroupTask" />
           <Task Enabled="False" PropertyName="GradientCheck" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyGradientCheckTask">
@@ -96,18 +186,21 @@
             <TrainingRate>0.0025</TrainingRate>
             <Momentum>0.15</Momentum>
             <SmoothingFactor>0.9</SmoothingFactor>
-            <BatchSize>1</BatchSize>
+            <DisableLearning>False</DisableLearning>
           </Task>
           <Task Enabled="False" PropertyName="Adadelta" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyAdadeltaTask">
             <Epsilon>1E-06</Epsilon>
             <Ro>0.95</Ro>
-            <BatchSize>1</BatchSize>
+            <DisableLearning>False</DisableLearning>
           </Task>
+          <Task Enabled="False" PropertyName="IncrementTimeStep" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyIncrementTimeStepTask" />
+          <Task Enabled="False" PropertyName="DecrementTimeStep" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyDecrementTimeStepTask" />
+          <Task Enabled="False" PropertyName="RunTemporalBlocksMode" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyRunTemporalBlocksModeTask" />
         </Tasks>
       </Group>
     </Children>
     <LayoutProperties Zoom="1">
-      <Translation X="-28" Y="-89" />
+      <Translation X="-20" Y="-151" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Bitmap">
@@ -119,11 +212,15 @@
     </GroupInputNodes>
     <GroupOutputNodes />
     <DataFolder></DataFolder>
+    <Location />
     <Connections>
       <Connection From="1" To="6" FromIndex="0" ToIndex="0" />
+      <Connection From="4" To="6" FromIndex="0" ToIndex="1" />
       <Connection From="10" To="8" FromIndex="0" ToIndex="0" />
       <Connection From="12" To="10" FromIndex="0" ToIndex="0" />
+      <Connection From="16" To="10" FromIndex="0" ToIndex="1" />
       <Connection From="7" To="12" FromIndex="0" ToIndex="0" />
+      <Connection From="14" To="16" FromIndex="0" ToIndex="0" />
     </Connections>
     <Tasks />
   </Network>
@@ -131,6 +228,7 @@
     <Binary>False</Binary>
     <BinaryPixels>True</BinaryPixels>
     <DataFolder></DataFolder>
+    <Location />
     <Tasks>
       <Task Enabled="True" PropertyName="InitMNIST" yaxlib:realtype="MNIST.MyInitMNISTTask">
         <AfterLastImage>ResetToStart</AfterLastImage>
@@ -138,12 +236,19 @@
       </Task>
       <Task Enabled="True" PropertyName="SendMNISTData" yaxlib:realtype="MNIST.MySendMNISTTask">
         <ExpositionTime>1</ExpositionTime>
+        <ExpositionTimeOffset>0</ExpositionTimeOffset>
         <SendNumbers>All</SendNumbers>
         <SequenceOrdered>False</SequenceOrdered>
         <RandomEnumerate>True</RandomEnumerate>
       </Task>
     </Tasks>
   </World>
+  <Dashboard>
+    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardNodeProperty, GoodAI.Platform.Core, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null]]" />
+  </Dashboard>
+  <GroupedDashboard>
+    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardPropertyGroup, GoodAI.Platform.Core, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null]]" />
+  </GroupedDashboard>
   <Observers>
     <NodeObserver yaxlib:realtype="GoodAI.Modules.Observers.MyRBMFilterObserver">
       <ViewMode>Fit_2D</ViewMode>
@@ -151,13 +256,14 @@
       <Window>
         <Location X="927" Y="129" />
         <Size Width="700" Height="685" />
+        <CameraData />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>True</BilinearFiltering>
       <TargetIdentifier>10</TargetIdentifier>
       <m_filterWidth>28</m_filterWidth>
       <m_filterHeight>28</m_filterHeight>
-      <m_columns>10</m_columns>
+      <m_columns>8</m_columns>
       <m_minValue>-10</m_minValue>
       <m_maxValue>10</m_maxValue>
     </NodeObserver>
@@ -165,11 +271,13 @@
       <Method>RedGreenScale</Method>
       <Scale>Linear</Scale>
       <Elements>2</Elements>
+      <TimeStep>0</TimeStep>
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
         <Location X="290" Y="356" />
         <Size Width="300" Height="300" />
+        <CameraData />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -186,16 +294,17 @@
       <Window>
         <Location X="285" Y="657" />
         <Size Width="399" Height="268" />
+        <CameraData />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
       <TargetIdentifier>10#Energy</TargetIdentifier>
       <m_displayMethod>CYCLE</m_displayMethod>
       <m_boundPolicy>AUTO</m_boundPolicy>
-      <m_boundMin>280.6015</m_boundMin>
-      <m_boundMax>3326.574</m_boundMax>
-      <m_manualBoundMin>-345.6454</m_manualBoundMin>
-      <m_manualBoundMax>5899.427</m_manualBoundMax>
+      <m_boundMin>206.586</m_boundMin>
+      <m_boundMax>3414.341</m_boundMax>
+      <m_manualBoundMin>206.586</m_manualBoundMin>
+      <m_manualBoundMax>3414.341</m_manualBoundMax>
       <m_manualBoundHaveBeenSet>False</m_manualBoundHaveBeenSet>
       <m_period>1</m_period>
       <m_delay>0</m_delay>
@@ -218,6 +327,7 @@
       <Window>
         <Location X="686" Y="658" />
         <Size Width="233" Height="156" />
+        <CameraData />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -232,11 +342,13 @@
       <Method>RedGreenScale</Method>
       <Scale>Linear</Scale>
       <Elements>2</Elements>
+      <TimeStep>0</TimeStep>
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
         <Location X="591" Y="355" />
         <Size Width="300" Height="300" />
+        <CameraData />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
@@ -246,9 +358,10 @@
       <m_maxValue>1</m_maxValue>
     </MemoryBlockObserver>
   </Observers>
+  <MemoryBlockAttributes />
   <UsedModules>
-    <Module Name="GoodAI.BasicNodes.dll" Version="6" />
-    <Module Name="GoodAI.Platform.Core.dll" Version="9" />
+    <Module Name="GoodAI.BasicNodes.dll" Version="14" />
+    <Module Name="GoodAI.Platform.Core.dll" Version="10" />
     <Module Name="GoodAI.MNIST.dll" Version="1" />
   </UsedModules>
 </Project>
