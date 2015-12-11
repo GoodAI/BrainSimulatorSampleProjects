@@ -11,7 +11,7 @@
         <BatchSize>1</BatchSize>
         <Children>
           <MyPoolingLayer LoadOnStart="False" SaveOnStop="False" Id="11" Name="Pool 1" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyPoolingLayer">
-            <Neurons>0</Neurons>
+            <Neurons>2304</Neurons>
             <ActivationFunction>NO_ACTIVATION</ActivationFunction>
             <DataFolder></DataFolder>
             <Location X="362" Y="100" />
@@ -83,7 +83,7 @@
             </Tasks>
           </MyConvolutionLayer>
           <MyOutputLayer LoadOnStart="False" SaveOnStop="False" Id="14" Name="FC Output" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyOutputLayer">
-            <Neurons>0</Neurons>
+            <Neurons>10</Neurons>
             <ActivationFunction>SOFTMAX</ActivationFunction>
             <DataFolder></DataFolder>
             <Location X="890" Y="205" />
@@ -122,7 +122,7 @@
           </MyPoolingLayer>
         </Children>
         <LayoutProperties Zoom="0.8408962">
-          <Translation X="71" Y="132" />
+          <Translation X="167" Y="-16" />
         </LayoutProperties>
         <GroupInputNodes>
           <MyParentInput ParentInputIndex="0" Id="8" Name="Image">
@@ -266,7 +266,7 @@
       </MyFocuser>
     </Children>
     <LayoutProperties Zoom="1.189207">
-      <Translation X="569" Y="334" />
+      <Translation X="400" Y="173" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Bitmap">
@@ -330,8 +330,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="390" Y="32" />
-        <Size Width="129" Height="940" />
+        <Location X="390" Y="0" />
+        <Size Width="82" Height="1080" />
         <CameraData />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
@@ -349,8 +349,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="592" Y="20" />
-        <Size Width="166" Height="1080" />
+        <Location X="477" Y="0" />
+        <Size Width="82" Height="1080" />
         <CameraData />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
@@ -368,7 +368,7 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1458" Y="818" />
+        <Location X="671" Y="335" />
         <Size Width="420" Height="82" />
         <CameraData />
       </Window>
@@ -387,8 +387,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1456" Y="899" />
-        <Size Width="421" Height="88" />
+        <Location X="672" Y="417" />
+        <Size Width="420" Height="88" />
         <CameraData />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
@@ -406,8 +406,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="774" Y="514" />
-        <Size Width="310" Height="140" />
+        <Location X="672" Y="538" />
+        <Size Width="424" Height="80" />
         <CameraData />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
@@ -425,8 +425,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1110" Y="29" />
-        <Size Width="157" Height="1061" />
+        <Location X="1177" Y="0" />
+        <Size Width="82" Height="1080" />
         <CameraData />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
@@ -444,8 +444,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="1266" Y="28" />
-        <Size Width="129" Height="1063" />
+        <Location X="1266" Y="0" />
+        <Size Width="82" Height="1080" />
         <CameraData />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
@@ -483,7 +483,7 @@
       <KeepRatio>True</KeepRatio>
       <Window>
         <Location X="5" Y="365" />
-        <Size Width="300" Height="300" />
+        <Size Width="283" Height="306" />
         <CameraData />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
@@ -508,8 +508,8 @@
       <TargetIdentifier>14#Cost</TargetIdentifier>
       <m_displayMethod>CYCLE</m_displayMethod>
       <m_boundPolicy>AUTO</m_boundPolicy>
-      <m_boundMin>1.811705</m_boundMin>
-      <m_boundMax>6.160596</m_boundMax>
+      <m_boundMin>-1.314383</m_boundMin>
+      <m_boundMax>7.204329</m_boundMax>
       <m_manualBoundMin>1.811705</m_manualBoundMin>
       <m_manualBoundMax>6.160596</m_manualBoundMax>
       <m_manualBoundHaveBeenSet>False</m_manualBoundHaveBeenSet>
@@ -530,6 +530,79 @@
     </MyTimePlotObserver>
   </Observers>
   <MemoryBlockAttributes>
+    <Item>
+      <Key>13#PaddedImage</Key>
+      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
+        <CustomDimensions>
+          <Dim>16</Dim>
+          <Dim>16</Dim>
+          <Dim>16</Dim>
+        </CustomDimensions>
+      </Value>
+    </Item>
+    <Item>
+      <Key>13#Weights</Key>
+      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
+        <CustomDimensions>
+          <Dim>5</Dim>
+          <Dim>5</Dim>
+          <Dim>16</Dim>
+          <Dim>16</Dim>
+        </CustomDimensions>
+      </Value>
+    </Item>
+    <Item>
+      <Key>13#PreviousWeightDelta</Key>
+      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
+        <CustomDimensions>
+          <Dim>5</Dim>
+          <Dim>5</Dim>
+          <Dim>16</Dim>
+          <Dim>16</Dim>
+        </CustomDimensions>
+      </Value>
+    </Item>
+    <Item>
+      <Key>13#NeuronInput</Key>
+      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
+        <CustomDimensions>
+          <Dim>12</Dim>
+          <Dim>12</Dim>
+          <Dim>16</Dim>
+        </CustomDimensions>
+      </Value>
+    </Item>
+    <Item>
+      <Key>13#MeanSquareWeight</Key>
+      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
+        <CustomDimensions>
+          <Dim>5</Dim>
+          <Dim>5</Dim>
+          <Dim>16</Dim>
+          <Dim>16</Dim>
+        </CustomDimensions>
+      </Value>
+    </Item>
+    <Item>
+      <Key>13#Output</Key>
+      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
+        <CustomDimensions>
+          <Dim>12</Dim>
+          <Dim>12</Dim>
+          <Dim>16</Dim>
+        </CustomDimensions>
+      </Value>
+    </Item>
+    <Item>
+      <Key>13#Delta</Key>
+      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
+        <CustomDimensions>
+          <Dim>12</Dim>
+          <Dim>12</Dim>
+          <Dim>16</Dim>
+        </CustomDimensions>
+      </Value>
+    </Item>
     <Item>
       <Key>11#ActivatedNeurons</Key>
       <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
@@ -613,75 +686,22 @@
       </Value>
     </Item>
     <Item>
-      <Key>13#PaddedImage</Key>
+      <Key>14#Output</Key>
       <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
         <CustomDimensions>
-          <Dim>16</Dim>
-          <Dim>16</Dim>
-          <Dim>16</Dim>
+          <Dim>-1</Dim>
+          <Dim>10</Dim>
+          <Dim>1</Dim>
         </CustomDimensions>
       </Value>
     </Item>
     <Item>
-      <Key>13#Weights</Key>
+      <Key>14#Delta</Key>
       <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
         <CustomDimensions>
-          <Dim>5</Dim>
-          <Dim>5</Dim>
-          <Dim>16</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>13#PreviousWeightDelta</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>5</Dim>
-          <Dim>5</Dim>
-          <Dim>16</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>13#NeuronInput</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>12</Dim>
-          <Dim>12</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>13#MeanSquareWeight</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>5</Dim>
-          <Dim>5</Dim>
-          <Dim>16</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>13#Output</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>12</Dim>
-          <Dim>12</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>13#Delta</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>12</Dim>
-          <Dim>12</Dim>
-          <Dim>16</Dim>
+          <Dim>-1</Dim>
+          <Dim>10</Dim>
+          <Dim>1</Dim>
         </CustomDimensions>
       </Value>
     </Item>
@@ -737,7 +757,9 @@
       <Key>16#Label</Key>
       <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
         <CustomDimensions>
+          <Dim>-1</Dim>
           <Dim>10</Dim>
+          <Dim>1</Dim>
         </CustomDimensions>
       </Value>
     </Item>
