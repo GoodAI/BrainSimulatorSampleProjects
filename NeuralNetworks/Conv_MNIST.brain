@@ -11,7 +11,7 @@
         <BatchSize>1</BatchSize>
         <Children>
           <MyPoolingLayer LoadOnStart="False" SaveOnStop="False" Id="11" Name="Pool 1" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyPoolingLayer">
-            <Neurons>2304</Neurons>
+            <Neurons>1152</Neurons>
             <ActivationFunction>NO_ACTIVATION</ActivationFunction>
             <DataFolder></DataFolder>
             <Location X="362" Y="100" />
@@ -25,13 +25,13 @@
             </Tasks>
           </MyPoolingLayer>
           <MyConvolutionLayer LoadOnStart="False" SaveOnStop="False" Id="12" Name="Conv 1" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyConvolutionLayer">
-            <Neurons>9216</Neurons>
+            <Neurons>4608</Neurons>
             <ActivationFunction>RELU</ActivationFunction>
             <DataFolder></DataFolder>
             <Location X="195" Y="92" />
             <m_width>5</m_width>
             <m_height>5</m_height>
-            <m_filterCount>16</m_filterCount>
+            <m_filterCount>8</m_filterCount>
             <m_horizontalStride>1</m_horizontalStride>
             <m_verticalStride>1</m_verticalStride>
             <m_zeroPadding>2</m_zeroPadding>
@@ -86,7 +86,7 @@
             <Neurons>10</Neurons>
             <ActivationFunction>SOFTMAX</ActivationFunction>
             <DataFolder></DataFolder>
-            <Location X="890" Y="205" />
+            <Location X="890" Y="206" />
             <Tasks>
               <Task Enabled="False" PropertyName="SquaredLoss" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MySquaredLossTask" />
               <Task Enabled="True" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
@@ -122,7 +122,7 @@
           </MyPoolingLayer>
         </Children>
         <LayoutProperties Zoom="0.8408962">
-          <Translation X="-118" Y="67" />
+          <Translation X="-24" Y="237" />
         </LayoutProperties>
         <GroupInputNodes>
           <MyParentInput ParentInputIndex="0" Id="8" Name="Image">
@@ -266,7 +266,7 @@
       </MyFocuser>
     </Children>
     <LayoutProperties Zoom="1.189207">
-      <Translation X="299" Y="283" />
+      <Translation X="502" Y="200" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Bitmap">
@@ -316,10 +316,10 @@
     </Tasks>
   </World>
   <Dashboard>
-    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardNodeProperty, GoodAI.Platform.Core, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null]]" />
+    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardNodeProperty, GoodAI.Platform.Core, Version=0.4.0.0, Culture=neutral, PublicKeyToken=null]]" />
   </Dashboard>
   <GroupedDashboard>
-    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardPropertyGroup, GoodAI.Platform.Core, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null]]" />
+    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardPropertyGroup, GoodAI.Platform.Core, Version=0.4.0.0, Culture=neutral, PublicKeyToken=null]]" />
   </GroupedDashboard>
   <Observers>
     <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
@@ -330,8 +330,8 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="390" Y="0" />
-        <Size Width="82" Height="1080" />
+        <Location X="323" Y="0" />
+        <Size Width="149" Height="1080" />
         <CameraData />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
@@ -426,7 +426,7 @@
       <KeepRatio>True</KeepRatio>
       <Window>
         <Location X="1266" Y="0" />
-        <Size Width="82" Height="1080" />
+        <Size Width="147" Height="1080" />
         <CameraData />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
@@ -489,10 +489,10 @@
       <TargetIdentifier>14#Cost</TargetIdentifier>
       <m_displayMethod>CYCLE</m_displayMethod>
       <m_boundPolicy>AUTO</m_boundPolicy>
-      <m_boundMin>-3.091795</m_boundMin>
-      <m_boundMax>17.06169</m_boundMax>
-      <m_manualBoundMin>-1.314383</m_manualBoundMin>
-      <m_manualBoundMax>7.204329</m_manualBoundMax>
+      <m_boundMin>-2.995034</m_boundMin>
+      <m_boundMax>8.944835</m_boundMax>
+      <m_manualBoundMin>-3.091795</m_manualBoundMin>
+      <m_manualBoundMax>17.06169</m_manualBoundMax>
       <m_manualBoundHaveBeenSet>False</m_manualBoundHaveBeenSet>
       <m_period>1</m_period>
       <m_delay>0</m_delay>
