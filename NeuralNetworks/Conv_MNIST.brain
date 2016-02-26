@@ -1,5 +1,241 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Name="Conv_MNIST" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+  <Observers>
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
+      <Method>GrayScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <CustomDimensions></CustomDimensions>
+      <TimeStep>0</TimeStep>
+      <ShowCoordinates>False</ShowCoordinates>
+      <Id>015c894b-1010-4c75-832f-0cade170eb9b</Id>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="327" Y="0" />
+        <Size Width="149" Height="1080" />
+        <CameraData />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>12#Output</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>-0.5</m_minValue>
+      <m_maxValue>2</m_maxValue>
+    </MemoryBlockObserver>
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
+      <Method>GrayScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <CustomDimensions></CustomDimensions>
+      <TimeStep>0</TimeStep>
+      <ShowCoordinates>False</ShowCoordinates>
+      <Id>748c351b-b31e-42ab-b448-b0bd8d7e8ec0</Id>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="477" Y="0" />
+        <Size Width="82" Height="1080" />
+        <CameraData />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>13#Output</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>-0.5</m_minValue>
+      <m_maxValue>2</m_maxValue>
+    </MemoryBlockObserver>
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
+      <Method>RedGreenScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <CustomDimensions></CustomDimensions>
+      <TimeStep>0</TimeStep>
+      <ShowCoordinates>False</ShowCoordinates>
+      <Id>b0b8dae5-efc4-4797-8b9c-e959199012d2</Id>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="671" Y="335" />
+        <Size Width="420" Height="82" />
+        <CameraData />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>14#Output</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>0</m_minValue>
+      <m_maxValue>1</m_maxValue>
+    </MemoryBlockObserver>
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
+      <Method>RedGreenScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <CustomDimensions></CustomDimensions>
+      <TimeStep>0</TimeStep>
+      <ShowCoordinates>False</ShowCoordinates>
+      <Id>11f1cbd3-981c-4016-8cd4-cbdee6bf558f</Id>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="671" Y="515" />
+        <Size Width="420" Height="80" />
+        <CameraData />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>14#Delta</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>0</m_minValue>
+      <m_maxValue>1</m_maxValue>
+    </MemoryBlockObserver>
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
+      <Method>GrayScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <CustomDimensions></CustomDimensions>
+      <TimeStep>0</TimeStep>
+      <ShowCoordinates>False</ShowCoordinates>
+      <Id>d6f53cbe-d78d-4811-a647-8ffa8cc106a1</Id>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1177" Y="0" />
+        <Size Width="82" Height="1080" />
+        <CameraData />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>13#Delta</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>-0.05</m_minValue>
+      <m_maxValue>0.05</m_maxValue>
+    </MemoryBlockObserver>
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
+      <Method>GrayScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <CustomDimensions></CustomDimensions>
+      <TimeStep>0</TimeStep>
+      <ShowCoordinates>False</ShowCoordinates>
+      <Id>aed343ea-db1b-4203-a2bc-4dc627d2dc21</Id>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1266" Y="0" />
+        <Size Width="147" Height="1080" />
+        <CameraData />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>12#Delta</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>-0.02</m_minValue>
+      <m_maxValue>0.02</m_maxValue>
+    </MemoryBlockObserver>
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
+      <Method>GrayScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <CustomDimensions></CustomDimensions>
+      <TimeStep>0</TimeStep>
+      <ShowCoordinates>False</ShowCoordinates>
+      <Id>9c745528-5a1f-443f-a71d-d29cc08c46d0</Id>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1456" Y="3" />
+        <Size Width="157" Height="477" />
+        <CameraData />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>True</BilinearFiltering>
+      <TargetIdentifier>12#Weights</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>-0.1</m_minValue>
+      <m_maxValue>0.1</m_maxValue>
+    </MemoryBlockObserver>
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
+      <Method>RedGreenScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <CustomDimensions></CustomDimensions>
+      <TimeStep>0</TimeStep>
+      <ShowCoordinates>False</ShowCoordinates>
+      <Id>0a8b8ec2-05e8-40d9-9d6e-5cf66d605b03</Id>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="5" Y="365" />
+        <Size Width="283" Height="306" />
+        <CameraData />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>16#Bitmap</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>0</m_minValue>
+      <m_maxValue>1</m_maxValue>
+    </MemoryBlockObserver>
+    <MyTimePlotObserver yaxlib:realtype="GoodAI.Core.Observers.MyTimePlotObserver">
+      <ObserverWidth>500</ObserverWidth>
+      <ObserverHeight>400</ObserverHeight>
+      <Id>918f07d1-a3c6-4d72-b4bf-24dfad578c48</Id>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="1455" Y="508" />
+        <Size Width="442" Height="303" />
+        <CameraData />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>14#Cost</TargetIdentifier>
+      <m_displayMethod>CYCLE</m_displayMethod>
+      <m_boundPolicy>AUTO</m_boundPolicy>
+      <m_boundMin>-4.276405</m_boundMin>
+      <m_boundMax>14.62599</m_boundMax>
+      <m_manualBoundMin>2.22617</m_manualBoundMin>
+      <m_manualBoundMax>2.465763</m_manualBoundMax>
+      <m_manualBoundHaveBeenSet>False</m_manualBoundHaveBeenSet>
+      <m_period>1</m_period>
+      <m_delay>0</m_delay>
+      <m_offset>0</m_offset>
+      <m_stride>1</m_stride>
+      <m_count>1</m_count>
+      <COLOR_BACKGROUND>4294967295</COLOR_BACKGROUND>
+      <COLOR_FONT>4278190080</COLOR_FONT>
+      <COLOR_CURVE1>4294901760</COLOR_CURVE1>
+      <COLOR_CURVE2>4278190335</COLOR_CURVE2>
+      <COLOR_CURVE3>4278255360</COLOR_CURVE3>
+      <COLOR_CURVE4>4294967040</COLOR_CURVE4>
+      <COLOR_CURVE5>4294902015</COLOR_CURVE5>
+      <COLOR_CURVE6>4278255615</COLOR_CURVE6>
+      <COLOR_CURVE_EXTRA>4278190080</COLOR_CURVE_EXTRA>
+    </MyTimePlotObserver>
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
+      <Method>RedGreenScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <CustomDimensions></CustomDimensions>
+      <TimeStep>0</TimeStep>
+      <ShowCoordinates>False</ShowCoordinates>
+      <Id>ba15196e-43a7-4a35-b3a3-cc949dac9de4</Id>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="671" Y="418" />
+        <Size Width="420" Height="83" />
+        <CameraData />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>16#Label</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>0</m_minValue>
+      <m_maxValue>1</m_maxValue>
+    </MemoryBlockObserver>
+  </Observers>
   <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
     <Children>
       <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="7" Name="ConvolutionMNIST" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyNeuralNetworkGroup">
@@ -122,7 +358,7 @@
           </MyPoolingLayer>
         </Children>
         <LayoutProperties Zoom="0.8408962">
-          <Translation X="-24" Y="237" />
+          <Translation X="45" Y="86" />
         </LayoutProperties>
         <GroupInputNodes>
           <MyParentInput ParentInputIndex="0" Id="8" Name="Image">
@@ -168,21 +404,6 @@
           <Task Enabled="False" PropertyName="RunTemporalBlocksMode" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyRunTemporalBlocksModeTask" />
         </Tasks>
       </Group>
-      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="22" Name="Stack" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
-        <IO>
-          <InputBranches>2</InputBranches>
-          <OutputColHint>0</OutputColHint>
-        </IO>
-        <Behavior>
-          <Operation>StackInputs</Operation>
-        </Behavior>
-        <DataFolder></DataFolder>
-        <Location X="-171" Y="-169" />
-        <Tasks>
-          <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
-          <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
-        </Tasks>
-      </MyJoin>
       <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="23" Name="RandScale" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
         <SingleOutput>False</SingleOutput>
         <IO>
@@ -190,7 +411,7 @@
         </IO>
         <ColumnHint>1</ColumnHint>
         <DataFolder></DataFolder>
-        <Location X="-305" Y="-54" />
+        <Location X="-382" Y="-79" />
         <Tasks>
           <Task Enabled="False" PropertyName="UniformRNG" yaxlib:realtype="GoodAI.Modules.Common.UniformRNGTask">
             <MinValue>1</MinValue>
@@ -221,9 +442,9 @@
         <IO>
           <OutputSize>2</OutputSize>
         </IO>
-        <ColumnHint>1</ColumnHint>
+        <ColumnHint>2</ColumnHint>
         <DataFolder></DataFolder>
-        <Location X="-351" Y="-174" />
+        <Location X="-381" Y="-219" />
         <Tasks>
           <Task Enabled="True" PropertyName="UniformRNG" yaxlib:realtype="GoodAI.Modules.Common.UniformRNGTask">
             <MinValue>-0.142</MinValue>
@@ -252,7 +473,7 @@
       <MyFocuser LoadOnStart="False" SaveOnStop="False" Id="25" Name="RandomPatch" yaxlib:realtype="GoodAI.Modules.Retina.MyFocuser">
         <OutputWidth>24</OutputWidth>
         <DataFolder></DataFolder>
-        <Location X="122" Y="-83" />
+        <Location X="122" Y="-139" />
         <Tasks>
           <Task Enabled="False" PropertyName="DoInitRetina" yaxlib:realtype="GoodAI.Modules.Retina.MyFocuser+MyFocuserInitRetinaTask">
             <RetinaInitMode>Circles</RetinaInitMode>
@@ -264,13 +485,27 @@
           <Task Enabled="False" PropertyName="DoRetinaTransform" yaxlib:realtype="GoodAI.Modules.Retina.MyFocuser+MyRetinaTransform" />
         </Tasks>
       </MyFocuser>
+      <MyStackingNode LoadOnStart="False" SaveOnStop="False" Id="26" Name="Node_26" yaxlib:realtype="GoodAI.Modules.Join.MyStackingNode">
+        <IO>
+          <InputBranches>2</InputBranches>
+          <OutputColHint>0</OutputColHint>
+        </IO>
+        <Behavior>
+          <Operation>Concatenate</Operation>
+        </Behavior>
+        <DataFolder></DataFolder>
+        <Location X="-140.761" Y="-116.7206" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Modules.Join.MyStackingNode+MyStackInputsTask" />
+        </Tasks>
+      </MyStackingNode>
     </Children>
-    <LayoutProperties Zoom="1.189207">
-      <Translation X="502" Y="200" />
+    <LayoutProperties Zoom="0.9999999">
+      <Translation X="633" Y="258" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Bitmap">
-        <Location X="44" Y="129" />
+        <Location X="48" Y="129" />
       </MyParentInput>
       <MyParentInput ParentInputIndex="1" Id="17" Name="Label">
         <Location X="50" Y="250" />
@@ -280,19 +515,19 @@
     <DataFolder></DataFolder>
     <Location />
     <Connections>
-      <Connection From="25" To="7" FromIndex="0" ToIndex="0" />
-      <Connection From="17" To="7" FromIndex="0" ToIndex="1" />
-      <Connection From="14" To="10" FromIndex="0" ToIndex="0" />
-      <Connection From="12" To="11" FromIndex="0" ToIndex="0" />
-      <Connection From="8" To="12" FromIndex="0" ToIndex="0" />
-      <Connection From="11" To="13" FromIndex="0" ToIndex="0" />
-      <Connection From="15" To="14" FromIndex="0" ToIndex="0" />
-      <Connection From="9" To="14" FromIndex="0" ToIndex="1" />
-      <Connection From="13" To="15" FromIndex="0" ToIndex="0" />
-      <Connection From="24" To="22" FromIndex="0" ToIndex="0" />
-      <Connection From="23" To="22" FromIndex="0" ToIndex="1" />
-      <Connection From="1" To="25" FromIndex="0" ToIndex="0" />
-      <Connection From="22" To="25" FromIndex="0" ToIndex="1" />
+      <Connection From="25" To="7" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="17" To="7" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="14" To="10" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="12" To="11" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="8" To="12" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="11" To="13" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="15" To="14" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="9" To="14" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="13" To="15" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="1" To="25" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="26" To="25" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="24" To="26" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="23" To="26" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
     </Connections>
     <Tasks />
   </Network>
@@ -316,454 +551,14 @@
     </Tasks>
   </World>
   <Dashboard>
-    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardNodeProperty, GoodAI.Platform.Core, Version=0.4.0.0, Culture=neutral, PublicKeyToken=null]]" />
+    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardNodePropertyBase, GoodAI.Platform.Core, Version=0.5.0.0, Culture=neutral, PublicKeyToken=null]]" />
   </Dashboard>
   <GroupedDashboard>
-    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardPropertyGroup, GoodAI.Platform.Core, Version=0.4.0.0, Culture=neutral, PublicKeyToken=null]]" />
+    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardPropertyGroup, GoodAI.Platform.Core, Version=0.5.0.0, Culture=neutral, PublicKeyToken=null]]" />
   </GroupedDashboard>
-  <Observers>
-    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
-      <Method>GrayScale</Method>
-      <Scale>Linear</Scale>
-      <Elements>2</Elements>
-      <TimeStep>0</TimeStep>
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="323" Y="0" />
-        <Size Width="149" Height="1080" />
-        <CameraData />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>12#Output</TargetIdentifier>
-      <m_boundPolicy>MANUAL</m_boundPolicy>
-      <m_minValue>-0.5</m_minValue>
-      <m_maxValue>2</m_maxValue>
-    </MemoryBlockObserver>
-    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
-      <Method>GrayScale</Method>
-      <Scale>Linear</Scale>
-      <Elements>2</Elements>
-      <TimeStep>0</TimeStep>
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="477" Y="0" />
-        <Size Width="82" Height="1080" />
-        <CameraData />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>13#Output</TargetIdentifier>
-      <m_boundPolicy>MANUAL</m_boundPolicy>
-      <m_minValue>-0.5</m_minValue>
-      <m_maxValue>2</m_maxValue>
-    </MemoryBlockObserver>
-    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
-      <Method>RedGreenScale</Method>
-      <Scale>Linear</Scale>
-      <Elements>2</Elements>
-      <TimeStep>0</TimeStep>
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="671" Y="335" />
-        <Size Width="420" Height="82" />
-        <CameraData />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>14#Output</TargetIdentifier>
-      <m_boundPolicy>MANUAL</m_boundPolicy>
-      <m_minValue>0</m_minValue>
-      <m_maxValue>1</m_maxValue>
-    </MemoryBlockObserver>
-    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
-      <Method>RedGreenScale</Method>
-      <Scale>Linear</Scale>
-      <Elements>2</Elements>
-      <TimeStep>0</TimeStep>
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="671" Y="515" />
-        <Size Width="420" Height="80" />
-        <CameraData />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>14#Delta</TargetIdentifier>
-      <m_boundPolicy>MANUAL</m_boundPolicy>
-      <m_minValue>0</m_minValue>
-      <m_maxValue>1</m_maxValue>
-    </MemoryBlockObserver>
-    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
-      <Method>GrayScale</Method>
-      <Scale>Linear</Scale>
-      <Elements>2</Elements>
-      <TimeStep>0</TimeStep>
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="1177" Y="0" />
-        <Size Width="82" Height="1080" />
-        <CameraData />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>13#Delta</TargetIdentifier>
-      <m_boundPolicy>MANUAL</m_boundPolicy>
-      <m_minValue>-0.05</m_minValue>
-      <m_maxValue>0.05</m_maxValue>
-    </MemoryBlockObserver>
-    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
-      <Method>GrayScale</Method>
-      <Scale>Linear</Scale>
-      <Elements>2</Elements>
-      <TimeStep>0</TimeStep>
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="1266" Y="0" />
-        <Size Width="147" Height="1080" />
-        <CameraData />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>12#Delta</TargetIdentifier>
-      <m_boundPolicy>MANUAL</m_boundPolicy>
-      <m_minValue>-0.02</m_minValue>
-      <m_maxValue>0.02</m_maxValue>
-    </MemoryBlockObserver>
-    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
-      <Method>GrayScale</Method>
-      <Scale>Linear</Scale>
-      <Elements>2</Elements>
-      <TimeStep>0</TimeStep>
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="1456" Y="3" />
-        <Size Width="157" Height="477" />
-        <CameraData />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>True</BilinearFiltering>
-      <TargetIdentifier>12#Weights</TargetIdentifier>
-      <m_boundPolicy>MANUAL</m_boundPolicy>
-      <m_minValue>-0.1</m_minValue>
-      <m_maxValue>0.1</m_maxValue>
-    </MemoryBlockObserver>
-    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
-      <Method>RedGreenScale</Method>
-      <Scale>Linear</Scale>
-      <Elements>2</Elements>
-      <TimeStep>0</TimeStep>
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="5" Y="365" />
-        <Size Width="283" Height="306" />
-        <CameraData />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>16#Bitmap</TargetIdentifier>
-      <m_boundPolicy>MANUAL</m_boundPolicy>
-      <m_minValue>0</m_minValue>
-      <m_maxValue>1</m_maxValue>
-    </MemoryBlockObserver>
-    <MyTimePlotObserver yaxlib:realtype="GoodAI.Core.Observers.MyTimePlotObserver">
-      <ObserverWidth>500</ObserverWidth>
-      <ObserverHeight>400</ObserverHeight>
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="1455" Y="508" />
-        <Size Width="442" Height="303" />
-        <CameraData />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>14#Cost</TargetIdentifier>
-      <m_displayMethod>CYCLE</m_displayMethod>
-      <m_boundPolicy>AUTO</m_boundPolicy>
-      <m_boundMin>-2.995034</m_boundMin>
-      <m_boundMax>8.944835</m_boundMax>
-      <m_manualBoundMin>-3.091795</m_manualBoundMin>
-      <m_manualBoundMax>17.06169</m_manualBoundMax>
-      <m_manualBoundHaveBeenSet>False</m_manualBoundHaveBeenSet>
-      <m_period>1</m_period>
-      <m_delay>0</m_delay>
-      <m_offset>0</m_offset>
-      <m_stride>1</m_stride>
-      <m_count>1</m_count>
-      <COLOR_BACKGROUND>4294967295</COLOR_BACKGROUND>
-      <COLOR_FONT>4278190080</COLOR_FONT>
-      <COLOR_CURVE1>4294901760</COLOR_CURVE1>
-      <COLOR_CURVE2>4278190335</COLOR_CURVE2>
-      <COLOR_CURVE3>4278255360</COLOR_CURVE3>
-      <COLOR_CURVE4>4294967040</COLOR_CURVE4>
-      <COLOR_CURVE5>4294902015</COLOR_CURVE5>
-      <COLOR_CURVE6>4278255615</COLOR_CURVE6>
-      <COLOR_CURVE_EXTRA>4278190080</COLOR_CURVE_EXTRA>
-    </MyTimePlotObserver>
-    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
-      <Method>RedGreenScale</Method>
-      <Scale>Linear</Scale>
-      <Elements>2</Elements>
-      <TimeStep>0</TimeStep>
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="671" Y="418" />
-        <Size Width="420" Height="83" />
-        <CameraData />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>16#Label</TargetIdentifier>
-      <m_boundPolicy>MANUAL</m_boundPolicy>
-      <m_minValue>0</m_minValue>
-      <m_maxValue>1</m_maxValue>
-    </MemoryBlockObserver>
-  </Observers>
-  <MemoryBlockAttributes>
-    <Item>
-      <Key>11#ActivatedNeurons</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>12</Dim>
-          <Dim>12</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>11#Output</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>12</Dim>
-          <Dim>12</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>11#Delta</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>12</Dim>
-          <Dim>12</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>12#PaddedImage</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>28</Dim>
-          <Dim>28</Dim>
-          <Dim>1</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>12#Weights</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>5</Dim>
-          <Dim>5</Dim>
-          <Dim>1</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>12#PreviousWeightDelta</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>5</Dim>
-          <Dim>5</Dim>
-          <Dim>1</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>12#NeuronInput</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>24</Dim>
-          <Dim>24</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>12#MeanSquareWeight</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>5</Dim>
-          <Dim>5</Dim>
-          <Dim>1</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>13#PaddedImage</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>16</Dim>
-          <Dim>16</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>13#Weights</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>5</Dim>
-          <Dim>5</Dim>
-          <Dim>16</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>13#PreviousWeightDelta</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>5</Dim>
-          <Dim>5</Dim>
-          <Dim>16</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>13#NeuronInput</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>12</Dim>
-          <Dim>12</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>13#MeanSquareWeight</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>5</Dim>
-          <Dim>5</Dim>
-          <Dim>16</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>13#Output</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>12</Dim>
-          <Dim>12</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>13#Delta</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>12</Dim>
-          <Dim>12</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>14#Output</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>1</Dim>
-          <Dim>10</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>14#Delta</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>1</Dim>
-          <Dim>10</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>15#ActivatedNeurons</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>4</Dim>
-          <Dim>4</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>15#Output</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>4</Dim>
-          <Dim>4</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>15#Delta</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>4</Dim>
-          <Dim>4</Dim>
-          <Dim>16</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>25#Output</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>24</Dim>
-          <Dim>24</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>16#Bitmap</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>28</Dim>
-          <Dim>28</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-    <Item>
-      <Key>16#Label</Key>
-      <Value yaxlib:realtype="GoodAI.Core.Memory.TensorDimensions">
-        <CustomDimensions>
-          <Dim>1</Dim>
-          <Dim>10</Dim>
-        </CustomDimensions>
-      </Value>
-    </Item>
-  </MemoryBlockAttributes>
   <UsedModules>
     <Module Name="GoodAI.BasicNodes.dll" Version="14" />
-    <Module Name="GoodAI.Platform.Core.dll" Version="10" />
+    <Module Name="GoodAI.Platform.Core.dll" Version="14" />
     <Module Name="GoodAI.MNIST.dll" Version="1" />
   </UsedModules>
 </Project>
