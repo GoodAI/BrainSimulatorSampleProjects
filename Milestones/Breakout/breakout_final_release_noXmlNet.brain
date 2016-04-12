@@ -1,5 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Name="breakout_final_release_new_visonNoXML" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+<Project Name="breakout_final_release_noXmlNet" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+  <Observers>
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
+      <Method>RedGreenScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <CustomDimensions></CustomDimensions>
+      <TimeStep>0</TimeStep>
+      <ShowCoordinates>False</ShowCoordinates>
+      <Id>331af431-ccbc-45d4-8df7-c272081aad79</Id>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="833" Y="537" />
+        <Size Width="300" Height="127" />
+        <CameraData />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>368#Output</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>0</m_minValue>
+      <m_maxValue>1</m_maxValue>
+    </MemoryBlockObserver>
+    <MyTimePlotObserver yaxlib:realtype="GoodAI.Core.Observers.MyTimePlotObserver">
+      <ObserverWidth>400</ObserverWidth>
+      <ObserverHeight>200</ObserverHeight>
+      <Id>49ed395d-1314-4d5b-88aa-378facac0e24</Id>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="856" Y="559" />
+        <Size Width="888" Height="357" />
+        <CameraData />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>True</BilinearFiltering>
+      <TargetIdentifier>396#Output</TargetIdentifier>
+      <m_displayMethod>CYCLE</m_displayMethod>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_boundMin>0.6</m_boundMin>
+      <m_boundMax>1.1</m_boundMax>
+      <m_manualBoundMin>-1</m_manualBoundMin>
+      <m_manualBoundMax>1</m_manualBoundMax>
+      <m_manualBoundHaveBeenSet>True</m_manualBoundHaveBeenSet>
+      <m_period>1</m_period>
+      <m_delay>0</m_delay>
+      <m_offset>0</m_offset>
+      <m_stride>1</m_stride>
+      <m_count>2</m_count>
+      <COLOR_BACKGROUND>4278190080</COLOR_BACKGROUND>
+      <COLOR_FONT>4294967040</COLOR_FONT>
+      <COLOR_CURVE1>4286644096</COLOR_CURVE1>
+      <COLOR_CURVE2>4294934656</COLOR_CURVE2>
+      <COLOR_CURVE3>4278255360</COLOR_CURVE3>
+      <COLOR_CURVE4>4294967040</COLOR_CURVE4>
+      <COLOR_CURVE5>4294902015</COLOR_CURVE5>
+      <COLOR_CURVE6>4278255615</COLOR_CURVE6>
+      <COLOR_CURVE_EXTRA>4278190080</COLOR_CURVE_EXTRA>
+    </MyTimePlotObserver>
+    <NodeObserver yaxlib:realtype="GoodAI.Modules.Observers.MyKMeansWMObserver">
+      <Id>513bfd9a-14db-4a46-9bb5-3dea2e26ab35</Id>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="292" Y="475" />
+        <Size Width="522" Height="538" />
+        <CameraData />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>436</TargetIdentifier>
+    </NodeObserver>
+    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
+      <Method>RedGreenScale</Method>
+      <Scale>Linear</Scale>
+      <Elements>2</Elements>
+      <CustomDimensions></CustomDimensions>
+      <TimeStep>0</TimeStep>
+      <ShowCoordinates>False</ShowCoordinates>
+      <Id>e52745a4-1156-4fe2-97d9-713eaec4182d</Id>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="835" Y="389" />
+        <Size Width="300" Height="137" />
+        <CameraData />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>367#Output</TargetIdentifier>
+      <m_boundPolicy>MANUAL</m_boundPolicy>
+      <m_minValue>0</m_minValue>
+      <m_maxValue>1</m_maxValue>
+    </MemoryBlockObserver>
+  </Observers>
   <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
     <Children>
       <MyKWM2SymbolNode LoadOnStart="False" SaveOnStop="False" Id="330" Name="Node_330" yaxlib:realtype="GoodAI.Modules.Testing.MyKWM2SymbolNode">
@@ -54,7 +149,8 @@
       <MyJoin LoadOnStart="False" SaveOnStop="False" Id="339" Name="Node_339" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
         <IO>
           <InputBranches>2</InputBranches>
-          <OutputColHint>1024</OutputColHint>
+          <OutputColHint>0</OutputColHint>
+          <OutputDimensions>1024</OutputDimensions>
         </IO>
         <Behavior>
           <Operation>StackInputs</Operation>
@@ -94,6 +190,7 @@
             <IO>
               <InputBranches>2</InputBranches>
               <OutputColHint>0</OutputColHint>
+              <OutputDimensions></OutputDimensions>
             </IO>
             <Behavior>
               <Operation>Subtraction</Operation>
@@ -130,6 +227,7 @@
             <IO>
               <InputBranches>2</InputBranches>
               <OutputColHint>0</OutputColHint>
+              <OutputDimensions></OutputDimensions>
             </IO>
             <Behavior>
               <Operation>Multiplication</Operation>
@@ -142,6 +240,7 @@
             </Tasks>
           </MyJoin>
         </Children>
+        <LayoutProperties />
         <GroupInputNodes>
           <MyParentInput ParentInputIndex="0" Id="346" Name="BallX">
             <Location X="50" Y="100" />
@@ -158,6 +257,7 @@
             <Location X="1049" Y="210" />
           </MyOutput>
         </GroupOutputNodes>
+        <DataFolder></DataFolder>
         <Location X="414" Y="-385" />
         <Tasks />
       </Group>
@@ -276,6 +376,7 @@
             <IO>
               <InputBranches>2</InputBranches>
               <OutputColHint>0</OutputColHint>
+              <OutputDimensions></OutputDimensions>
             </IO>
             <Behavior>
               <Operation>Multiplication</Operation>
@@ -359,6 +460,7 @@
           <MyUserInput LoadOnStart="False" SaveOnStop="False" Id="380" Name="Node_890" yaxlib:realtype="GoodAI.Core.Nodes.MyUserInput">
             <IO>
               <OutputSize>1</OutputSize>
+              <ShowValues>False</ShowValues>
             </IO>
             <ColumnHint>1</ColumnHint>
             <MinValue>0</MinValue>
@@ -394,13 +496,14 @@
                   <MyHiddenLayer LoadOnStart="True" SaveOnStop="False" Id="459" Name="ActionNNHidden" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyHiddenLayer">
                     <ActivationFunction>TANH</ActivationFunction>
                     <Neurons>1024</Neurons>
-                    <OutputColumnHint>1</OutputColumnHint>
                     <DataFolder>Pong_Final\newNN.statedata\MyHiddenLayer_459</DataFolder>
                     <Location X="278" Y="100" />
                     <Tasks>
                       <Task Enabled="True" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
                       <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyInitWeightsTask">
                         <Distribution>Default</Distribution>
+                        <Multiplier>1</Multiplier>
+                        <MultiplierBias>1</MultiplierBias>
                       </Task>
                       <Task Enabled="True" PropertyName="CreateDropoutMask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
                       <Task Enabled="True" PropertyName="ShareWeightsTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyShareWeightsTask">
@@ -414,7 +517,6 @@
                   <MyOutputLayer LoadOnStart="True" SaveOnStop="False" Id="460" Name="ActionNNOut" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyOutputLayer">
                     <Neurons>3</Neurons>
                     <ActivationFunction>NO_ACTIVATION</ActivationFunction>
-                    <OutputColumnHint>1</OutputColumnHint>
                     <DataFolder>Pong_Final\newNN.statedata\MyOutputLayer_460</DataFolder>
                     <Location X="595" Y="38" />
                     <Tasks>
@@ -423,6 +525,8 @@
                       <Task Enabled="True" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
                       <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyInitWeightsTask">
                         <Distribution>Default</Distribution>
+                        <Multiplier>1</Multiplier>
+                        <MultiplierBias>1</MultiplierBias>
                       </Task>
                       <Task Enabled="True" PropertyName="CreateDropoutMask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
                       <Task Enabled="True" PropertyName="ShareWeightsTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyShareWeightsTask">
@@ -431,9 +535,11 @@
                       </Task>
                       <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCForwardTask" />
                       <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
+                      <Task Enabled="False" PropertyName="CustomLoss" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCustomLossTask" />
                     </Tasks>
                   </MyOutputLayer>
                 </Children>
+                <LayoutProperties />
                 <GroupInputNodes>
                   <MyParentInput ParentInputIndex="0" Id="456" Name="Input 1">
                     <Location X="50" Y="100" />
@@ -453,15 +559,18 @@
                   <Task Enabled="True" PropertyName="SGD" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MySGDTask">
                     <TrainingRate>0.0001</TrainingRate>
                     <Momentum>0</Momentum>
+                    <DisableLearning>False</DisableLearning>
                   </Task>
                   <Task Enabled="False" PropertyName="RMS" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyRMSTask">
                     <TrainingRate>0.0001</TrainingRate>
                     <Momentum>0</Momentum>
                     <SmoothingFactor>0.9</SmoothingFactor>
+                    <DisableLearning>False</DisableLearning>
                   </Task>
                   <Task Enabled="False" PropertyName="Adadelta" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyAdadeltaTask">
                     <Epsilon>1E-06</Epsilon>
                     <Ro>0.95</Ro>
+                    <DisableLearning>False</DisableLearning>
                   </Task>
                   <Task Enabled="True" PropertyName="InitGroup" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyInitNNGroupTask" />
                   <Task Enabled="True" PropertyName="IncrementTimeStep" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyIncrementTimeStepTask" />
@@ -476,6 +585,7 @@
                 </Tasks>
               </Group>
             </Children>
+            <LayoutProperties />
             <GroupInputNodes>
               <MyParentInput ParentInputIndex="0" Id="445" Name="Delayed WM">
                 <Location X="50" Y="100" />
@@ -500,13 +610,14 @@
               <MyHiddenLayer LoadOnStart="False" SaveOnStop="False" Id="451" Name="Node_451" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyHiddenLayer">
                 <ActivationFunction>TANH</ActivationFunction>
                 <Neurons>1024</Neurons>
-                <OutputColumnHint>1</OutputColumnHint>
                 <DataFolder></DataFolder>
                 <Location X="297" Y="98" />
                 <Tasks>
                   <Task Enabled="False" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
                   <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyInitWeightsTask">
                     <Distribution>Default</Distribution>
+                    <Multiplier>1</Multiplier>
+                    <MultiplierBias>1</MultiplierBias>
                   </Task>
                   <Task Enabled="False" PropertyName="CreateDropoutMask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
                   <Task Enabled="True" PropertyName="ShareWeightsTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyShareWeightsTask">
@@ -520,13 +631,14 @@
               <MyHiddenLayer LoadOnStart="False" SaveOnStop="False" Id="453" Name="Node_453" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyHiddenLayer">
                 <ActivationFunction>SIGMOID</ActivationFunction>
                 <Neurons>3</Neurons>
-                <OutputColumnHint>1</OutputColumnHint>
                 <DataFolder></DataFolder>
                 <Location X="580" Y="102" />
                 <Tasks>
                   <Task Enabled="False" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
                   <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyInitWeightsTask">
                     <Distribution>Default</Distribution>
+                    <Multiplier>1</Multiplier>
+                    <MultiplierBias>1</MultiplierBias>
                   </Task>
                   <Task Enabled="False" PropertyName="CreateDropoutMask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
                   <Task Enabled="True" PropertyName="ShareWeightsTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyShareWeightsTask">
@@ -538,6 +650,7 @@
                 </Tasks>
               </MyHiddenLayer>
             </Children>
+            <LayoutProperties />
             <GroupInputNodes>
               <MyParentInput ParentInputIndex="0" Id="448" Name="Input 1">
                 <Location X="50" Y="100" />
@@ -554,15 +667,18 @@
               <Task Enabled="True" PropertyName="SGD" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MySGDTask">
                 <TrainingRate>0.25</TrainingRate>
                 <Momentum>0</Momentum>
+                <DisableLearning>False</DisableLearning>
               </Task>
               <Task Enabled="False" PropertyName="RMS" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyRMSTask">
                 <TrainingRate>0.0025</TrainingRate>
                 <Momentum>0</Momentum>
                 <SmoothingFactor>0.9</SmoothingFactor>
+                <DisableLearning>False</DisableLearning>
               </Task>
               <Task Enabled="False" PropertyName="Adadelta" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyAdadeltaTask">
                 <Epsilon>1E-06</Epsilon>
                 <Ro>0.95</Ro>
+                <DisableLearning>False</DisableLearning>
               </Task>
               <Task Enabled="True" PropertyName="InitGroup" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyInitNNGroupTask" />
               <Task Enabled="True" PropertyName="IncrementTimeStep" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyIncrementTimeStepTask" />
@@ -599,6 +715,7 @@
             <Location X="1309" Y="95" />
           </MyOutput>
         </GroupOutputNodes>
+        <DataFolder></DataFolder>
         <Location X="1097" Y="-137" />
         <Tasks />
       </Group>
@@ -608,6 +725,7 @@
             <IO>
               <InputBranches>2</InputBranches>
               <OutputColHint>0</OutputColHint>
+              <OutputDimensions></OutputDimensions>
             </IO>
             <Behavior>
               <Operation>Subtraction</Operation>
@@ -653,6 +771,7 @@
             <IO>
               <InputBranches>2</InputBranches>
               <OutputColHint>0</OutputColHint>
+              <OutputDimensions></OutputDimensions>
             </IO>
             <Behavior>
               <Operation>CosineDistance</Operation>
@@ -668,6 +787,7 @@
             <IO>
               <InputBranches>2</InputBranches>
               <OutputColHint>0</OutputColHint>
+              <OutputDimensions></OutputDimensions>
             </IO>
             <Behavior>
               <Operation>CosineDistance</Operation>
@@ -704,6 +824,7 @@
             <IO>
               <InputBranches>2</InputBranches>
               <OutputColHint>0</OutputColHint>
+              <OutputDimensions></OutputDimensions>
             </IO>
             <Behavior>
               <Operation>Subtraction</Operation>
@@ -719,6 +840,7 @@
             <IO>
               <InputBranches>4</InputBranches>
               <OutputColHint>0</OutputColHint>
+              <OutputDimensions></OutputDimensions>
             </IO>
             <Behavior>
               <Operation>StackInputs</Operation>
@@ -734,6 +856,7 @@
             <IO>
               <InputBranches>2</InputBranches>
               <OutputColHint>0</OutputColHint>
+              <OutputDimensions></OutputDimensions>
             </IO>
             <Behavior>
               <Operation>DotProduct</Operation>
@@ -777,6 +900,7 @@
             <Location X="1020" Y="227" />
           </MyOutput>
         </GroupOutputNodes>
+        <DataFolder></DataFolder>
         <Location X="1142" Y="105" />
         <Tasks />
       </Group>
@@ -831,6 +955,7 @@
             <IO>
               <InputBranches>2</InputBranches>
               <OutputColHint>0</OutputColHint>
+              <OutputDimensions></OutputDimensions>
             </IO>
             <Behavior>
               <Operation>Multiplication</Operation>
@@ -855,6 +980,7 @@
             <IO>
               <InputBranches>2</InputBranches>
               <OutputColHint>0</OutputColHint>
+              <OutputDimensions></OutputDimensions>
             </IO>
             <Behavior>
               <Operation>Multiplication</Operation>
@@ -870,6 +996,7 @@
             <IO>
               <InputBranches>2</InputBranches>
               <OutputColHint>0</OutputColHint>
+              <OutputDimensions></OutputDimensions>
             </IO>
             <Behavior>
               <Operation>Addition</Operation>
@@ -895,6 +1022,7 @@
             <IO>
               <InputBranches>2</InputBranches>
               <OutputColHint>0</OutputColHint>
+              <OutputDimensions></OutputDimensions>
             </IO>
             <Behavior>
               <Operation>Addition</Operation>
@@ -941,6 +1069,7 @@
             <IO>
               <InputBranches>2</InputBranches>
               <OutputColHint>0</OutputColHint>
+              <OutputDimensions></OutputDimensions>
             </IO>
             <Behavior>
               <Operation>Addition</Operation>
@@ -965,6 +1094,7 @@
             <IO>
               <InputBranches>2</InputBranches>
               <OutputColHint>0</OutputColHint>
+              <OutputDimensions></OutputDimensions>
             </IO>
             <Behavior>
               <Operation>Addition</Operation>
@@ -989,6 +1119,7 @@
             <IO>
               <InputBranches>2</InputBranches>
               <OutputColHint>0</OutputColHint>
+              <OutputDimensions></OutputDimensions>
             </IO>
             <Behavior>
               <Operation>StackInputs</Operation>
@@ -1029,6 +1160,7 @@
             <Location X="812" Y="570" />
           </MyOutput>
         </GroupOutputNodes>
+        <DataFolder></DataFolder>
         <Location X="780" Y="240" />
         <Tasks />
       </Group>
@@ -1075,7 +1207,7 @@
             <LeftMargin>0</LeftMargin>
             <RightMargin>0</RightMargin>
             <TopMargin>0</TopMargin>
-            <BottomMargin>16</BottomMargin>
+            <BottomMargin>20</BottomMargin>
             <DataFolder></DataFolder>
             <Location X="-492" Y="74" />
             <Tasks>
@@ -1086,7 +1218,6 @@
           </My2DCropNode>
           <MyFocuser LoadOnStart="False" SaveOnStop="False" Id="434" Name="NFcouser00" yaxlib:realtype="GoodAI.Modules.Retina.MyFocuser">
             <OutputWidth>32</OutputWidth>
-            <RetinaCircles>4</RetinaCircles>
             <DataFolder></DataFolder>
             <Location X="414" Y="19" />
             <Tasks>
@@ -1094,7 +1225,9 @@
                 <SafeBounds>False</SafeBounds>
                 <SafeBounds_FillInValue>1</SafeBounds_FillInValue>
               </Task>
-              <Task Enabled="False" PropertyName="DoInitRetina" yaxlib:realtype="GoodAI.Modules.Retina.MyFocuser+MyFocuserInitRetinaTask" />
+              <Task Enabled="False" PropertyName="DoInitRetina" yaxlib:realtype="GoodAI.Modules.Retina.MyFocuser+MyFocuserInitRetinaTask">
+                <RetinaInitMode>Circles</RetinaInitMode>
+              </Task>
               <Task Enabled="False" PropertyName="DoRetinaTransform" yaxlib:realtype="GoodAI.Modules.Retina.MyFocuser+MyRetinaTransform" />
             </Tasks>
           </MyFocuser>
@@ -1125,7 +1258,8 @@
           <MyJoin LoadOnStart="False" SaveOnStop="False" Id="437" Name="Node_436" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
             <IO>
               <InputBranches>1</InputBranches>
-              <OutputColHint>1024</OutputColHint>
+              <OutputColHint>0</OutputColHint>
+              <OutputDimensions>1024</OutputDimensions>
             </IO>
             <Behavior>
               <Operation>StackInputs</Operation>
@@ -1148,13 +1282,14 @@
               <MyHiddenLayer LoadOnStart="True" SaveOnStop="False" Id="442" Name="Hid1" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyHiddenLayer">
                 <ActivationFunction>SIGMOID</ActivationFunction>
                 <Neurons>128</Neurons>
-                <OutputColumnHint>1</OutputColumnHint>
                 <DataFolder>Pong_Final\Vision.statedata\MyHiddenLayer_441</DataFolder>
                 <Location X="275" Y="98" />
                 <Tasks>
                   <Task Enabled="False" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
                   <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyInitWeightsTask">
                     <Distribution>Default</Distribution>
+                    <Multiplier>1</Multiplier>
+                    <MultiplierBias>1</MultiplierBias>
                   </Task>
                   <Task Enabled="True" PropertyName="CreateDropoutMask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
                   <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCForwardTask" />
@@ -1168,13 +1303,14 @@
               <MyHiddenLayer LoadOnStart="True" SaveOnStop="False" Id="443" Name="Hid2" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyHiddenLayer">
                 <ActivationFunction>SIGMOID</ActivationFunction>
                 <Neurons>32</Neurons>
-                <OutputColumnHint>1</OutputColumnHint>
                 <DataFolder>Pong_Final\Vision.statedata\MyHiddenLayer_442</DataFolder>
                 <Location X="469" Y="101" />
                 <Tasks>
                   <Task Enabled="False" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
                   <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyInitWeightsTask">
                     <Distribution>Default</Distribution>
+                    <Multiplier>1</Multiplier>
+                    <MultiplierBias>1</MultiplierBias>
                   </Task>
                   <Task Enabled="True" PropertyName="CreateDropoutMask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
                   <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCForwardTask" />
@@ -1208,11 +1344,13 @@
               <Task Enabled="False" PropertyName="SGD" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MySGDTask">
                 <TrainingRate>0.25</TrainingRate>
                 <Momentum>0</Momentum>
+                <DisableLearning>False</DisableLearning>
               </Task>
               <Task Enabled="True" PropertyName="RMS" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyRMSTask">
                 <TrainingRate>0.0025</TrainingRate>
                 <Momentum>0</Momentum>
                 <SmoothingFactor>0.9</SmoothingFactor>
+                <DisableLearning>False</DisableLearning>
               </Task>
               <Task Enabled="True" PropertyName="InitGroup" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyInitNNGroupTask" />
               <Task Enabled="False" PropertyName="GradientCheck" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyGradientCheckTask">
@@ -1226,13 +1364,14 @@
               <Task Enabled="False" PropertyName="Adadelta" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyAdadeltaTask">
                 <Epsilon>1E-06</Epsilon>
                 <Ro>0.95</Ro>
+                <DisableLearning>False</DisableLearning>
               </Task>
               <Task Enabled="False" PropertyName="RunTemporalBlocksMode" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyRunTemporalBlocksModeTask" />
             </Tasks>
           </Group>
         </Children>
         <LayoutProperties Zoom="0.5946033">
-          <Translation X="-204" Y="-125" />
+          <Translation X="344" Y="-108" />
         </LayoutProperties>
         <GroupInputNodes>
           <MyParentInput ParentInputIndex="0" Id="425" Name="Input 1">
@@ -1253,12 +1392,13 @@
             <Location X="1288" Y="406" />
           </MyOutput>
         </GroupOutputNodes>
+        <DataFolder></DataFolder>
         <Location X="347" Y="84" />
         <Tasks />
       </Group>
     </Children>
     <LayoutProperties Zoom="0.7071066">
-      <Translation X="-161" Y="170" />
+      <Translation X="-218" Y="29" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Visual">
@@ -1288,148 +1428,152 @@
         <Location X="1407" Y="-374" />
       </MyOutput>
     </GroupOutputNodes>
+    <DataFolder></DataFolder>
+    <Location />
     <Connections>
-      <Connection From="358" To="7" FromIndex="0" ToIndex="0" />
-      <Connection From="339" To="330" FromIndex="0" ToIndex="0" />
-      <Connection From="424" To="330" FromIndex="2" ToIndex="1" />
-      <Connection From="338" To="339" FromIndex="0" ToIndex="0" />
-      <Connection From="331" To="339" FromIndex="0" ToIndex="1" />
-      <Connection From="246" To="345" FromIndex="0" ToIndex="0" />
-      <Connection From="248" To="345" FromIndex="0" ToIndex="1" />
-      <Connection From="247" To="345" FromIndex="0" ToIndex="2" />
-      <Connection From="350" To="349" FromIndex="0" ToIndex="0" />
-      <Connection From="355" To="350" FromIndex="0" ToIndex="0" />
-      <Connection From="352" To="351" FromIndex="0" ToIndex="0" />
-      <Connection From="346" To="352" FromIndex="0" ToIndex="0" />
-      <Connection From="347" To="352" FromIndex="0" ToIndex="1" />
-      <Connection From="348" To="353" FromIndex="0" ToIndex="0" />
-      <Connection From="353" To="354" FromIndex="0" ToIndex="0" />
-      <Connection From="351" To="355" FromIndex="0" ToIndex="0" />
-      <Connection From="354" To="355" FromIndex="0" ToIndex="1" />
-      <Connection From="345" To="357" FromIndex="0" ToIndex="0" />
-      <Connection From="356" To="357" FromIndex="0" ToIndex="1" />
-      <Connection From="357" To="358" FromIndex="0" ToIndex="0" />
-      <Connection From="359" To="358" FromIndex="0" ToIndex="1" />
-      <Connection From="330" To="359" FromIndex="0" ToIndex="0" />
-      <Connection From="382" To="359" FromIndex="0" ToIndex="1" />
-      <Connection From="358" To="359" FromIndex="0" ToIndex="2" />
-      <Connection From="382" To="359" FromIndex="1" ToIndex="3" />
-      <Connection From="376" To="364" FromIndex="0" ToIndex="0" />
-      <Connection From="367" To="365" FromIndex="0" ToIndex="0" />
-      <Connection From="360" To="366" FromIndex="0" ToIndex="0" />
-      <Connection From="372" To="367" FromIndex="0" ToIndex="0" />
-      <Connection From="367" To="368" FromIndex="0" ToIndex="0" />
-      <Connection From="373" To="369" FromIndex="0" ToIndex="0" />
-      <Connection From="361" To="369" FromIndex="0" ToIndex="1" />
-      <Connection From="373" To="370" FromIndex="0" ToIndex="0" />
-      <Connection From="361" To="370" FromIndex="0" ToIndex="1" />
-      <Connection From="447" To="372" FromIndex="0" ToIndex="0" />
-      <Connection From="362" To="373" FromIndex="0" ToIndex="0" />
-      <Connection From="365" To="376" FromIndex="0" ToIndex="0" />
-      <Connection From="368" To="376" FromIndex="0" ToIndex="1" />
-      <Connection From="379" To="376" FromIndex="0" ToIndex="2" />
-      <Connection From="363" To="377" FromIndex="0" ToIndex="0" />
-      <Connection From="377" To="378" FromIndex="0" ToIndex="0" />
-      <Connection From="381" To="379" FromIndex="0" ToIndex="0" />
-      <Connection From="380" To="379" FromIndex="0" ToIndex="1" />
-      <Connection From="378" To="381" FromIndex="0" ToIndex="0" />
-      <Connection From="366" To="444" FromIndex="0" ToIndex="0" />
-      <Connection From="369" To="444" FromIndex="0" ToIndex="1" />
-      <Connection From="445" To="455" FromIndex="0" ToIndex="0" />
-      <Connection From="454" To="455" FromIndex="0" ToIndex="1" />
-      <Connection From="460" To="458" FromIndex="0" ToIndex="0" />
-      <Connection From="456" To="459" FromIndex="0" ToIndex="0" />
-      <Connection From="459" To="460" FromIndex="0" ToIndex="0" />
-      <Connection From="457" To="460" FromIndex="0" ToIndex="1" />
-      <Connection From="360" To="447" FromIndex="0" ToIndex="0" />
-      <Connection From="453" To="450" FromIndex="0" ToIndex="0" />
-      <Connection From="448" To="451" FromIndex="0" ToIndex="0" />
-      <Connection From="451" To="453" FromIndex="0" ToIndex="0" />
-      <Connection From="399" To="382" FromIndex="0" ToIndex="0" />
-      <Connection From="399" To="382" FromIndex="1" ToIndex="1" />
-      <Connection From="330" To="382" FromIndex="0" ToIndex="2" />
-      <Connection From="391" To="386" FromIndex="0" ToIndex="0" />
-      <Connection From="388" To="387" FromIndex="0" ToIndex="0" />
-      <Connection From="393" To="388" FromIndex="0" ToIndex="0" />
-      <Connection From="392" To="388" FromIndex="0" ToIndex="1" />
-      <Connection From="395" To="389" FromIndex="0" ToIndex="0" />
-      <Connection From="389" To="390" FromIndex="0" ToIndex="0" />
-      <Connection From="390" To="391" FromIndex="0" ToIndex="0" />
-      <Connection From="384" To="392" FromIndex="0" ToIndex="0" />
-      <Connection From="385" To="392" FromIndex="0" ToIndex="1" />
-      <Connection From="383" To="393" FromIndex="0" ToIndex="0" />
-      <Connection From="385" To="393" FromIndex="0" ToIndex="1" />
-      <Connection From="388" To="394" FromIndex="0" ToIndex="0" />
-      <Connection From="388" To="395" FromIndex="0" ToIndex="0" />
-      <Connection From="394" To="395" FromIndex="0" ToIndex="1" />
-      <Connection From="393" To="396" FromIndex="0" ToIndex="0" />
-      <Connection From="392" To="396" FromIndex="0" ToIndex="1" />
-      <Connection From="388" To="396" FromIndex="0" ToIndex="2" />
-      <Connection From="391" To="396" FromIndex="0" ToIndex="3" />
-      <Connection From="393" To="397" FromIndex="0" ToIndex="0" />
-      <Connection From="392" To="397" FromIndex="0" ToIndex="1" />
-      <Connection From="397" To="398" FromIndex="0" ToIndex="0" />
-      <Connection From="330" To="399" FromIndex="0" ToIndex="0" />
-      <Connection From="3" To="399" FromIndex="0" ToIndex="1" />
-      <Connection From="413" To="402" FromIndex="0" ToIndex="0" />
-      <Connection From="411" To="403" FromIndex="0" ToIndex="0" />
-      <Connection From="400" To="404" FromIndex="0" ToIndex="0" />
-      <Connection From="401" To="405" FromIndex="0" ToIndex="0" />
-      <Connection From="401" To="406" FromIndex="0" ToIndex="0" />
-      <Connection From="414" To="407" FromIndex="0" ToIndex="0" />
-      <Connection From="406" To="407" FromIndex="0" ToIndex="1" />
-      <Connection From="405" To="408" FromIndex="0" ToIndex="0" />
-      <Connection From="404" To="409" FromIndex="0" ToIndex="0" />
-      <Connection From="408" To="409" FromIndex="0" ToIndex="1" />
-      <Connection From="409" To="410" FromIndex="0" ToIndex="0" />
-      <Connection From="411" To="410" FromIndex="0" ToIndex="1" />
-      <Connection From="410" To="411" FromIndex="0" ToIndex="0" />
-      <Connection From="407" To="412" FromIndex="0" ToIndex="0" />
-      <Connection From="413" To="412" FromIndex="0" ToIndex="1" />
-      <Connection From="412" To="413" FromIndex="0" ToIndex="0" />
-      <Connection From="400" To="414" FromIndex="0" ToIndex="0" />
-      <Connection From="405" To="415" FromIndex="0" ToIndex="0" />
-      <Connection From="416" To="415" FromIndex="0" ToIndex="1" />
-      <Connection From="415" To="416" FromIndex="0" ToIndex="0" />
-      <Connection From="406" To="417" FromIndex="0" ToIndex="0" />
-      <Connection From="418" To="417" FromIndex="0" ToIndex="1" />
-      <Connection From="417" To="418" FromIndex="0" ToIndex="0" />
-      <Connection From="418" To="419" FromIndex="0" ToIndex="0" />
-      <Connection From="416" To="419" FromIndex="0" ToIndex="1" />
-      <Connection From="419" To="420" FromIndex="0" ToIndex="0" />
-      <Connection From="1" To="424" FromIndex="0" ToIndex="0" />
-      <Connection From="3" To="424" FromIndex="0" ToIndex="1" />
-      <Connection From="436" To="427" FromIndex="0" ToIndex="0" />
-      <Connection From="436" To="428" FromIndex="1" ToIndex="0" />
-      <Connection From="436" To="429" FromIndex="2" ToIndex="0" />
-      <Connection From="431" To="430" FromIndex="0" ToIndex="0" />
-      <Connection From="431" To="430" FromIndex="1" ToIndex="1" />
-      <Connection From="431" To="430" FromIndex="2" ToIndex="2" />
-      <Connection From="432" To="431" FromIndex="0" ToIndex="0" />
-      <Connection From="432" To="431" FromIndex="1" ToIndex="1" />
-      <Connection From="432" To="431" FromIndex="2" ToIndex="2" />
-      <Connection From="435" To="432" FromIndex="0" ToIndex="0" />
-      <Connection From="425" To="433" FromIndex="0" ToIndex="0" />
-      <Connection From="435" To="434" FromIndex="0" ToIndex="0" />
-      <Connection From="430" To="434" FromIndex="0" ToIndex="1" />
-      <Connection From="433" To="435" FromIndex="0" ToIndex="0" />
-      <Connection From="438" To="436" FromIndex="0" ToIndex="0" />
-      <Connection From="430" To="436" FromIndex="0" ToIndex="1" />
-      <Connection From="426" To="436" FromIndex="0" ToIndex="2" />
-      <Connection From="435" To="436" FromIndex="0" ToIndex="3" />
-      <Connection From="434" To="437" FromIndex="0" ToIndex="0" />
-      <Connection From="437" To="438" FromIndex="0" ToIndex="0" />
-      <Connection From="437" To="438" FromIndex="0" ToIndex="1" />
-      <Connection From="443" To="441" FromIndex="0" ToIndex="0" />
-      <Connection From="439" To="442" FromIndex="0" ToIndex="0" />
-      <Connection From="442" To="443" FromIndex="0" ToIndex="0" />
+      <Connection From="358" To="7" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="339" To="330" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="424" To="330" FromIndex="2" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="338" To="339" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="331" To="339" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="246" To="345" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="248" To="345" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="247" To="345" FromIndex="0" ToIndex="2" IsLowPriority="False" IsHidden="False" />
+      <Connection From="350" To="349" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="355" To="350" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="352" To="351" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="346" To="352" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="347" To="352" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="348" To="353" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="353" To="354" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="351" To="355" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="354" To="355" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="345" To="357" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="356" To="357" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="357" To="358" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="359" To="358" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="330" To="359" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="382" To="359" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="358" To="359" FromIndex="0" ToIndex="2" IsLowPriority="True" IsHidden="False" />
+      <Connection From="382" To="359" FromIndex="1" ToIndex="3" IsLowPriority="False" IsHidden="False" />
+      <Connection From="376" To="364" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="367" To="365" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="360" To="366" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="372" To="367" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="367" To="368" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="373" To="369" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="361" To="369" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="373" To="370" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="361" To="370" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="447" To="372" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="362" To="373" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="365" To="376" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="368" To="376" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="379" To="376" FromIndex="0" ToIndex="2" IsLowPriority="False" IsHidden="False" />
+      <Connection From="363" To="377" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="377" To="378" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="381" To="379" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="380" To="379" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="378" To="381" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="366" To="444" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="369" To="444" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="445" To="455" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="454" To="455" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="460" To="458" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="456" To="459" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="459" To="460" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="457" To="460" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="360" To="447" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="453" To="450" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="448" To="451" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="451" To="453" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="399" To="382" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="399" To="382" FromIndex="1" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="330" To="382" FromIndex="0" ToIndex="2" IsLowPriority="False" IsHidden="False" />
+      <Connection From="391" To="386" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="388" To="387" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="393" To="388" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="392" To="388" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="395" To="389" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="389" To="390" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="390" To="391" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="384" To="392" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="385" To="392" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="383" To="393" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="385" To="393" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="388" To="394" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="388" To="395" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="394" To="395" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="393" To="396" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="392" To="396" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="388" To="396" FromIndex="0" ToIndex="2" IsLowPriority="False" IsHidden="False" />
+      <Connection From="391" To="396" FromIndex="0" ToIndex="3" IsLowPriority="False" IsHidden="False" />
+      <Connection From="393" To="397" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="392" To="397" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="397" To="398" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="330" To="399" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="3" To="399" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="413" To="402" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="411" To="403" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="400" To="404" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="401" To="405" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="401" To="406" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="414" To="407" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="406" To="407" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="405" To="408" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="404" To="409" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="408" To="409" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="409" To="410" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="411" To="410" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="410" To="411" FromIndex="0" ToIndex="0" IsLowPriority="True" IsHidden="False" />
+      <Connection From="407" To="412" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="413" To="412" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="412" To="413" FromIndex="0" ToIndex="0" IsLowPriority="True" IsHidden="False" />
+      <Connection From="400" To="414" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="405" To="415" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="416" To="415" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="415" To="416" FromIndex="0" ToIndex="0" IsLowPriority="True" IsHidden="False" />
+      <Connection From="406" To="417" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="418" To="417" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="417" To="418" FromIndex="0" ToIndex="0" IsLowPriority="True" IsHidden="False" />
+      <Connection From="418" To="419" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="416" To="419" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="419" To="420" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="1" To="424" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="3" To="424" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="436" To="427" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="436" To="428" FromIndex="1" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="436" To="429" FromIndex="2" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="431" To="430" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="431" To="430" FromIndex="1" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="431" To="430" FromIndex="2" ToIndex="2" IsLowPriority="False" IsHidden="False" />
+      <Connection From="432" To="431" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="432" To="431" FromIndex="1" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="432" To="431" FromIndex="2" ToIndex="2" IsLowPriority="False" IsHidden="False" />
+      <Connection From="435" To="432" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="425" To="433" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="435" To="434" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="430" To="434" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="433" To="435" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="438" To="436" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="430" To="436" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="426" To="436" FromIndex="0" ToIndex="2" IsLowPriority="False" IsHidden="False" />
+      <Connection From="435" To="436" FromIndex="0" ToIndex="3" IsLowPriority="False" IsHidden="False" />
+      <Connection From="434" To="437" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="437" To="438" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="437" To="438" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="443" To="441" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="439" To="442" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="442" To="443" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
     </Connections>
+    <Tasks />
   </Network>
   <World LoadOnStart="False" SaveOnStop="False" Id="422" Name="World" yaxlib:realtype="GoodAI.Modules.GameBoy.MyCustomPongWorld">
-    <DISPLAY_WIDTH>160</DISPLAY_WIDTH>
-    <DISPLAY_HEIGHT>144</DISPLAY_HEIGHT>
+    <DisplayWidth>256</DisplayWidth>
+    <DisplayHeight>224</DisplayHeight>
     <BricksEnabled>True</BricksEnabled>
     <DataFolder></DataFolder>
+    <Location />
     <Tasks>
       <Task Enabled="True" PropertyName="InitGameTask" yaxlib:realtype="GoodAI.Modules.GameBoy.MyCustomPongWorld+MyInitTask" />
       <Task Enabled="True" PropertyName="UpdateTask" yaxlib:realtype="GoodAI.Modules.GameBoy.MyCustomPongWorld+MyUpdateTask">
@@ -1444,91 +1588,14 @@
       <Task Enabled="True" PropertyName="RenderGameTask" yaxlib:realtype="GoodAI.Modules.GameBoy.MyCustomPongWorld+MyRenderTask" />
     </Tasks>
   </World>
-  <Observers>
-    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
-      <Method>RedGreenScale</Method>
-      <Scale>Linear</Scale>
-      <Elements>2</Elements>
-      <TimeStep>0</TimeStep>
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="833" Y="537" />
-        <Size Width="300" Height="127" />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>368#Output</TargetIdentifier>
-      <m_boundPolicy>MANUAL</m_boundPolicy>
-      <m_minValue>0</m_minValue>
-      <m_maxValue>1</m_maxValue>
-    </MemoryBlockObserver>
-    <MyTimePlotObserver yaxlib:realtype="GoodAI.Core.Observers.MyTimePlotObserver">
-      <ObserverWidth>400</ObserverWidth>
-      <ObserverHeight>200</ObserverHeight>
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="836" Y="670" />
-        <Size Width="888" Height="357" />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>True</BilinearFiltering>
-      <TargetIdentifier>396#Output</TargetIdentifier>
-      <m_displayMethod>CYCLE</m_displayMethod>
-      <m_boundPolicy>MANUAL</m_boundPolicy>
-      <m_boundMin>0.6</m_boundMin>
-      <m_boundMax>1.1</m_boundMax>
-      <m_manualBoundMin>-1</m_manualBoundMin>
-      <m_manualBoundMax>1</m_manualBoundMax>
-      <m_manualBoundHaveBeenSet>True</m_manualBoundHaveBeenSet>
-      <m_period>1</m_period>
-      <m_delay>0</m_delay>
-      <m_offset>0</m_offset>
-      <m_stride>1</m_stride>
-      <m_count>2</m_count>
-      <COLOR_BACKGROUND>4278190080</COLOR_BACKGROUND>
-      <COLOR_FONT>4294967040</COLOR_FONT>
-      <COLOR_CURVE1>4286644096</COLOR_CURVE1>
-      <COLOR_CURVE2>4294934656</COLOR_CURVE2>
-      <COLOR_CURVE3>4278255360</COLOR_CURVE3>
-      <COLOR_CURVE4>4294967040</COLOR_CURVE4>
-      <COLOR_CURVE5>4294902015</COLOR_CURVE5>
-      <COLOR_CURVE6>4278255615</COLOR_CURVE6>
-      <COLOR_CURVE_EXTRA>4278190080</COLOR_CURVE_EXTRA>
-    </MyTimePlotObserver>
-    <NodeObserver yaxlib:realtype="GoodAI.Modules.Observers.MyKMeansWMObserver">
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="292" Y="475" />
-        <Size Width="522" Height="538" />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>436</TargetIdentifier>
-    </NodeObserver>
-    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
-      <Method>RedGreenScale</Method>
-      <Scale>Linear</Scale>
-      <Elements>2</Elements>
-      <TimeStep>0</TimeStep>
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="835" Y="389" />
-        <Size Width="300" Height="137" />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>367#Output</TargetIdentifier>
-      <m_boundPolicy>MANUAL</m_boundPolicy>
-      <m_minValue>0</m_minValue>
-      <m_maxValue>1</m_maxValue>
-    </MemoryBlockObserver>
-  </Observers>
+  <Dashboard>
+    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardNodePropertyBase, GoodAI.Platform.Core, Version=0.5.0.0, Culture=neutral, PublicKeyToken=null]]" />
+  </Dashboard>
+  <GroupedDashboard>
+    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardPropertyGroup, GoodAI.Platform.Core, Version=0.5.0.0, Culture=neutral, PublicKeyToken=null]]" />
+  </GroupedDashboard>
   <UsedModules>
-    <Module Name="GoodAI.BasicNodes.dll" Version="11" />
-    <Module Name="GoodAI.Platform.Core.dll" Version="9" />
+    <Module Name="GoodAI.BasicNodes.dll" Version="14" />
+    <Module Name="GoodAI.Platform.Core.dll" Version="14" />
   </UsedModules>
 </Project>

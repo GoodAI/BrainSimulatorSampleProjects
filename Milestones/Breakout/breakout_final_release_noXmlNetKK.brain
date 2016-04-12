@@ -1,82 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Name="02_breakout_testVision" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+<Project Name="breakout_final_release_noXmlNetKK" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
   <Observers>
-    <NodeObserver yaxlib:realtype="GoodAI.Modules.Observers.MyFocuserInputObserver">
-      <Id>cf33a2d8-339b-4cec-a3b2-5c97a77e873a</Id>
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="353" Y="297" />
-        <Size Width="275" Height="290" />
-        <CameraData />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>310</TargetIdentifier>
-    </NodeObserver>
-    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
-      <Method>GrayScale</Method>
-      <Scale>Linear</Scale>
-      <Elements>2</Elements>
-      <CustomDimensions></CustomDimensions>
-      <TimeStep>0</TimeStep>
-      <ShowCoordinates>False</ShowCoordinates>
-      <Id>be456c47-bfab-4c61-aec4-1a8cd4272d18</Id>
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="347" Y="601" />
-        <Size Width="151" Height="173" />
-        <CameraData />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>310#Output</TargetIdentifier>
-      <m_boundPolicy>MANUAL</m_boundPolicy>
-      <m_minValue>0</m_minValue>
-      <m_maxValue>1</m_maxValue>
-    </MemoryBlockObserver>
     <NodeObserver yaxlib:realtype="GoodAI.Modules.Observers.MyKMeansWMObserver">
-      <Id>876c664d-8671-4c56-a25c-c1b203ed7b7c</Id>
+      <Id>513bfd9a-14db-4a46-9bb5-3dea2e26ab35</Id>
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="525" Y="599" />
-        <Size Width="300" Height="300" />
+        <Location X="292" Y="475" />
+        <Size Width="522" Height="538" />
         <CameraData />
       </Window>
       <AutosaveSnapshop>False</AutosaveSnapshop>
       <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>327</TargetIdentifier>
+      <TargetIdentifier>436</TargetIdentifier>
     </NodeObserver>
-    <MemoryBlockObserver yaxlib:realtype="GoodAI.Core.Observers.MyMemoryBlockObserver">
-      <Method>RedGreenScale</Method>
-      <Scale>Linear</Scale>
-      <Elements>2</Elements>
-      <CustomDimensions></CustomDimensions>
-      <TimeStep>0</TimeStep>
-      <ShowCoordinates>False</ShowCoordinates>
-      <Id>4ebc0175-cb94-49e3-ae03-eaaab6571c23</Id>
-      <ViewMode>Fit_2D</ViewMode>
-      <KeepRatio>True</KeepRatio>
-      <Window>
-        <Location X="770" Y="292" />
-        <Size Width="418" Height="286" />
-        <CameraData />
-      </Window>
-      <AutosaveSnapshop>False</AutosaveSnapshop>
-      <BilinearFiltering>False</BilinearFiltering>
-      <TargetIdentifier>327#ClusCenters</TargetIdentifier>
-      <m_boundPolicy>MANUAL</m_boundPolicy>
-      <m_minValue>0</m_minValue>
-      <m_maxValue>0.1</m_maxValue>
-    </MemoryBlockObserver>
   </Observers>
   <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
     <Children>
-      <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="279" Name="Visual_WM" yaxlib:realtype="GoodAI.Core.Nodes.MyNodeGroup">
+      <MyKWM2SymbolNode LoadOnStart="False" SaveOnStop="False" Id="330" Name="Node_330" yaxlib:realtype="GoodAI.Modules.Testing.MyKWM2SymbolNode">
+        <MaxClusters>2</MaxClusters>
+        <SymbolSize>1024</SymbolSize>
+        <ColumnHint>32</ColumnHint>
+        <UseBSCVariety>False</UseBSCVariety>
+        <OneToZeroRatio>1</OneToZeroRatio>
+        <VectorMode>Normal</VectorMode>
+        <DataFolder></DataFolder>
+        <Location X="682" Y="-85" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="Init" yaxlib:realtype="GoodAI.Modules.Testing.MyKWM2SymbolNode+MyKMeansWMInitTask">
+            <UseSquaredTransform>False</UseSquaredTransform>
+          </Task>
+        </Tasks>
+      </MyKWM2SymbolNode>
+      <MyCodeBook LoadOnStart="False" SaveOnStop="False" Id="331" Name="Node_331" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook">
+        <Mode>GenerateOutput</Mode>
+        <InputAsOffset>False</InputAsOffset>
+        <SymbolSize>1024</SymbolSize>
+        <ColumnHint>32</ColumnHint>
+        <UseBSCVariety>False</UseBSCVariety>
+        <OneToZeroRatio>1</OneToZeroRatio>
+        <VectorMode>Normal</VectorMode>
+        <DataFolder></DataFolder>
+        <Location X="215" Y="-16" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="PerformTask" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook+MyCodeVectorsTask">
+            <CodeVector>Ball</CodeVector>
+            <SimilarityOperator>XNOR</SimilarityOperator>
+          </Task>
+        </Tasks>
+      </MyCodeBook>
+      <MyCodeBook LoadOnStart="False" SaveOnStop="False" Id="338" Name="Node_338" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook">
+        <Mode>GenerateOutput</Mode>
+        <InputAsOffset>False</InputAsOffset>
+        <SymbolSize>1024</SymbolSize>
+        <ColumnHint>32</ColumnHint>
+        <UseBSCVariety>False</UseBSCVariety>
+        <OneToZeroRatio>1</OneToZeroRatio>
+        <VectorMode>Normal</VectorMode>
+        <DataFolder></DataFolder>
+        <Location X="217" Y="-129" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="PerformTask" yaxlib:realtype="GoodAI.Modules.VSA.MyCodeBook+MyCodeVectorsTask">
+            <CodeVector>Paddle</CodeVector>
+            <SimilarityOperator>XNOR</SimilarityOperator>
+          </Task>
+        </Tasks>
+      </MyCodeBook>
+      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="339" Name="Node_339" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
+        <IO>
+          <InputBranches>2</InputBranches>
+          <OutputColHint>0</OutputColHint>
+          <OutputDimensions>1024</OutputDimensions>
+        </IO>
+        <Behavior>
+          <Operation>StackInputs</Operation>
+        </Behavior>
+        <DataFolder></DataFolder>
+        <Location X="430" Y="-127" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
+          <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
+        </Tasks>
+      </MyJoin>
+      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="356" Name="Random Control" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
+        <SingleOutput>True</SingleOutput>
+        <IO>
+          <OutputSize>3</OutputSize>
+        </IO>
+        <ColumnHint>1</ColumnHint>
+        <DataFolder></DataFolder>
+        <Location X="544" Y="-378" />
+        <Tasks>
+          <Task Enabled="False" PropertyName="UniformRNG" yaxlib:realtype="GoodAI.Modules.Common.UniformRNGTask">
+            <MinValue>0</MinValue>
+            <MaxValue>1</MaxValue>
+          </Task>
+          <Task Enabled="False" PropertyName="NormalRNG" yaxlib:realtype="GoodAI.Modules.Common.NormalRNGTask">
+            <Mean>0</Mean>
+            <StdDev>1</StdDev>
+          </Task>
+          <Task Enabled="True" PropertyName="ConstantRNG" yaxlib:realtype="GoodAI.Modules.Common.ConstantRNGTask">
+            <Constant>1</Constant>
+          </Task>
+          <Task Enabled="False" PropertyName="CombinationRNG" yaxlib:realtype="GoodAI.Modules.Common.CombinationRNGTask">
+            <Min>0</Min>
+            <Max>1024</Max>
+            <Unique>True</Unique>
+          </Task>
+          <Task Enabled="True" PropertyName="PeriodTask" yaxlib:realtype="GoodAI.Modules.Common.PeriodRNGTask">
+            <RandomPeriod>False</RandomPeriod>
+            <Period>5</Period>
+            <RandomPeriodMin>1</RandomPeriodMin>
+            <RandomPeriodMax>10</RandomPeriodMax>
+          </Task>
+        </Tasks>
+      </MyRandomNode>
+      <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="424" Name="Visual_WM" yaxlib:realtype="GoodAI.Core.Nodes.MyNodeGroup">
         <Children>
-          <MySaccade LoadOnStart="False" SaveOnStop="False" Id="285" Name="NSacca00" yaxlib:realtype="GoodAI.Modules.Vision.MySaccade">
+          <MySaccade LoadOnStart="False" SaveOnStop="False" Id="430" Name="NSacca00" yaxlib:realtype="GoodAI.Modules.Vision.MySaccade">
             <DataFolder></DataFolder>
             <Location X="192" Y="264" />
             <Tasks>
@@ -91,7 +132,7 @@
               </Task>
             </Tasks>
           </MySaccade>
-          <MyJoinPatches LoadOnStart="False" SaveOnStop="False" Id="286" Name="NJoin00" yaxlib:realtype="GoodAI.Modules.Vision.MyJoinPatches">
+          <MyJoinPatches LoadOnStart="False" SaveOnStop="False" Id="431" Name="NJoin00" yaxlib:realtype="GoodAI.Modules.Vision.MyJoinPatches">
             <DataFolder></DataFolder>
             <Location X="61" Y="205" />
             <Tasks>
@@ -101,7 +142,7 @@
               <Task Enabled="False" PropertyName="CreateGraph" yaxlib:realtype="GoodAI.Modules.Vision.MyJoinPatches+MyCreateGraphTask" />
             </Tasks>
           </MyJoinPatches>
-          <MySegment LoadOnStart="False" SaveOnStop="False" Id="287" Name="Nsegmetn00" yaxlib:realtype="GoodAI.Modules.Vision.MySegment">
+          <MySegment LoadOnStart="False" SaveOnStop="False" Id="432" Name="Nsegmetn00" yaxlib:realtype="GoodAI.Modules.Vision.MySegment">
             <nSegs>256</nSegs>
             <DataFolder></DataFolder>
             <Location X="-112" Y="141" />
@@ -113,7 +154,7 @@
               <Task Enabled="True" PropertyName="DoCalcDesc" yaxlib:realtype="GoodAI.Modules.Vision.MySegment+MyCalcDescTask" />
             </Tasks>
           </MySegment>
-          <My2DCropNode LoadOnStart="False" SaveOnStop="False" Id="306" Name="NCropInput00" yaxlib:realtype="GoodAI.Modules.Transforms.My2DCropNode">
+          <My2DCropNode LoadOnStart="False" SaveOnStop="False" Id="433" Name="NCropInput00" yaxlib:realtype="GoodAI.Modules.Transforms.My2DCropNode">
             <LeftMargin>0</LeftMargin>
             <RightMargin>0</RightMargin>
             <TopMargin>0</TopMargin>
@@ -126,7 +167,7 @@
               </Task>
             </Tasks>
           </My2DCropNode>
-          <MyFocuser LoadOnStart="False" SaveOnStop="False" Id="310" Name="NFcouser00" yaxlib:realtype="GoodAI.Modules.Retina.MyFocuser">
+          <MyFocuser LoadOnStart="False" SaveOnStop="False" Id="434" Name="NFcouser00" yaxlib:realtype="GoodAI.Modules.Retina.MyFocuser">
             <OutputWidth>32</OutputWidth>
             <DataFolder></DataFolder>
             <Location X="414" Y="19" />
@@ -141,7 +182,7 @@
               <Task Enabled="False" PropertyName="DoRetinaTransform" yaxlib:realtype="GoodAI.Modules.Retina.MyFocuser+MyRetinaTransform" />
             </Tasks>
           </MyFocuser>
-          <Resize2D LoadOnStart="False" SaveOnStop="False" Id="312" Name="Node_312" yaxlib:realtype="GoodAI.Modules.Transforms.MyResize2D">
+          <Resize2D LoadOnStart="False" SaveOnStop="False" Id="435" Name="Node_312" yaxlib:realtype="GoodAI.Modules.Transforms.MyResize2D">
             <Factor>1</Factor>
             <FactorHeight>0</FactorHeight>
             <DataFolder></DataFolder>
@@ -150,9 +191,9 @@
               <Task Enabled="True" PropertyName="ImageScale" yaxlib:realtype="GoodAI.Modules.Transforms.MyResize2D+MyImageScaleTask" />
             </Tasks>
           </Resize2D>
-          <MyKMeansWM LoadOnStart="True" SaveOnStop="False" Id="327" Name="NKmeansWM00" yaxlib:realtype="GoodAI.Modules.Vision.MyKMeansWM">
+          <MyKMeansWM LoadOnStart="True" SaveOnStop="False" Id="436" Name="NKmeansWM00" yaxlib:realtype="GoodAI.Modules.Vision.MyKMeansWM">
             <MaxClusters>20</MaxClusters>
-            <DataFolder>Trained_Vision_NN.statedata\MyKMeansWM_327</DataFolder>
+            <DataFolder>Pong_Final\Vision.statedata\MyKMeansWM_327</DataFolder>
             <Location X="1052" Y="152" />
             <Tasks>
               <Task Enabled="True" PropertyName="Execute" yaxlib:realtype="GoodAI.Modules.Vision.MyKMeansWM+MyKMeansWMExecuteTask">
@@ -165,7 +206,7 @@
               <Task Enabled="False" PropertyName="ReSortOutput" yaxlib:realtype="GoodAI.Modules.Vision.MyKMeansWM+MyKMeansWMReSortOutputTask" />
             </Tasks>
           </MyKMeansWM>
-          <MyJoin LoadOnStart="False" SaveOnStop="False" Id="436" Name="Node_436" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
+          <MyJoin LoadOnStart="False" SaveOnStop="False" Id="437" Name="Node_436" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
             <IO>
               <InputBranches>1</InputBranches>
               <OutputColHint>0</OutputColHint>
@@ -181,7 +222,7 @@
               <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
             </Tasks>
           </MyJoin>
-          <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="443" Name="NetworkFeatures" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyNeuralNetworkGroup">
+          <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="438" Name="NetworkFeatures" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyNeuralNetworkGroup">
             <TimeStep>-1</TimeStep>
             <SequenceLength>1</SequenceLength>
             <L1>0</L1>
@@ -189,11 +230,11 @@
             <Dropout>0</Dropout>
             <BatchSize>1</BatchSize>
             <Children>
-              <MyHiddenLayer LoadOnStart="True" SaveOnStop="False" Id="447" Name="Hid1" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyHiddenLayer">
+              <MyHiddenLayer LoadOnStart="True" SaveOnStop="False" Id="442" Name="Hid1" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyHiddenLayer">
                 <ActivationFunction>SIGMOID</ActivationFunction>
                 <Neurons>128</Neurons>
-                <DataFolder>Trained_Vision_NN.statedata\MyHiddenLayer_441</DataFolder>
-                <Location X="272" Y="98" />
+                <DataFolder>Pong_Final\Vision.statedata\MyHiddenLayer_441</DataFolder>
+                <Location X="275" Y="98" />
                 <Tasks>
                   <Task Enabled="False" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
                   <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyInitWeightsTask">
@@ -210,10 +251,10 @@
                   </Task>
                 </Tasks>
               </MyHiddenLayer>
-              <MyHiddenLayer LoadOnStart="True" SaveOnStop="False" Id="448" Name="Hid2" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyHiddenLayer">
+              <MyHiddenLayer LoadOnStart="True" SaveOnStop="False" Id="443" Name="Hid2" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyHiddenLayer">
                 <ActivationFunction>SIGMOID</ActivationFunction>
                 <Neurons>32</Neurons>
-                <DataFolder>Trained_Vision_NN.statedata\MyHiddenLayer_442</DataFolder>
+                <DataFolder>Pong_Final\Vision.statedata\MyHiddenLayer_442</DataFolder>
                 <Location X="469" Y="101" />
                 <Tasks>
                   <Task Enabled="False" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
@@ -233,23 +274,23 @@
               </MyHiddenLayer>
             </Children>
             <LayoutProperties Zoom="1">
-              <Translation X="39" Y="83" />
+              <Translation X="86" Y="0" />
             </LayoutProperties>
             <GroupInputNodes>
-              <MyParentInput ParentInputIndex="0" Id="444" Name="Input">
+              <MyParentInput ParentInputIndex="0" Id="439" Name="Input">
                 <Location X="50" Y="100" />
               </MyParentInput>
-              <MyParentInput ParentInputIndex="1" Id="445" Name="Target">
+              <MyParentInput ParentInputIndex="1" Id="440" Name="Target">
                 <Location X="50" Y="250" />
               </MyParentInput>
             </GroupInputNodes>
             <GroupOutputNodes>
-              <MyOutput Id="446" Name="OutputFeatures">
+              <MyOutput Id="441" Name="OutputFeatures">
                 <Location X="661" Y="97" />
               </MyOutput>
             </GroupOutputNodes>
             <DataFolder></DataFolder>
-            <Location X="794" Y="-33" />
+            <Location X="794" Y="-32" />
             <Tasks>
               <Task Enabled="False" PropertyName="SGD" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MySGDTask">
                 <TrainingRate>0.25</TrainingRate>
@@ -280,75 +321,42 @@
             </Tasks>
           </Group>
         </Children>
-        <LayoutProperties Zoom="0.5946034">
-          <Translation X="353" Y="110" />
+        <LayoutProperties Zoom="0.5946033">
+          <Translation X="344" Y="-108" />
         </LayoutProperties>
         <GroupInputNodes>
-          <MyParentInput ParentInputIndex="0" Id="280" Name="Input 1">
+          <MyParentInput ParentInputIndex="0" Id="425" Name="Input 1">
             <Location X="-657" Y="75" />
           </MyParentInput>
-          <MyParentInput ParentInputIndex="1" Id="329" Name="Input 2">
+          <MyParentInput ParentInputIndex="1" Id="426" Name="Input 2">
             <Location X="532" Y="389" />
           </MyParentInput>
         </GroupInputNodes>
         <GroupOutputNodes>
-          <MyOutput Id="281" Name="NOfObjects">
+          <MyOutput Id="427" Name="NOfObjects">
             <Location X="1287" Y="144" />
           </MyOutput>
-          <MyOutput Id="305" Name="Cluster Shapes">
+          <MyOutput Id="428" Name="Cluster Shapes">
             <Location X="1290" Y="275" />
           </MyOutput>
-          <MyOutput Id="323" Name="Clusters XYS">
+          <MyOutput Id="429" Name="Clusters XYS">
             <Location X="1288" Y="406" />
           </MyOutput>
         </GroupOutputNodes>
         <DataFolder></DataFolder>
-        <Location X="90" Y="20" />
+        <Location X="347" Y="84" />
         <Tasks />
       </Group>
-      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="424" Name="Node_424" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
-        <SingleOutput>False</SingleOutput>
-        <IO>
-          <OutputSize>3</OutputSize>
-        </IO>
-        <ColumnHint>1</ColumnHint>
-        <DataFolder></DataFolder>
-        <Location X="853" Y="-551" />
-        <Tasks>
-          <Task Enabled="True" PropertyName="UniformRNG" yaxlib:realtype="GoodAI.Modules.Common.UniformRNGTask">
-            <MinValue>0</MinValue>
-            <MaxValue>1</MaxValue>
-          </Task>
-          <Task Enabled="False" PropertyName="NormalRNG" yaxlib:realtype="GoodAI.Modules.Common.NormalRNGTask">
-            <Mean>0</Mean>
-            <StdDev>1</StdDev>
-          </Task>
-          <Task Enabled="False" PropertyName="ConstantRNG" yaxlib:realtype="GoodAI.Modules.Common.ConstantRNGTask">
-            <Constant>1</Constant>
-          </Task>
-          <Task Enabled="False" PropertyName="CombinationRNG" yaxlib:realtype="GoodAI.Modules.Common.CombinationRNGTask">
-            <Min>0</Min>
-            <Max>1024</Max>
-            <Unique>True</Unique>
-          </Task>
-          <Task Enabled="True" PropertyName="PeriodTask" yaxlib:realtype="GoodAI.Modules.Common.PeriodRNGTask">
-            <RandomPeriod>False</RandomPeriod>
-            <Period>1</Period>
-            <RandomPeriodMin>1</RandomPeriodMin>
-            <RandomPeriodMax>10</RandomPeriodMax>
-          </Task>
-        </Tasks>
-      </MyRandomNode>
     </Children>
-    <LayoutProperties Zoom="0.5946034">
-      <Translation X="77" Y="205" />
+    <LayoutProperties Zoom="0.4204481">
+      <Translation X="-131" Y="-34" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Visual">
-        <Location X="-187" Y="74" />
+        <Location X="135" Y="143" />
       </MyParentInput>
       <MyParentInput ParentInputIndex="1" Id="3" Name="Event">
-        <Location X="-197" Y="247" />
+        <Location X="125" Y="316" />
       </MyParentInput>
       <MyParentInput ParentInputIndex="2" Id="246" Name="BallPosX">
         <Location X="36" Y="-384" />
@@ -374,33 +382,37 @@
     <DataFolder></DataFolder>
     <Location />
     <Connections>
-      <Connection From="424" To="7" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
-      <Connection From="1" To="279" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
-      <Connection From="3" To="279" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
-      <Connection From="327" To="281" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
-      <Connection From="327" To="305" FromIndex="1" ToIndex="0" IsLowPriority="False" IsHidden="False" />
-      <Connection From="327" To="323" FromIndex="2" ToIndex="0" IsLowPriority="False" IsHidden="False" />
-      <Connection From="286" To="285" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
-      <Connection From="286" To="285" FromIndex="1" ToIndex="1" IsLowPriority="False" IsHidden="False" />
-      <Connection From="286" To="285" FromIndex="2" ToIndex="2" IsLowPriority="False" IsHidden="False" />
-      <Connection From="287" To="286" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
-      <Connection From="287" To="286" FromIndex="1" ToIndex="1" IsLowPriority="False" IsHidden="False" />
-      <Connection From="287" To="286" FromIndex="2" ToIndex="2" IsLowPriority="False" IsHidden="False" />
-      <Connection From="312" To="287" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
-      <Connection From="280" To="306" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
-      <Connection From="312" To="310" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
-      <Connection From="285" To="310" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
-      <Connection From="306" To="312" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
-      <Connection From="443" To="327" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
-      <Connection From="285" To="327" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
-      <Connection From="329" To="327" FromIndex="0" ToIndex="2" IsLowPriority="False" IsHidden="False" />
-      <Connection From="312" To="327" FromIndex="0" ToIndex="3" IsLowPriority="False" IsHidden="False" />
-      <Connection From="310" To="436" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
-      <Connection From="436" To="443" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
-      <Connection From="436" To="443" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
-      <Connection From="448" To="446" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
-      <Connection From="444" To="447" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
-      <Connection From="447" To="448" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="356" To="7" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="339" To="330" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="424" To="330" FromIndex="2" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="338" To="339" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="331" To="339" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="1" To="424" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="3" To="424" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="436" To="427" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="436" To="428" FromIndex="1" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="436" To="429" FromIndex="2" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="431" To="430" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="431" To="430" FromIndex="1" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="431" To="430" FromIndex="2" ToIndex="2" IsLowPriority="False" IsHidden="False" />
+      <Connection From="432" To="431" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="432" To="431" FromIndex="1" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="432" To="431" FromIndex="2" ToIndex="2" IsLowPriority="False" IsHidden="False" />
+      <Connection From="435" To="432" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="425" To="433" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="435" To="434" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="430" To="434" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="433" To="435" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="438" To="436" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="430" To="436" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="426" To="436" FromIndex="0" ToIndex="2" IsLowPriority="False" IsHidden="False" />
+      <Connection From="435" To="436" FromIndex="0" ToIndex="3" IsLowPriority="False" IsHidden="False" />
+      <Connection From="434" To="437" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="437" To="438" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="437" To="438" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="443" To="441" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="439" To="442" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="442" To="443" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
     </Connections>
     <Tasks />
   </Network>
@@ -431,7 +443,7 @@
     <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardPropertyGroup, GoodAI.Platform.Core, Version=0.5.0.0, Culture=neutral, PublicKeyToken=null]]" />
   </GroupedDashboard>
   <UsedModules>
-    <Module Name="GoodAI.Platform.Core.dll" Version="14" />
     <Module Name="GoodAI.BasicNodes.dll" Version="14" />
+    <Module Name="GoodAI.Platform.Core.dll" Version="14" />
   </UsedModules>
 </Project>
