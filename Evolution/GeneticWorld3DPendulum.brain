@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Name="GeneticWorld3DPendulum" xmlns:yaxlib="http://www.sinairv.com/yaxlib/">
+  <Observers>
+    <MatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MatrixObserver">
+      <Id>2fd161ef-ff5e-474c-9f13-239fe3133fc0</Id>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="2045" Y="211" />
+        <Size Width="300" Height="894" />
+        <CameraData />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>13#Weights</TargetIdentifier>
+      <m_decimalCount>2</m_decimalCount>
+      <m_crop>False</m_crop>
+      <m_xStart>0</m_xStart>
+      <m_xLength>1</m_xLength>
+      <m_yStart>0</m_yStart>
+      <m_yLength>16</m_yLength>
+    </MatrixObserver>
+    <MatrixObserver yaxlib:realtype="GoodAI.Core.Observers.MatrixObserver">
+      <Id>a505eeb3-c420-4a5d-8d58-dd68a7aa8094</Id>
+      <ViewMode>Fit_2D</ViewMode>
+      <KeepRatio>True</KeepRatio>
+      <Window>
+        <Location X="2362" Y="222" />
+        <Size Width="300" Height="751" />
+        <CameraData />
+      </Window>
+      <AutosaveSnapshop>False</AutosaveSnapshop>
+      <BilinearFiltering>False</BilinearFiltering>
+      <TargetIdentifier>14#Weights</TargetIdentifier>
+      <m_decimalCount>2</m_decimalCount>
+      <m_crop>False</m_crop>
+      <m_xStart>0</m_xStart>
+      <m_xLength>1</m_xLength>
+      <m_yStart>0</m_yStart>
+      <m_yLength>10</m_yLength>
+    </MatrixObserver>
+  </Observers>
+  <Network Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="0" Name="Network">
+    <Children>
+      <Group Sequential="False" LoadOnStart="False" SaveOnStop="False" Id="9" Name="Network to be evolved" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyNeuralNetworkGroup">
+        <TimeStep>-1</TimeStep>
+        <SequenceLength>1</SequenceLength>
+        <L1>0</L1>
+        <L2>0</L2>
+        <Dropout>0</Dropout>
+        <BatchSize>1</BatchSize>
+        <Children>
+          <MyHiddenLayer LoadOnStart="False" SaveOnStop="False" Id="13" Name="Node_13" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyHiddenLayer">
+            <ActivationFunction>SIGMOID</ActivationFunction>
+            <Neurons>2</Neurons>
+            <DataFolder></DataFolder>
+            <Location X="289" Y="132" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
+              <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyInitWeightsTask">
+                <Distribution>Default</Distribution>
+                <Multiplier>1</Multiplier>
+                <MultiplierBias>1</MultiplierBias>
+              </Task>
+              <Task Enabled="False" PropertyName="CreateDropoutMask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
+              <Task Enabled="False" PropertyName="ShareWeightsTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyShareWeightsTask">
+                <SourceNodeName></SourceNodeName>
+                <ApproachRate>1</ApproachRate>
+              </Task>
+              <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCForwardTask" />
+              <Task Enabled="False" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
+            </Tasks>
+          </MyHiddenLayer>
+          <MyHiddenLayer LoadOnStart="False" SaveOnStop="False" Id="14" Name="Node_14" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyHiddenLayer">
+            <ActivationFunction>SIGMOID</ActivationFunction>
+            <Neurons>5</Neurons>
+            <DataFolder></DataFolder>
+            <Location X="477" Y="138" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
+              <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyInitWeightsTask">
+                <Distribution>Default</Distribution>
+                <Multiplier>1</Multiplier>
+                <MultiplierBias>1</MultiplierBias>
+              </Task>
+              <Task Enabled="False" PropertyName="CreateDropoutMask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
+              <Task Enabled="False" PropertyName="ShareWeightsTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyShareWeightsTask">
+                <SourceNodeName></SourceNodeName>
+                <ApproachRate>1</ApproachRate>
+              </Task>
+              <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCForwardTask" />
+              <Task Enabled="False" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
+            </Tasks>
+          </MyHiddenLayer>
+          <MyHiddenLayer LoadOnStart="False" SaveOnStop="False" Id="21" Name="Node_21" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Layers.MyHiddenLayer">
+            <ActivationFunction>IDENTITY</ActivationFunction>
+            <Neurons>1</Neurons>
+            <DataFolder></DataFolder>
+            <Location X="631" Y="132" />
+            <Tasks>
+              <Task Enabled="True" PropertyName="UpdateWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCUpdateWeightsTask" />
+              <Task Enabled="True" PropertyName="InitWeights" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyInitWeightsTask">
+                <Distribution>Default</Distribution>
+                <Multiplier>1</Multiplier>
+                <MultiplierBias>1</MultiplierBias>
+              </Task>
+              <Task Enabled="False" PropertyName="CreateDropoutMask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyCreateDropoutMaskTask" />
+              <Task Enabled="False" PropertyName="ShareWeightsTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyShareWeightsTask">
+                <SourceNodeName></SourceNodeName>
+                <ApproachRate>1</ApproachRate>
+              </Task>
+              <Task Enabled="True" PropertyName="ForwardTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCForwardTask" />
+              <Task Enabled="True" PropertyName="DeltaBackTask" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Tasks.MyFCBackDeltaTask" />
+            </Tasks>
+          </MyHiddenLayer>
+        </Children>
+        <LayoutProperties />
+        <GroupInputNodes>
+          <MyParentInput ParentInputIndex="0" Id="10" Name="Input 1">
+            <Location X="46" Y="77" />
+          </MyParentInput>
+        </GroupInputNodes>
+        <GroupOutputNodes>
+          <MyOutput Id="12" Name="Output 1">
+            <Location X="800" Y="100" />
+          </MyOutput>
+        </GroupOutputNodes>
+        <DataFolder></DataFolder>
+        <Location X="705" Y="-12" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="SGD" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MySGDTask">
+            <TrainingRate>0.25</TrainingRate>
+            <Momentum>0</Momentum>
+            <DisableLearning>True</DisableLearning>
+          </Task>
+          <Task Enabled="False" PropertyName="RMS" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyRMSTask">
+            <TrainingRate>0.0025</TrainingRate>
+            <Momentum>0</Momentum>
+            <SmoothingFactor>0.9</SmoothingFactor>
+            <DisableLearning>False</DisableLearning>
+          </Task>
+          <Task Enabled="False" PropertyName="Adadelta" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyAdadeltaTask">
+            <Epsilon>1E-06</Epsilon>
+            <Ro>0.95</Ro>
+            <DisableLearning>False</DisableLearning>
+          </Task>
+          <Task Enabled="True" PropertyName="InitGroup" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyInitNNGroupTask" />
+          <Task Enabled="True" PropertyName="IncrementTimeStep" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyIncrementTimeStepTask" />
+          <Task Enabled="True" PropertyName="DecrementTimeStep" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyDecrementTimeStepTask" />
+          <Task Enabled="True" PropertyName="RunTemporalBlocksMode" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyRunTemporalBlocksModeTask" />
+          <Task Enabled="False" PropertyName="GradientCheck" yaxlib:realtype="GoodAI.Modules.NeuralNetwork.Group.MyGradientCheckTask">
+            <RelativeStepSize>0.1</RelativeStepSize>
+            <SamplesPerTimestep>1</SamplesPerTimestep>
+            <ThresholdRelative>0.001</ThresholdRelative>
+            <ThresholdAbsolute>0.0001</ThresholdAbsolute>
+          </Task>
+        </Tasks>
+      </Group>
+      <My3DPendulumWorld LoadOnStart="False" SaveOnStop="False" Id="17" Name="Embedded world" yaxlib:realtype="GoodAI.Modules.Motor.My3DPendulumWorld">
+        <MOTOR_MODE>VelocityMotor</MOTOR_MODE>
+        <ELBOW_FIXED>True</ELBOW_FIXED>
+        <POLE_DOF>1</POLE_DOF>
+        <GRAVITY>9.81</GRAVITY>
+        <DataFolder></DataFolder>
+        <Location X="226" Y="243" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="WorldTask" yaxlib:realtype="GoodAI.Modules.Motor.My3DPendulumWorld+My3DWorldTask" />
+        </Tasks>
+      </My3DPendulumWorld>
+      <MyCSharpNode LoadOnStart="False" SaveOnStop="False" Id="18" Name="Fitness function" yaxlib:realtype="GoodAI.Modules.Scripting.MyCSharpNode">
+        <IO>
+          <InputBranches>1</InputBranches>
+          <OutputBranchesSpec>1,1,1</OutputBranchesSpec>
+        </IO>
+        <DataFolder></DataFolder>
+        <Location X="718" Y="202" />
+        <m_script>using System;
+using GoodAI.Core.Utils;
+using GoodAI.Core.Nodes;
+using GoodAI.Modules.Scripting;
+using GoodAI.Modules.GeneticWorld;
+
+namespace Runtime
+{
+    public class Script
+    {
+     public static int totalFitness = 0;
+     public static int cfitness = 0;
+     public static int fitnessRounds = 10;
+     public static int currentRound = 0;
+    
+        public static void Init(MyCSharpNode owner)
+        {
+            totalFitness = 0;
+            cfitness = 0;
+            currentRound = 0;
+        }
+        
+        public static void Execute(MyCSharpNode owner)
+        {
+            float[] input = owner.GetInput(0).Host;
+            float[] newNetwork = owner.GetOutput(0).Host;
+            float[] fitnessOut = owner.GetOutput(1).Host;
+            float[] worldReset = owner.GetOutput(2).Host;
+            
+            MyGeneticTrainingWorld world = (MyGeneticTrainingWorld)owner.Owner.World;
+            
+                if(Math.Abs(input[0]) &gt; 0.2f){
+                    worldReset[0] = 1;
+                    currentRound++;
+                    totalFitness += cfitness;
+                    cfitness = 0;
+                }else{
+                    newNetwork[0] = 0;
+                    worldReset[0] = 0;
+                    cfitness++;
+                }
+        
+                if(currentRound == fitnessRounds){
+                    newNetwork[0] = 1;
+                    fitnessOut[0] = totalFitness/fitnessRounds;
+                    worldReset[0] = 1;
+                    cfitness = 0;
+                    totalFitness = 0;
+                    currentRound = 0;
+                }
+                
+            
+        }
+    }
+}</m_script>
+        <Tasks>
+          <Task Enabled="True" PropertyName="InitScript" yaxlib:realtype="GoodAI.Modules.Scripting.MyCSharpNode+MyInitScriptTask" />
+          <Task Enabled="True" PropertyName="ExecuteScript" yaxlib:realtype="GoodAI.Modules.Scripting.MyCSharpNode+MyExecuteScriptTask" />
+        </Tasks>
+      </MyCSharpNode>
+      <MyRandomNode LoadOnStart="False" SaveOnStop="False" Id="19" Name="Random push" yaxlib:realtype="GoodAI.Modules.Common.MyRandomNode">
+        <SingleOutput>False</SingleOutput>
+        <IO>
+          <OutputSize>1</OutputSize>
+        </IO>
+        <ColumnHint>1</ColumnHint>
+        <RandomSeed>0</RandomSeed>
+        <DataFolder></DataFolder>
+        <Location X="18" Y="269" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="PeriodTask" yaxlib:realtype="GoodAI.Modules.Common.PeriodRNGTask">
+            <RandomPeriod>False</RandomPeriod>
+            <Period>1</Period>
+            <RandomPeriodMin>1</RandomPeriodMin>
+            <RandomPeriodMax>10</RandomPeriodMax>
+          </Task>
+          <Task Enabled="False" PropertyName="UniformRNG" yaxlib:realtype="GoodAI.Modules.Common.UniformRNGTask">
+            <MinValue>0</MinValue>
+            <MaxValue>1</MaxValue>
+          </Task>
+          <Task Enabled="True" PropertyName="NormalRNG" yaxlib:realtype="GoodAI.Modules.Common.NormalRNGTask">
+            <Mean>0</Mean>
+            <StdDev>0.05</StdDev>
+          </Task>
+          <Task Enabled="False" PropertyName="ConstantRNG" yaxlib:realtype="GoodAI.Modules.Common.ConstantRNGTask">
+            <Constant>1</Constant>
+          </Task>
+          <Task Enabled="False" PropertyName="CombinationRNG" yaxlib:realtype="GoodAI.Modules.Common.CombinationRNGTask">
+            <Min>0</Min>
+            <Max>1024</Max>
+            <Unique>True</Unique>
+          </Task>
+        </Tasks>
+      </MyRandomNode>
+      <MyJoin LoadOnStart="False" SaveOnStop="False" Id="20" Name="Stack world input" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
+        <IO>
+          <InputBranches>4</InputBranches>
+          <OutputColHint>0</OutputColHint>
+          <OutputDimensions></OutputDimensions>
+        </IO>
+        <Behavior>
+          <Operation>StackInputs</Operation>
+        </Behavior>
+        <DataFolder></DataFolder>
+        <Location X="486" Y="-43" />
+        <Tasks>
+          <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
+          <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
+        </Tasks>
+      </MyJoin>
+    </Children>
+    <LayoutProperties Zoom="0.8408964">
+      <Translation X="0" Y="0" />
+    </LayoutProperties>
+    <GroupInputNodes />
+    <GroupOutputNodes>
+      <MyOutput Id="7" Name="SwitchMember">
+        <Location X="1028" Y="88" />
+      </MyOutput>
+      <MyOutput Id="8" Name="Fitness">
+        <Location X="1166" Y="257" />
+      </MyOutput>
+    </GroupOutputNodes>
+    <DataFolder></DataFolder>
+    <Location />
+    <Connections>
+      <Connection From="18" To="7" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="18" To="8" FromIndex="1" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="20" To="9" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="21" To="12" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="10" To="13" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="13" To="14" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="14" To="21" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="9" To="17" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
+      <Connection From="19" To="17" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
+      <Connection From="18" To="17" FromIndex="2" ToIndex="3" IsLowPriority="False" IsHidden="False" />
+      <Connection From="17" To="18" FromIndex="1" ToIndex="0" IsLowPriority="True" IsHidden="False" />
+      <Connection From="17" To="20" FromIndex="0" ToIndex="0" IsLowPriority="True" IsHidden="False" />
+      <Connection From="17" To="20" FromIndex="1" ToIndex="1" IsLowPriority="True" IsHidden="False" />
+      <Connection From="17" To="20" FromIndex="2" ToIndex="2" IsLowPriority="True" IsHidden="False" />
+      <Connection From="17" To="20" FromIndex="3" ToIndex="3" IsLowPriority="True" IsHidden="False" />
+    </Connections>
+    <Tasks />
+  </Network>
+  <World LoadOnStart="False" SaveOnStop="False" Id="6" Name="World" yaxlib:realtype="GoodAI.Modules.GeneticWorld.MyGeneticTrainingWorld">
+    <PopulationSize>60</PopulationSize>
+    <TargetFitness>600</TargetFitness>
+    <Generations>0</Generations>
+    <Survivors>10</Survivors>
+    <MutationRate>0.2</MutationRate>
+    <DataFolder></DataFolder>
+    <Location />
+    <Tasks>
+      <Task Enabled="True" PropertyName="CosyneTask" yaxlib:realtype="GoodAI.Modules.GeneticWorld.MyGeneticTrainingWorld+Cosyne">
+        <CoefficientsSaved>39</CoefficientsSaved>
+        <Alpha>20</Alpha>
+        <WeightMagnitude>5</WeightMagnitude>
+        <DirectEvolution>True</DirectEvolution>
+      </Task>
+    </Tasks>
+  </World>
+  <Dashboard>
+    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardNodePropertyBase, GoodAI.Platform.Core, Version=0.6.0.0, Culture=neutral, PublicKeyToken=null]]" />
+  </Dashboard>
+  <GroupedDashboard>
+    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardPropertyGroup, GoodAI.Platform.Core, Version=0.6.0.0, Culture=neutral, PublicKeyToken=null]]" />
+  </GroupedDashboard>
+  <LoadAllNodesData>False</LoadAllNodesData>
+  <SaveAllNodesData>False</SaveAllNodesData>
+  <UsedModules>
+    <Module Name="GoodAI.BasicNodes.dll" Version="14" />
+    <Module Name="GoodAI.Platform.Core.dll" Version="14" />
+  </UsedModules>
+</Project>
