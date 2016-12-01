@@ -8,6 +8,9 @@
       <CustomDimensions></CustomDimensions>
       <TimeStep>0</TimeStep>
       <ShowCoordinates>False</ShowCoordinates>
+      <ObserveTensors>False</ObserveTensors>
+      <UseCustomDimensions>False</UseCustomDimensions>
+      <TilesInRow>1</TilesInRow>
       <Id>331af431-ccbc-45d4-8df7-c272081aad79</Id>
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
@@ -30,7 +33,7 @@
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
       <Window>
-        <Location X="856" Y="559" />
+        <Location X="868" Y="508" />
         <Size Width="888" Height="357" />
         <CameraData />
       </Window>
@@ -79,6 +82,9 @@
       <CustomDimensions></CustomDimensions>
       <TimeStep>0</TimeStep>
       <ShowCoordinates>False</ShowCoordinates>
+      <ObserveTensors>False</ObserveTensors>
+      <UseCustomDimensions>False</UseCustomDimensions>
+      <TilesInRow>1</TilesInRow>
       <Id>e52745a4-1156-4fe2-97d9-713eaec4182d</Id>
       <ViewMode>Fit_2D</ViewMode>
       <KeepRatio>True</KeepRatio>
@@ -156,7 +162,7 @@
           <Operation>StackInputs</Operation>
         </Behavior>
         <DataFolder></DataFolder>
-        <Location X="430" Y="-127" />
+        <Location X="442" Y="-101" />
         <Tasks>
           <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
           <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
@@ -267,6 +273,7 @@
           <OutputSize>3</OutputSize>
         </IO>
         <ColumnHint>1</ColumnHint>
+        <RandomSeed>0</RandomSeed>
         <DataFolder></DataFolder>
         <Location X="544" Y="-378" />
         <Tasks>
@@ -372,22 +379,6 @@
               </Task>
             </Tasks>
           </MySignalNode>
-          <MyJoin LoadOnStart="False" SaveOnStop="False" Id="370" Name="Debug label" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin">
-            <IO>
-              <InputBranches>2</InputBranches>
-              <OutputColHint>0</OutputColHint>
-              <OutputDimensions></OutputDimensions>
-            </IO>
-            <Behavior>
-              <Operation>Multiplication</Operation>
-            </Behavior>
-            <DataFolder></DataFolder>
-            <Location X="567" Y="320" />
-            <Tasks>
-              <Task Enabled="True" PropertyName="InitMemoryMapping" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyInitTask" />
-              <Task Enabled="True" PropertyName="StackInputs" yaxlib:realtype="GoodAI.Core.Nodes.MyJoin+MyStackInputsTask" />
-            </Tasks>
-          </MyJoin>
           <MyLowHighFilter LoadOnStart="False" SaveOnStop="False" Id="372" Name="Bounds" yaxlib:realtype="GoodAI.Modules.Transforms.MyLowHighFilter">
             <DataFolder></DataFolder>
             <Location X="569" Y="172" />
@@ -694,7 +685,7 @@
           </Group>
         </Children>
         <LayoutProperties Zoom="0.7071066">
-          <Translation X="-82" Y="111" />
+          <Translation X="-166" Y="-88" />
         </LayoutProperties>
         <GroupInputNodes>
           <MyParentInput ParentInputIndex="0" Id="360" Name="Current WM">
@@ -1234,6 +1225,7 @@
           <Resize2D LoadOnStart="False" SaveOnStop="False" Id="435" Name="Node_312" yaxlib:realtype="GoodAI.Modules.Transforms.MyResize2D">
             <Factor>1</Factor>
             <FactorHeight>0</FactorHeight>
+            <Interpolation>Bilinear</Interpolation>
             <DataFolder></DataFolder>
             <Location X="-319" Y="76" />
             <Tasks>
@@ -1398,7 +1390,7 @@
       </Group>
     </Children>
     <LayoutProperties Zoom="0.7071066">
-      <Translation X="-218" Y="29" />
+      <Translation X="-205" Y="26" />
     </LayoutProperties>
     <GroupInputNodes>
       <MyParentInput ParentInputIndex="0" Id="1" Name="Visual">
@@ -1463,8 +1455,6 @@
       <Connection From="367" To="368" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
       <Connection From="373" To="369" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
       <Connection From="361" To="369" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
-      <Connection From="373" To="370" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
-      <Connection From="361" To="370" FromIndex="0" ToIndex="1" IsLowPriority="False" IsHidden="False" />
       <Connection From="447" To="372" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
       <Connection From="362" To="373" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
       <Connection From="365" To="376" FromIndex="0" ToIndex="0" IsLowPriority="False" IsHidden="False" />
@@ -1579,6 +1569,10 @@
       <Task Enabled="True" PropertyName="UpdateTask" yaxlib:realtype="GoodAI.Modules.GameBoy.MyCustomPongWorld+MyUpdateTask">
         <RandomBallDir>True</RandomBallDir>
         <FreezeAfterFail>0</FreezeAfterFail>
+        <RndPaddleShuffle>0</RndPaddleShuffle>
+        <PaddleFriction>0.1</PaddleFriction>
+        <EnablePaddleDynamics>True</EnablePaddleDynamics>
+        <EnableControlCoolDown>True</EnableControlCoolDown>
         <Structure>
           <BOUNCE_BALL>0.01</BOUNCE_BALL>
           <LOST_LIFE>-0.01</LOST_LIFE>
@@ -1589,11 +1583,13 @@
     </Tasks>
   </World>
   <Dashboard>
-    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardNodePropertyBase, GoodAI.Platform.Core, Version=0.5.0.0, Culture=neutral, PublicKeyToken=null]]" />
+    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardNodePropertyBase, GoodAI.Platform.Core, Version=0.6.0.0, Culture=neutral, PublicKeyToken=null]]" />
   </Dashboard>
   <GroupedDashboard>
-    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardPropertyGroup, GoodAI.Platform.Core, Version=0.5.0.0, Culture=neutral, PublicKeyToken=null]]" />
+    <Properties yaxlib:realtype="System.Collections.Generic.List`1[[GoodAI.Core.Dashboard.DashboardPropertyGroup, GoodAI.Platform.Core, Version=0.6.0.0, Culture=neutral, PublicKeyToken=null]]" />
   </GroupedDashboard>
+  <LoadAllNodesData>False</LoadAllNodesData>
+  <SaveAllNodesData>False</SaveAllNodesData>
   <UsedModules>
     <Module Name="GoodAI.BasicNodes.dll" Version="14" />
     <Module Name="GoodAI.Platform.Core.dll" Version="14" />
